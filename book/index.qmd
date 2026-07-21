@@ -1,0 +1,13 @@
+# Presentación
+
+Este libro desarrolla el ecosistema digital que necesita un investigador moderno en ciencia pesquera y ecología cuantitativa.
+
+No es un libro de estadística aplicada. Su objetivo es construir infraestructura, criterio técnico y flujos reproducibles para datos, código, colaboración, publicación e inteligencia artificial.
+
+## Estructura inicial
+
+1. Fundamentos del ecosistema digital científico.
+2. Datos, archivos, formatos y bases de datos.
+3. Lenguajes computacionales y entornos de desarrollo.
+4. Reproducibilidad, publicación y colaboración.
+5. Automatización, servidores, cloud, HPC e inteligencia artificial.

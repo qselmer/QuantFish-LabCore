@@ -1,0 +1,45 @@
+# Quarto: archivos temporales
+.quarto/
+**/.quarto/
+*_cache/
+**/*_cache/
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Credenciales y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+*secret*
+
+# Datos institucionales o no publicables
+data/raw/**
+data/external/**
+
+# Conservar únicamente la estructura de carpetas
+!data/raw/.gitkeep
+!data/external/.gitkeep
+
+# Productos temporales de las clases
+classes/**/*.html
+classes/**/*_files/
+classes/**/*.pptx
+classes/**/*.pdf
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini

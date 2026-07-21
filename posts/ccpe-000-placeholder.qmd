@@ -1,0 +1,9 @@
+---
+title: "Pendiente: ecosistema digital científico"
+slug: "sci-digital-ecosystem"
+description: "Post reservado. Se redactará después de completar y evaluar CCPE-000."
+lang: es
+status: draft
+---
+
+Este post se redactará después de completar el aprendizaje y la evaluación del capítulo CCPE-000.

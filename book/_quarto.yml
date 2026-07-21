@@ -1,0 +1,51 @@
+project:
+  type: book
+  output-dir: ../docs
+  execute-dir: project
+  render:
+    - index.qmd
+    - ccpe/000-alcance-arquitectura.qmd
+    - references.qmd
+
+book:
+  title: "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa"
+  subtitle: "Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial"
+  author: "Elmer Quispe-Salazar"
+  site-url: "https://qselmer.github.io/quant-fisheries-learning/"
+  repo-url: "https://github.com/qselmer/quant-fisheries-learning"
+  repo-actions: [edit, issue]
+  language: es
+  search: true
+  downloads: [pdf]
+  sharing: [twitter, linkedin]
+  chapters:
+    - index.qmd
+    - part: "Fundamentos del ecosistema digital científico"
+      chapters:
+        - ccpe/000-alcance-arquitectura.qmd
+    - references.qmd
+
+bibliography: ../references/references.bib
+csl: ../references/apa.csl
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: show
+    code-copy: true
+    css: assets/styles/book.css
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto

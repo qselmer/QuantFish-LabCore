@@ -1,0 +1,136 @@
+# CCPE-000 — Alcance, arquitectura y sistema de aprendizaje
+
+## Identificación del capítulo
+
+| Elemento | Descripción |
+|---|---|
+| Código | CCPE-000 |
+| Título | Alcance, arquitectura y sistema de aprendizaje |
+| Proyecto | `quant-fisheries-learning` |
+| Producto del capítulo | Mapa razonado de mi ecosistema digital científico |
+| Entorno principal | Positron |
+
+## Posición dentro del libro
+
+Este capítulo abre el libro porque define el objeto de aprendizaje: no una herramienta aislada, sino el ecosistema completo que permite transformar datos científicos en productos reproducibles, verificables y comunicables.
+
+## Alcance
+
+El capítulo introduce el sistema de trabajo que conecta fuentes de datos, archivos, bases de datos, lenguajes, entornos de desarrollo, repositorios, documentos, colaboradores y productos científicos.
+
+## Relación con el futuro libro estadístico
+
+Este libro estudia infraestructura digital y reproducibilidad. El segundo libro estudiará inferencia, modelamiento cuantitativo y evaluación científica. Aquí pueden aparecer ejemplos de pesquerías o ecología, pero solo como contexto para comprender herramientas y flujos.
+
+## Pregunta central
+
+¿Cómo debe organizarse el ecosistema digital de un investigador para que su trabajo sea reproducible, portable, auditable, seguro y sostenible aunque cambien las herramientas?
+
+## Diagnóstico inicial
+
+Responder antes de leer soluciones.
+
+1. ¿Qué diferencia existe entre R, Positron y un archivo `.R`?
+2. ¿Qué diferencia existe entre IMARFIS, Oracle y SQL?
+3. ¿Qué problema resuelve Git que no resuelve una copia de seguridad?
+4. ¿Qué parte de mi flujo actual depende de copiar archivos manualmente?
+5. ¿Qué debería permanecer reproducible si Positron desapareciera?
+6. ¿Cómo distinguiría un lenguaje, un formato y una plataforma?
+7. ¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?
+8. ¿Qué criterio usaría para decidir si una tarea debe automatizarse?
+
+## Problema motivador
+
+Un producto científico puede parecer terminado porque existe un informe, una figura o un artículo. Sin embargo, puede ser frágil si no es posible reconstruirlo desde sus datos, código, decisiones y dependencias.
+
+## Concepto de ecosistema digital científico
+
+Un ecosistema digital científico es el conjunto organizado de personas, datos, archivos, lenguajes, herramientas, bases de datos, repositorios, servicios, reglas y flujos de trabajo que permiten producir conocimiento científico reproducible.
+
+## Diferencias entre componentes
+
+| Tipo | Pregunta que responde | Ejemplo |
+|---|---|---|
+| Lenguaje | ¿Con qué instrucciones proceso información? | R, Python, SQL |
+| IDE | ¿Dónde escribo, ejecuto y organizo el trabajo? | Positron |
+| Formato | ¿Cómo se almacena la información? | `.csv`, `.qmd`, `.xlsx`, `.parquet` |
+| Base de datos | ¿Dónde se estructuran y consultan datos persistentes? | Oracle, PostgreSQL, DuckDB |
+| Plataforma | ¿Dónde se aloja, ejecuta o colabora? | GitHub, GitHub Pages, Posit Connect |
+| Servicio | ¿Qué capacidad remota consumo? | API, cloud storage, servidor institucional |
+| Flujo de trabajo | ¿Qué secuencia produce un resultado? | datos → script → figura → informe |
+
+## Principios que permanecen aunque cambien las herramientas
+
+1. Portabilidad de formatos.
+2. Registro explícito de decisiones.
+3. Separación entre datos crudos y datos derivados.
+4. Código versionado.
+5. Ambientes computacionales documentados.
+6. Productos reconstruibles.
+7. Seguridad proporcional a la sensibilidad de los datos.
+8. Automatización de tareas repetibles y verificables.
+
+## Arquitectura general del proyecto
+
+La arquitectura base separa libro, clases, posts, datos, scripts, ejercicios, soluciones, referencias y publicación web.
+
+## Configuración inicial en Positron
+
+La configuración se realizará abriendo la carpeta raíz `quant-fisheries-learning` en Positron y usando la terminal integrada para ejecutar comandos de Quarto, Git y validación.
+
+## Creación del proyecto Quarto
+
+La publicación principal se define como un proyecto Quarto tipo `book`. El archivo central de configuración es `book/_quarto.yml`.
+
+## Estructura inicial de carpetas
+
+```text
+quant-fisheries-learning/
+├── book/
+├── classes/
+├── posts/
+├── data/
+├── scripts/
+├── exercises/
+├── solutions/
+├── references/
+├── docs/
+└── .github/workflows/
+```
+
+## Primer registro de aprendizaje
+
+Registrar cada sesión con fecha, tema, evidencia y nivel alcanzado en la escala 0–4.
+
+## Ejercicios críticos
+
+1. Clasificar diez componentes de mi ecosistema digital.
+2. Identificar tres puntos de falla reproducible.
+3. Comparar copia de seguridad y control de versiones.
+4. Explicar qué conservaría si cambia el IDE.
+
+## Proyecto del capítulo
+
+Construir un mapa razonado de mi ecosistema digital científico, indicando entradas, salidas, dependencias, tareas manuales, riesgos y alternativas.
+
+## Rúbrica
+
+| Nivel | Evidencia |
+|---:|---|
+| 0 | No distingue componentes básicos |
+| 1 | Reconoce componentes con ayuda |
+| 2 | Explica componentes y ejecuta pasos básicos |
+| 3 | Diseña, compara, valida y diagnostica el flujo |
+| 4 | Enseña, revisa y mejora el sistema de otra persona |
+
+## Tareas
+
+Completar el diagnóstico inicial y el inventario del ecosistema digital para un producto científico real.
+
+## Criterio para avanzar
+
+Avanzar solo cuando puedas explicar el ecosistema digital científico, distinguir sus componentes, representar tu flujo actual, identificar tres problemas y justificar una arquitectura inicial.
+
+## Revisión futura
+
+Este capítulo deberá revisarse cada año porque las herramientas cambian, pero los principios de reproducibilidad, portabilidad, trazabilidad y seguridad permanecen.
