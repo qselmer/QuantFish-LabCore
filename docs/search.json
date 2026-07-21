@@ -4,134 +4,234 @@
     "href": "index.html",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
     "section": "",
-    "text": "Presentación\nEste libro abierto ayuda a construir un entorno de trabajo reproducible para la ciencia pesquera y la ecología cuantitativa. Integra datos, código, documentación, automatización, colaboración y publicación sin atar el aprendizaje a una herramienta concreta.\nAbrir el repositorio en GitHub",
+    "text": "Presentación",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
     ]
   },
   {
-    "objectID": "index.html#a-quién-se-dirige",
-    "href": "index.html#a-quién-se-dirige",
+    "objectID": "index.html#propósito-y-audiencia",
+    "href": "index.html#propósito-y-audiencia",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.1 A quién se dirige",
-    "text": "0.1 A quién se dirige\nEstá pensado para investigadores, profesionales, docentes y estudiantes que producen resultados científicos con archivos, scripts, bases de datos y documentos, y necesitan que ese trabajo sea portable, auditable y sostenible.",
+    "section": "Propósito y audiencia",
+    "text": "Propósito y audiencia\nLa obra está dirigida a investigadores, profesionales, docentes y estudiantes de ciencias pesqueras y ecología cuantitativa que trabajan con archivos, scripts, bases de datos y documentos científicos. Su propósito es ofrecer criterios duraderos para construir entornos portables, auditables, seguros y sostenibles, incluso cuando cambien las herramientas concretas.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#el-problema-que-resuelve",
-    "href": "index.html#el-problema-que-resuelve",
-    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.2 El problema que resuelve",
-    "text": "0.2 El problema que resuelve\nUn resultado puede ser correcto y, aun así, resultar imposible de reconstruir. El libro propone criterios y prácticas para conectar cada producto con sus fuentes, transformaciones, decisiones, versiones y condiciones de ejecución.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
     ]
   },
   {
     "objectID": "index.html#alcance",
     "href": "index.html#alcance",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.3 Alcance",
-    "text": "0.3 Alcance\nSe estudian organización de proyectos, formatos, lenguajes, entornos de desarrollo, control de versiones, publicación reproducible, automatización y uso responsable de inteligencia artificial. Los ejemplos proceden de las pesquerías y la ecología cuantitativa.\n\n\n\n\n\n\nQué no cubre\n\n\n\nEste no es un libro de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE.",
+    "section": "Alcance",
+    "text": "Alcance\nEl recorrido abarca organización de proyectos, formatos de datos, lenguajes computacionales, entornos de desarrollo, control de versiones, publicación reproducible, automatización, colaboración e inteligencia artificial. R, Python, SQL y la terminal se presentan como componentes complementarios de una misma arquitectura científica.\n\n\n\n\n\n\nLímites de esta obra\n\n\n\nNo es un tratado de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE. Los ejemplos cuantitativos se utilizan para explicar herramientas y decisiones de infraestructura.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
     ]
   },
   {
-    "objectID": "index.html#cómo-utilizarlo",
-    "href": "index.html#cómo-utilizarlo",
+    "objectID": "index.html#cómo-utilizar-el-libro",
+    "href": "index.html#cómo-utilizar-el-libro",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.4 Cómo utilizarlo",
-    "text": "0.4 Cómo utilizarlo\nCada unidad mantiene cuatro productos distintos:\n\nAprendizaje personal: preguntas, pruebas y registro de avances.\nCapítulo: explicación narrativa y reproducible en el libro web.\nClase: experiencia docente con tiempos, actividades y evaluación.\nPost: síntesis pública redactada solo después de evaluar el aprendizaje.\n\nSe recomienda leer el problema, realizar el diagnóstico sin consultar respuestas, completar la actividad y conservar evidencia del resultado.",
+    "section": "Cómo utilizar el libro",
+    "text": "Cómo utilizar el libro\nLos capítulos combinan explicación conceptual, procedimientos verificables y ejemplos reproducibles. Conviene leer primero el argumento completo, consultar el código cuando sea necesario y conservar evidencia de las decisiones adoptadas en cada proyecto.\nEl ecosistema editorial distingue cuatro productos relacionados, pero no intercambiables:\n\nel aprendizaje personal registra preguntas y avances;\nel libro desarrolla una explicación coherente y de referencia;\nla clase organiza una experiencia docente;\nel post sintetiza resultados únicamente después de evaluar el aprendizaje.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-general",
+    "href": "index.html#estructura-general",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "Estructura general",
+    "text": "Estructura general\nLa arquitectura prevista se organiza en ocho partes: fundamentos; datos; entornos y lenguajes; código y reproducibilidad; automatización e infraestructura; colaboración y gobernanza; inteligencia artificial; e integración. El índice general distingue los capítulos disponibles de los contenidos planificados.",
+    "crumbs": [
+      "Presentación"
     ]
   },
   {
     "objectID": "index.html#estado-de-desarrollo",
     "href": "index.html#estado-de-desarrollo",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.5 Estado de desarrollo",
-    "text": "0.5 Estado de desarrollo\nEl proyecto se encuentra en construcción. La primera unidad establece el alcance, la arquitectura y el sistema de aprendizaje; el contenido se ampliará de forma incremental y validada.",
+    "section": "Estado de desarrollo",
+    "text": "Estado de desarrollo\nEl libro se publica de manera incremental. La base editorial, la navegación y el primer capítulo están disponibles; los demás capítulos se incorporarán cuando su contenido y sus ejemplos puedan validarse.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
     ]
   },
   {
-    "objectID": "index.html#datos-y-seguridad",
-    "href": "index.html#datos-y-seguridad",
+    "objectID": "index.html#citación-licencia-y-repositorio",
+    "href": "index.html#citación-licencia-y-repositorio",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.6 Datos y seguridad",
-    "text": "0.6 Datos y seguridad\n\n\n\n\n\n\nDatos de ejemplo y datos institucionales\n\n\n\nLos ejemplos públicos deben usar datos abiertos, sintéticos o anonimizados. Los datos institucionales, credenciales y rutas locales no deben incorporarse al repositorio ni a la publicación.",
+    "section": "Citación, licencia y repositorio",
+    "text": "Citación, licencia y repositorio\nAutor: Elmer Quispe-Salazar\nCitación sugerida: Quispe-Salazar, E. (2026). Ecosistema digital para la ciencia pesquera y la ecología cuantitativa. https://qselmer.github.io/QuantFish-LabCore/\nLicencia del contenido: Creative Commons Atribución 4.0 Internacional\nRepositorio: qselmer/QuantFish-LabCore",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Presentación"
     ]
   },
   {
-    "objectID": "index.html#autor-licencia-y-cita",
-    "href": "index.html#autor-licencia-y-cita",
-    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "0.7 Autor, licencia y cita",
-    "text": "0.7 Autor, licencia y cita\nAutor: Elmer Quispe-Salazar\nLicencia del contenido: Creative Commons Atribución 4.0 Internacional\nRepositorio: qselmer/quant-fisheries-learning\nPara citar esta obra, use el título, el autor, el año de la versión consultada, la URL oficial y la fecha de acceso.",
+    "objectID": "contents.html",
+    "href": "contents.html",
+    "title": "Índice general",
+    "section": "",
+    "text": "Contenido preliminar\nEsta página presenta la arquitectura editorial prevista. La numeración corresponde al plan completo; Quarto numera automáticamente los capítulos ya incorporados al libro. La indicación En desarrollo identifica contenidos planificados y no crea enlaces vacíos.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#contenido-preliminar",
+    "href": "contents.html#contenido-preliminar",
+    "title": "Índice general",
+    "section": "",
+    "text": "Presentación — disponible\nCómo utilizar este libro — disponible en la presentación\nRuta de aprendizaje — En desarrollo\nÍndice general — disponible\nConvenciones y reproducibilidad — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-i.-fundamentos-del-ecosistema-digital-científico",
+    "href": "contents.html#parte-i.-fundamentos-del-ecosistema-digital-científico",
+    "title": "Índice general",
+    "section": "Parte I. Fundamentos del ecosistema digital científico",
+    "text": "Parte I. Fundamentos del ecosistema digital científico\n\nAlcance, arquitectura y sistema de aprendizaje — disponible\nEl ecosistema digital de un investigador — En desarrollo\nComputadoras, hardware y recursos computacionales — En desarrollo\nSistemas operativos y entornos de trabajo — En desarrollo\nTerminal, shell y línea de comandos — En desarrollo\nArchivos, carpetas, rutas y permisos — En desarrollo\nFormatos de datos e intercambio de información — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-ii.-organización-almacenamiento-y-consulta-de-datos",
+    "href": "contents.html#parte-ii.-organización-almacenamiento-y-consulta-de-datos",
+    "title": "Índice general",
+    "section": "Parte II. Organización, almacenamiento y consulta de datos",
+    "text": "Parte II. Organización, almacenamiento y consulta de datos\n\nExcel dentro de un flujo científico — En desarrollo\nFundamentos de bases de datos — En desarrollo\nLenguaje SQL — En desarrollo\nOracle e IMARFIS — En desarrollo\nPostgreSQL — En desarrollo\nInformación espacial con PostGIS — En desarrollo\nAnálisis local con DuckDB — En desarrollo\nDiseño de flujos de datos científicos — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-iii.-entornos-y-lenguajes-para-computación-científica",
+    "href": "contents.html#parte-iii.-entornos-y-lenguajes-para-computación-científica",
+    "title": "Índice general",
+    "section": "Parte III. Entornos y lenguajes para computación científica",
+    "text": "Parte III. Entornos y lenguajes para computación científica\n\nPositron como entorno principal — En desarrollo\nR como herramienta computacional — En desarrollo\nPython como herramienta computacional — En desarrollo\nIntegración entre R, Python y SQL — En desarrollo\nPaquetes, librerías y dependencias — En desarrollo\nEntornos computacionales reproducibles — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-iv.-código-versiones-y-reproducibilidad",
+    "href": "contents.html#parte-iv.-código-versiones-y-reproducibilidad",
+    "title": "Índice general",
+    "section": "Parte IV. Código, versiones y reproducibilidad",
+    "text": "Parte IV. Código, versiones y reproducibilidad\n\nPrincipios de código científico — En desarrollo\nControl de versiones con Git — En desarrollo\nColaboración y publicación con GitHub — En desarrollo\nDocumentos científicos con Quarto — En desarrollo\nInvestigación reproducible — En desarrollo\nIngeniería de software científico — En desarrollo\nPruebas, validación y control de calidad — En desarrollo\nDocumentación y mantenimiento del código — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-v.-automatización-e-infraestructura-computacional",
+    "href": "contents.html#parte-v.-automatización-e-infraestructura-computacional",
+    "title": "Índice general",
+    "section": "Parte V. Automatización e infraestructura computacional",
+    "text": "Parte V. Automatización e infraestructura computacional\n\nAutomatización de tareas científicas — En desarrollo\nAPIs y servicios de datos — En desarrollo\nContenedores — En desarrollo\nServidores y trabajo remoto — En desarrollo\nComputación de alto rendimiento — En desarrollo\nComputación en la nube — En desarrollo\nAplicaciones científicas — En desarrollo\nDashboards y productos interactivos — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-vi.-colaboración-y-gobernanza-científica",
+    "href": "contents.html#parte-vi.-colaboración-y-gobernanza-científica",
+    "title": "Índice general",
+    "section": "Parte VI. Colaboración y gobernanza científica",
+    "text": "Parte VI. Colaboración y gobernanza científica\n\nGestión de proyectos científicos — En desarrollo\nGestión del conocimiento — En desarrollo\nColaboración digital — En desarrollo\nCiencia abierta — En desarrollo\nPublicación de datos y código — En desarrollo\nSeguridad digital — En desarrollo\nRespaldo, recuperación y preservación — En desarrollo\nPrivacidad, confidencialidad y gobernanza de datos — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-vii.-inteligencia-artificial-y-herramientas-emergentes",
+    "href": "contents.html#parte-vii.-inteligencia-artificial-y-herramientas-emergentes",
+    "title": "Índice general",
+    "section": "Parte VII. Inteligencia artificial y herramientas emergentes",
+    "text": "Parte VII. Inteligencia artificial y herramientas emergentes\n\nFundamentos de inteligencia artificial para investigadores — En desarrollo\nAsistentes para código, datos y documentación — En desarrollo\nEvaluación crítica de resultados generados por IA — En desarrollo\nAgentes y flujos de trabajo — En desarrollo\nSeguridad, trazabilidad y gobernanza de IA — En desarrollo\nHerramientas emergentes y criterios de adopción — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#parte-viii.-integración",
+    "href": "contents.html#parte-viii.-integración",
+    "title": "Índice general",
+    "section": "Parte VIII. Integración",
+    "text": "Parte VIII. Integración\n\nMapa razonado del ecosistema digital científico — En desarrollo\nDiseño de un flujo reproducible — En desarrollo\nPublicación y mantenimiento de productos científicos — En desarrollo\nArquitectura personal de aprendizaje continuo — En desarrollo",
+    "crumbs": [
+      "Índice general"
+    ]
+  },
+  {
+    "objectID": "contents.html#apéndices",
+    "href": "contents.html#apéndices",
+    "title": "Índice general",
+    "section": "Apéndices",
+    "text": "Apéndices\n\nInstalación y configuración — En desarrollo\nComandos de referencia — En desarrollo\nConvenciones de nombres — En desarrollo\nFormatos y extensiones — En desarrollo\nGlosario — En desarrollo\nRecursos oficiales — En desarrollo\nReferencias — disponible",
+    "crumbs": [
+      "Índice general"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html",
     "href": "ccpe/000-alcance-arquitectura.html",
-    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
+    "title": "1  Alcance, arquitectura y sistema de aprendizaje",
     "section": "",
-    "text": "3 Alcance, arquitectura y sistema de aprendizaje\nCCPE-000 · Primera sesión\nUn producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.",
+    "text": "1.1 Delimitación del libro\nCCPE-000 · Primera sesión\nUn producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.\nEl objeto de aprendizaje es el ecosistema digital científico: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.\nEl libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html#delimitación-del-libro",
     "href": "ccpe/000-alcance-arquitectura.html#delimitación-del-libro",
-    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
-    "section": "3.1 1. Delimitación del libro",
-    "text": "3.1 1. Delimitación del libro\nEl objeto de aprendizaje es el ecosistema digital científico: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.\nEl libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.\n\nConcepto clave. Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.\n\n\n3.1.1 Componentes que conviene distinguir\n\n\n\n\n\n\n\n\nTipo\nPregunta que responde\nEjemplos\n\n\n\n\nLenguaje\n¿Con qué instrucciones proceso información?\nR, Python, SQL\n\n\nEntorno de desarrollo\n¿Dónde escribo, ejecuto y organizo?\nPositron\n\n\nFormato\n¿Cómo se representa o almacena?\n.csv, .qmd, .parquet\n\n\nBase de datos\n¿Dónde consulto datos persistentes?\nPostgreSQL, DuckDB\n\n\nPlataforma o servicio\n¿Dónde colaboro, alojo o publico?\nGitHub, GitHub Pages\n\n\nFlujo de trabajo\n¿Qué secuencia produce el resultado?\ndatos → código → informe\n\n\n\n\nComprobación. Explique con sus propias palabras por qué R, Positron y un archivo .R no son el mismo tipo de componente.",
+    "title": "1  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "",
+    "text": "Concepto clave. Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.\n\n\nComponentes que conviene distinguir\n\n\n\n\n\n\n\n\nTipo\nPregunta que responde\nEjemplos\n\n\n\n\nLenguaje\n¿Con qué instrucciones proceso información?\nR, Python, SQL\n\n\nEntorno de desarrollo\n¿Dónde escribo, ejecuto y organizo?\nPositron\n\n\nFormato\n¿Cómo se representa o almacena?\n.csv, .qmd, .parquet\n\n\nBase de datos\n¿Dónde consulto datos persistentes?\nPostgreSQL, DuckDB\n\n\nPlataforma o servicio\n¿Dónde colaboro, alojo o publico?\nGitHub, GitHub Pages\n\n\nFlujo de trabajo\n¿Qué secuencia produce el resultado?\ndatos → código → informe\n\n\n\n\nComprobación. Explique con sus propias palabras por qué R, Positron y un archivo .R no son el mismo tipo de componente.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html#diagnóstico-inicial",
     "href": "ccpe/000-alcance-arquitectura.html#diagnóstico-inicial",
-    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
-    "section": "3.2 2. Diagnóstico inicial",
-    "text": "3.2 2. Diagnóstico inicial\nResponda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.\n\n¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?\n¿Qué problema resuelve Git que no resuelve una copia de seguridad?\n¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?\n¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?\n¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?\n¿Qué criterio emplearía para decidir si una tarea debe automatizarse?\n\n\nReflexión. Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.",
+    "title": "1  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "1.2 Diagnóstico inicial",
+    "text": "1.2 Diagnóstico inicial\nResponda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.\n\n¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?\n¿Qué problema resuelve Git que no resuelve una copia de seguridad?\n¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?\n¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?\n¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?\n¿Qué criterio emplearía para decidir si una tarea debe automatizarse?\n\n\nReflexión. Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html#primera-actividad-representar-un-producto-real",
     "href": "ccpe/000-alcance-arquitectura.html#primera-actividad-representar-un-producto-real",
-    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
-    "section": "3.3 3. Primera actividad: representar un producto real",
-    "text": "3.3 3. Primera actividad: representar un producto real\nElija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:\nfuente → adquisición → dato de trabajo → transformación → validación\n       → figura o tabla → documento → publicación o archivo\nPara cada paso, anote:\n\nresponsable y herramienta;\nentrada y salida;\nubicación y regla de versión;\nacción manual o automática;\nrestricción de acceso;\nevidencia necesaria para repetirlo.\n\n\nActividad (25 minutos). Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.\n\n\n3.3.1 Preguntas de comprobación\n\n¿Una persona distinta podría localizar la entrada correcta?\n¿El mapa separa el dato original del dato derivado?\n¿Se reconoce qué versión del código produjo el resultado?\n¿Existe algún dato o servicio que no deba publicarse?\n¿Cuál es el punto de falla con mayor impacto científico?\n\n\nError frecuente. Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.",
+    "title": "1  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "1.3 Primera actividad: representar un producto real",
+    "text": "1.3 Primera actividad: representar un producto real\nElija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:\nfuente → adquisición → dato de trabajo → transformación → validación\n       → figura o tabla → documento → publicación o archivo\nPara cada paso, anote:\n\nresponsable y herramienta;\nentrada y salida;\nubicación y regla de versión;\nacción manual o automática;\nrestricción de acceso;\nevidencia necesaria para repetirlo.\n\n\nActividad (25 minutos). Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.\n\n\nPreguntas de comprobación\n\n¿Una persona distinta podría localizar la entrada correcta?\n¿El mapa separa el dato original del dato derivado?\n¿Se reconoce qué versión del código produjo el resultado?\n¿Existe algún dato o servicio que no deba publicarse?\n¿Cuál es el punto de falla con mayor impacto científico?\n\n\nError frecuente. Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html#primera-tarea",
     "href": "ccpe/000-alcance-arquitectura.html#primera-tarea",
-    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
-    "section": "3.4 4. Primera tarea",
-    "text": "3.4 4. Primera tarea\nRevise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:\n\nel propósito y los usuarios del producto;\ntres riesgos de reproducibilidad, seguridad o mantenimiento;\nuna mejora pequeña que pueda verificarse;\nla evidencia con la que demostraría esa mejora;\nuna pregunta que deba resolverse en la siguiente sesión.\n\n\nCriterio de avance. El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.\n\nNo publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.",
+    "title": "1  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "1.4 Primera tarea",
+    "text": "1.4 Primera tarea\nRevise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:\n\nel propósito y los usuarios del producto;\ntres riesgos de reproducibilidad, seguridad o mantenimiento;\nuna mejora pequeña que pueda verificarse;\nla evidencia con la que demostraría esa mejora;\nuna pregunta que deba resolverse en la siguiente sesión.\n\n\nCriterio de avance. El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.\n\nNo publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   }
 ]

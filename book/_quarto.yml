@@ -4,6 +4,7 @@ project:
   execute-dir: project
   render:
     - index.qmd
+    - contents.qmd
     - ccpe/000-alcance-arquitectura.qmd
     - references.qmd
   resources:
@@ -17,8 +18,8 @@ book:
   author: "Elmer Quispe-Salazar"
   date: last-modified
   description: "Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa."
-  site-url: "https://qselmer.github.io/quant-fisheries-learning/"
-  repo-url: "https://github.com/qselmer/quant-fisheries-learning"
+  site-url: "https://qselmer.github.io/QuantFish-LabCore/"
+  repo-url: "https://github.com/qselmer/QuantFish-LabCore"
   repo-actions: [source, edit, issue]
   search: true
   reader-mode: true
@@ -26,6 +27,7 @@ book:
   open-graph: true
   chapters:
     - index.qmd
+    - contents.qmd
     - part: "Fundamentos del ecosistema digital científico"
       chapters:
         - ccpe/000-alcance-arquitectura.qmd
@@ -39,12 +41,11 @@ csl: ../references/apa.csl
 
 format:
   html:
-    theme:
-      light: [cosmo, assets/styles/book.scss]
-      dark: [darkly, assets/styles/book.scss]
+    theme: [litera, assets/styles/book.scss]
     toc: true
     toc-depth: 3
     number-sections: true
+    number-depth: 2
     code-copy: true
     code-overflow: wrap
     code-fold: false

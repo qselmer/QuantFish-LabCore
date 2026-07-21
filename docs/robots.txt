@@ -1,1 +1,1 @@
-Sitemap: https://qselmer.github.io/quant-fisheries-learning/sitemap.xml
+Sitemap: https://qselmer.github.io/QuantFish-LabCore/sitemap.xml

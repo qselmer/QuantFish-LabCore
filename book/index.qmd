@@ -1,59 +1,55 @@
 ---
-title: "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa"
-subtitle: "Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial"
-author: "Elmer Quispe-Salazar"
-license: "CC BY 4.0"
+page-layout: full
 ---
 
-# Presentación {.unnumbered}
+# Presentación {.unnumbered .book-frontmatter}
 
-Este libro abierto ayuda a construir un entorno de trabajo reproducible para la ciencia pesquera y la ecología cuantitativa. Integra datos, código, documentación, automatización, colaboración y publicación sin atar el aprendizaje a una herramienta concreta.
+::: {.book-hero}
+<p class="book-kicker">Computación científica · ciencia pesquera · reproducibilidad</p>
 
-[Abrir el repositorio en GitHub](https://github.com/qselmer/quant-fisheries-learning){.btn .btn-primary role="button"}
+Este libro examina la infraestructura digital que sostiene el trabajo científico contemporáneo: cómo organizar datos y código, registrar decisiones, automatizar procesos y publicar resultados que otras personas puedan comprender, verificar y reconstruir.
 
-## A quién se dirige
+[Consultar el índice general](contents.qmd){.btn .btn-primary role="button"}
+[Abrir el repositorio](https://github.com/qselmer/QuantFish-LabCore){.btn .btn-outline-primary role="button"}
+:::
 
-Está pensado para investigadores, profesionales, docentes y estudiantes que producen resultados científicos con archivos, scripts, bases de datos y documentos, y necesitan que ese trabajo sea portable, auditable y sostenible.
+## Propósito y audiencia
 
-## El problema que resuelve
-
-Un resultado puede ser correcto y, aun así, resultar imposible de reconstruir. El libro propone criterios y prácticas para conectar cada producto con sus fuentes, transformaciones, decisiones, versiones y condiciones de ejecución.
+La obra está dirigida a investigadores, profesionales, docentes y estudiantes de ciencias pesqueras y ecología cuantitativa que trabajan con archivos, scripts, bases de datos y documentos científicos. Su propósito es ofrecer criterios duraderos para construir entornos portables, auditables, seguros y sostenibles, incluso cuando cambien las herramientas concretas.
 
 ## Alcance
 
-Se estudian organización de proyectos, formatos, lenguajes, entornos de desarrollo, control de versiones, publicación reproducible, automatización y uso responsable de inteligencia artificial. Los ejemplos proceden de las pesquerías y la ecología cuantitativa.
+El recorrido abarca organización de proyectos, formatos de datos, lenguajes computacionales, entornos de desarrollo, control de versiones, publicación reproducible, automatización, colaboración e inteligencia artificial. R, Python, SQL y la terminal se presentan como componentes complementarios de una misma arquitectura científica.
 
-::: {.callout-note title="Qué no cubre"}
-Este no es un libro de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE.
+::: {.callout-note title="Límites de esta obra"}
+No es un tratado de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE. Los ejemplos cuantitativos se utilizan para explicar herramientas y decisiones de infraestructura.
 :::
 
-## Cómo utilizarlo
+## Cómo utilizar el libro
 
-Cada unidad mantiene cuatro productos distintos:
+Los capítulos combinan explicación conceptual, procedimientos verificables y ejemplos reproducibles. Conviene leer primero el argumento completo, consultar el código cuando sea necesario y conservar evidencia de las decisiones adoptadas en cada proyecto.
 
-1. **Aprendizaje personal:** preguntas, pruebas y registro de avances.
-2. **Capítulo:** explicación narrativa y reproducible en el libro web.
-3. **Clase:** experiencia docente con tiempos, actividades y evaluación.
-4. **Post:** síntesis pública redactada solo después de evaluar el aprendizaje.
+El ecosistema editorial distingue cuatro productos relacionados, pero no intercambiables:
 
-Se recomienda leer el problema, realizar el diagnóstico sin consultar respuestas, completar la actividad y conservar evidencia del resultado.
+- el **aprendizaje personal** registra preguntas y avances;
+- el **libro** desarrolla una explicación coherente y de referencia;
+- la **clase** organiza una experiencia docente;
+- el **post** sintetiza resultados únicamente después de evaluar el aprendizaje.
+
+## Estructura general
+
+La arquitectura prevista se organiza en ocho partes: fundamentos; datos; entornos y lenguajes; código y reproducibilidad; automatización e infraestructura; colaboración y gobernanza; inteligencia artificial; e integración. El [índice general](contents.qmd) distingue los capítulos disponibles de los contenidos planificados.
 
 ## Estado de desarrollo
 
-El proyecto se encuentra en construcción. La primera unidad establece el alcance, la arquitectura y el sistema de aprendizaje; el contenido se ampliará de forma incremental y validada.
+El libro se publica de manera incremental. La base editorial, la navegación y el primer capítulo están disponibles; los demás capítulos se incorporarán cuando su contenido y sus ejemplos puedan validarse.
 
-## Datos y seguridad
-
-::: {.callout-warning title="Datos de ejemplo y datos institucionales"}
-Los ejemplos públicos deben usar datos abiertos, sintéticos o anonimizados. Los datos institucionales, credenciales y rutas locales no deben incorporarse al repositorio ni a la publicación.
-:::
-
-## Autor, licencia y cita
+## Citación, licencia y repositorio
 
 **Autor:** Elmer Quispe-Salazar
 
+**Citación sugerida:** Quispe-Salazar, E. (2026). *Ecosistema digital para la ciencia pesquera y la ecología cuantitativa*. <https://qselmer.github.io/QuantFish-LabCore/>
+
 **Licencia del contenido:** [Creative Commons Atribución 4.0 Internacional](https://creativecommons.org/licenses/by/4.0/deed.es)
 
-**Repositorio:** [qselmer/quant-fisheries-learning](https://github.com/qselmer/quant-fisheries-learning)
-
-Para citar esta obra, use el título, el autor, el año de la versión consultada, la URL oficial y la fecha de acceso.
+**Repositorio:** [qselmer/QuantFish-LabCore](https://github.com/qselmer/QuantFish-LabCore)

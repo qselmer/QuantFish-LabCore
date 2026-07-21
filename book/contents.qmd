@@ -1,0 +1,105 @@
+---
+page-layout: full
+body-classes: contents-page
+---
+
+# Índice general {.unnumbered}
+
+Esta página presenta la arquitectura editorial prevista. La numeración corresponde al plan completo; Quarto numera automáticamente los capítulos ya incorporados al libro. La indicación *En desarrollo* identifica contenidos planificados y no crea enlaces vacíos.
+
+## Contenido preliminar
+
+- Presentación — disponible
+- Cómo utilizar este libro — disponible en la presentación
+- Ruta de aprendizaje — *En desarrollo*
+- Índice general — disponible
+- Convenciones y reproducibilidad — *En desarrollo*
+
+## Parte I. Fundamentos del ecosistema digital científico
+
+1. [Alcance, arquitectura y sistema de aprendizaje](ccpe/000-alcance-arquitectura.qmd) — disponible
+2. El ecosistema digital de un investigador — *En desarrollo*
+3. Computadoras, hardware y recursos computacionales — *En desarrollo*
+4. Sistemas operativos y entornos de trabajo — *En desarrollo*
+5. Terminal, shell y línea de comandos — *En desarrollo*
+6. Archivos, carpetas, rutas y permisos — *En desarrollo*
+7. Formatos de datos e intercambio de información — *En desarrollo*
+
+## Parte II. Organización, almacenamiento y consulta de datos
+
+8. Excel dentro de un flujo científico — *En desarrollo*
+9. Fundamentos de bases de datos — *En desarrollo*
+10. Lenguaje SQL — *En desarrollo*
+11. Oracle e IMARFIS — *En desarrollo*
+12. PostgreSQL — *En desarrollo*
+13. Información espacial con PostGIS — *En desarrollo*
+14. Análisis local con DuckDB — *En desarrollo*
+15. Diseño de flujos de datos científicos — *En desarrollo*
+
+## Parte III. Entornos y lenguajes para computación científica
+
+16. Positron como entorno principal — *En desarrollo*
+17. R como herramienta computacional — *En desarrollo*
+18. Python como herramienta computacional — *En desarrollo*
+19. Integración entre R, Python y SQL — *En desarrollo*
+20. Paquetes, librerías y dependencias — *En desarrollo*
+21. Entornos computacionales reproducibles — *En desarrollo*
+
+## Parte IV. Código, versiones y reproducibilidad
+
+22. Principios de código científico — *En desarrollo*
+23. Control de versiones con Git — *En desarrollo*
+24. Colaboración y publicación con GitHub — *En desarrollo*
+25. Documentos científicos con Quarto — *En desarrollo*
+26. Investigación reproducible — *En desarrollo*
+27. Ingeniería de software científico — *En desarrollo*
+28. Pruebas, validación y control de calidad — *En desarrollo*
+29. Documentación y mantenimiento del código — *En desarrollo*
+
+## Parte V. Automatización e infraestructura computacional
+
+30. Automatización de tareas científicas — *En desarrollo*
+31. APIs y servicios de datos — *En desarrollo*
+32. Contenedores — *En desarrollo*
+33. Servidores y trabajo remoto — *En desarrollo*
+34. Computación de alto rendimiento — *En desarrollo*
+35. Computación en la nube — *En desarrollo*
+36. Aplicaciones científicas — *En desarrollo*
+37. Dashboards y productos interactivos — *En desarrollo*
+
+## Parte VI. Colaboración y gobernanza científica
+
+38. Gestión de proyectos científicos — *En desarrollo*
+39. Gestión del conocimiento — *En desarrollo*
+40. Colaboración digital — *En desarrollo*
+41. Ciencia abierta — *En desarrollo*
+42. Publicación de datos y código — *En desarrollo*
+43. Seguridad digital — *En desarrollo*
+44. Respaldo, recuperación y preservación — *En desarrollo*
+45. Privacidad, confidencialidad y gobernanza de datos — *En desarrollo*
+
+## Parte VII. Inteligencia artificial y herramientas emergentes
+
+46. Fundamentos de inteligencia artificial para investigadores — *En desarrollo*
+47. Asistentes para código, datos y documentación — *En desarrollo*
+48. Evaluación crítica de resultados generados por IA — *En desarrollo*
+49. Agentes y flujos de trabajo — *En desarrollo*
+50. Seguridad, trazabilidad y gobernanza de IA — *En desarrollo*
+51. Herramientas emergentes y criterios de adopción — *En desarrollo*
+
+## Parte VIII. Integración
+
+52. Mapa razonado del ecosistema digital científico — *En desarrollo*
+53. Diseño de un flujo reproducible — *En desarrollo*
+54. Publicación y mantenimiento de productos científicos — *En desarrollo*
+55. Arquitectura personal de aprendizaje continuo — *En desarrollo*
+
+## Apéndices
+
+- Instalación y configuración — *En desarrollo*
+- Comandos de referencia — *En desarrollo*
+- Convenciones de nombres — *En desarrollo*
+- Formatos y extensiones — *En desarrollo*
+- Glosario — *En desarrollo*
+- Recursos oficiales — *En desarrollo*
+- [Referencias](references.qmd) — disponible
