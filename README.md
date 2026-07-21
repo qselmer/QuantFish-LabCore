@@ -2,9 +2,9 @@
 
 Repositorio del libro web y sus materiales de aprendizaje, clases reproducibles y futuros posts sobre datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial.
 
-[![Leer libro en línea](https://img.shields.io/badge/Leer_libro-en_l%C3%ADnea-155E75?style=for-the-badge&logo=quarto)](https://qselmer.github.io/quant-fisheries-learning/)
+[![Leer libro en línea](https://img.shields.io/badge/Leer_libro-en_l%C3%ADnea-1B5E75?style=for-the-badge&logo=quarto)](https://qselmer.github.io/QuantFish-LabCore/)
 
-[![Ver repositorio](https://img.shields.io/badge/Ver_repositorio-GitHub-24292F?style=for-the-badge&logo=github)](https://github.com/qselmer/quant-fisheries-learning)
+[![Ver repositorio](https://img.shields.io/badge/Ver_repositorio-GitHub-24292F?style=for-the-badge&logo=github)](https://github.com/qselmer/QuantFish-LabCore)
 
 ## Estado y propósito
 
@@ -29,8 +29,8 @@ docs/         sitio HTML generado para GitHub Pages
 Se requiere Git y [Quarto](https://quarto.org/docs/get-started/). Positron es el entorno principal recomendado, pero el proyecto no depende de un IDE concreto.
 
 ```bash
-git clone https://github.com/qselmer/quant-fisheries-learning.git
-cd quant-fisheries-learning
+git clone https://github.com/qselmer/QuantFish-LabCore.git
+cd QuantFish-LabCore
 quarto check
 ```
 

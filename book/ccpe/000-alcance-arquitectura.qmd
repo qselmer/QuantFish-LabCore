@@ -4,23 +4,21 @@ chapter-code: "CCPE-000"
 description: "Primera sesión para delimitar el ecosistema digital científico y representar un flujo de trabajo real."
 ---
 
-# Alcance, arquitectura y sistema de aprendizaje
-
-`CCPE-000` · Primera sesión
+<p class="chapter-code">CCPE-000 · Primera sesión</p>
 
 Un producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.
 
-::: {.expected-result}
+::: {.expected-result title="Resultado de la sesión"}
 **Producto esperado.** Un primer mapa razonado de un producto científico real, con entradas, salidas, dependencias, pasos manuales y riesgos.
 :::
 
-## 1. Delimitación del libro
+## Delimitación del libro
 
 El objeto de aprendizaje es el **ecosistema digital científico**: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.
 
 El libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.
 
-::: {.key-concept}
+::: {.key-concept title="Concepto clave"}
 **Concepto clave.** Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.
 :::
 
@@ -35,11 +33,11 @@ El libro se concentra en infraestructura digital, reproducibilidad, portabilidad
 | Plataforma o servicio | ¿Dónde colaboro, alojo o publico? | GitHub, GitHub Pages |
 | Flujo de trabajo | ¿Qué secuencia produce el resultado? | datos → código → informe |
 
-::: {.check}
+::: {.check title="Comprobación"}
 **Comprobación.** Explique con sus propias palabras por qué R, Positron y un archivo `.R` no son el mismo tipo de componente.
 :::
 
-## 2. Diagnóstico inicial
+## Diagnóstico inicial
 
 Responda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.
 
@@ -50,11 +48,11 @@ Responda antes de buscar soluciones. El diagnóstico no se califica por aciertos
 5. ¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?
 6. ¿Qué criterio emplearía para decidir si una tarea debe automatizarse?
 
-::: {.reflection}
+::: {.reflection title="Reflexión"}
 **Reflexión.** Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.
 :::
 
-## 3. Primera actividad: representar un producto real
+## Primera actividad: representar un producto real
 
 Elija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:
 
@@ -72,7 +70,7 @@ Para cada paso, anote:
 - restricción de acceso;
 - evidencia necesaria para repetirlo.
 
-::: {.activity}
+::: {.activity title="Actividad"}
 **Actividad (25 minutos).** Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.
 :::
 
@@ -84,11 +82,11 @@ Para cada paso, anote:
 - ¿Existe algún dato o servicio que no deba publicarse?
 - ¿Cuál es el punto de falla con mayor impacto científico?
 
-::: {.common-error}
+::: {.common-error title="Error frecuente"}
 **Error frecuente.** Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.
 :::
 
-## 4. Primera tarea
+## Primera tarea
 
 Revise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:
 
@@ -98,7 +96,7 @@ Revise el mapa fuera de la sesión y entréguelo acompañado por una nota breve 
 4. la evidencia con la que demostraría esa mejora;
 5. una pregunta que deba resolverse en la siguiente sesión.
 
-::: {.expected-result}
+::: {.expected-result title="Criterio de avance"}
 **Criterio de avance.** El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.
 :::
 

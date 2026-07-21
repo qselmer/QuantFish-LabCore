@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://qselmer.github.io/quant-fisheries-learning/index.html</loc>
-    <lastmod>2026-07-21T20:29:28.689Z</lastmod>
+    <loc>https://qselmer.github.io/QuantFish-LabCore/index.html</loc>
+    <lastmod>2026-07-21T21:11:41.665Z</lastmod>
   </url>
   <url>
-    <loc>https://qselmer.github.io/quant-fisheries-learning/ccpe/000-alcance-arquitectura.html</loc>
-    <lastmod>2026-07-21T20:29:28.688Z</lastmod>
+    <loc>https://qselmer.github.io/QuantFish-LabCore/contents.html</loc>
+    <lastmod>2026-07-21T21:06:23.004Z</lastmod>
   </url>
   <url>
-    <loc>https://qselmer.github.io/quant-fisheries-learning/references.html</loc>
+    <loc>https://qselmer.github.io/QuantFish-LabCore/ccpe/000-alcance-arquitectura.html</loc>
+    <lastmod>2026-07-21T20:59:49.824Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qselmer.github.io/QuantFish-LabCore/references.html</loc>
     <lastmod>2026-07-21T18:18:05.908Z</lastmod>
   </url>
 </urlset>

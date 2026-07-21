@@ -8,6 +8,8 @@
 - No se agregan credenciales, secretos, nombres de servidores ni rutas locales absolutas.
 - Se prefieren formatos abiertos, portables y rutas relativas.
 - HTML es la salida editorial principal.
+- Positron es el entorno principal y Quarto el sistema editorial del proyecto.
+- El libro debe admitir ejemplos reproducibles en R, Python, SQL y terminal sin inventar dependencias.
 - Toda modificación se valida mediante renderización; no se afirma que funciona sin ejecutar la validación.
 - Los HTML generados en `docs/` no se editan manualmente. Los cambios editoriales se hacen en `.qmd`, `.scss` o `.yml` y luego se renderizan.
 - Se preserva la separación entre aprendizaje personal, libro, clase y post. Un post definitivo solo se redacta después de evaluar el aprendizaje.
