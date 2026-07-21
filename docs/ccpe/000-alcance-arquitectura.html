@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Primera sesión para delimitar el ecosistema digital científico y representar un flujo de trabajo real.">
 
-<title>2&nbsp; CCPE-000 — Alcance, arquitectura y sistema de aprendizaje – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
+<title>2&nbsp; Alcance, arquitectura y sistema de aprendizaje – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,14 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b6bf358d2ca42bf22d951783d27d62db.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-65cd6b2dcbe879340fa210c47b6da349.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b6bf358d2ca42bf22d951783d27d62db.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d271c880086adac3871dc271d5f8550e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bf1880598fe60990790de6be5fdbbe4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-55b0ce188fffde600b3324db885a47c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bf1880598fe60990790de6be5fdbbe4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -60,22 +61,25 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../assets/styles/book.css">
+<meta property="og:title" content="2&nbsp; Alcance, arquitectura y sistema de aprendizaje – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+<meta property="og:description" content="Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.">
+<meta property="og:site_name" content="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -246,13 +250,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -266,32 +270,19 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/qselmer/quant-fisheries-learning" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../Ecosistema-digital-para-la-ciencia-pesquera-y-la-ecología-cuantitativa.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-    <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-linkedin pe-1"></i>
-            LinkedIn
-            </a>
-          </li>
-      </ul>
-    </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/qselmer/quant-fisheries-learning" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -299,14 +290,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Presentación</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Fundamentos del ecosistema digital científico</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -314,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ccpe/000-alcance-arquitectura.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span></a>
   </div>
 </li>
       </ul>
@@ -332,40 +323,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#identificación-del-capítulo" id="toc-identificación-del-capítulo" class="nav-link active" data-scroll-target="#identificación-del-capítulo"><span class="header-section-number">2.1</span> Identificación del capítulo</a></li>
-  <li><a href="#posición-dentro-del-libro" id="toc-posición-dentro-del-libro" class="nav-link" data-scroll-target="#posición-dentro-del-libro"><span class="header-section-number">2.2</span> Posición dentro del libro</a></li>
-  <li><a href="#alcance" id="toc-alcance" class="nav-link" data-scroll-target="#alcance"><span class="header-section-number">2.3</span> Alcance</a></li>
-  <li><a href="#relación-con-el-futuro-libro-estadístico" id="toc-relación-con-el-futuro-libro-estadístico" class="nav-link" data-scroll-target="#relación-con-el-futuro-libro-estadístico"><span class="header-section-number">2.4</span> Relación con el futuro libro estadístico</a></li>
-  <li><a href="#pregunta-central" id="toc-pregunta-central" class="nav-link" data-scroll-target="#pregunta-central"><span class="header-section-number">2.5</span> Pregunta central</a></li>
-  <li><a href="#diagnóstico-inicial" id="toc-diagnóstico-inicial" class="nav-link" data-scroll-target="#diagnóstico-inicial"><span class="header-section-number">2.6</span> Diagnóstico inicial</a></li>
-  <li><a href="#problema-motivador" id="toc-problema-motivador" class="nav-link" data-scroll-target="#problema-motivador"><span class="header-section-number">2.7</span> Problema motivador</a></li>
-  <li><a href="#concepto-de-ecosistema-digital-científico" id="toc-concepto-de-ecosistema-digital-científico" class="nav-link" data-scroll-target="#concepto-de-ecosistema-digital-científico"><span class="header-section-number">2.8</span> Concepto de ecosistema digital científico</a></li>
-  <li><a href="#diferencias-entre-componentes" id="toc-diferencias-entre-componentes" class="nav-link" data-scroll-target="#diferencias-entre-componentes"><span class="header-section-number">2.9</span> Diferencias entre componentes</a></li>
-  <li><a href="#principios-que-permanecen-aunque-cambien-las-herramientas" id="toc-principios-que-permanecen-aunque-cambien-las-herramientas" class="nav-link" data-scroll-target="#principios-que-permanecen-aunque-cambien-las-herramientas"><span class="header-section-number">2.10</span> Principios que permanecen aunque cambien las herramientas</a></li>
-  <li><a href="#arquitectura-general-del-proyecto" id="toc-arquitectura-general-del-proyecto" class="nav-link" data-scroll-target="#arquitectura-general-del-proyecto"><span class="header-section-number">2.11</span> Arquitectura general del proyecto</a></li>
-  <li><a href="#configuración-inicial-en-positron" id="toc-configuración-inicial-en-positron" class="nav-link" data-scroll-target="#configuración-inicial-en-positron"><span class="header-section-number">2.12</span> Configuración inicial en Positron</a></li>
-  <li><a href="#creación-del-proyecto-quarto" id="toc-creación-del-proyecto-quarto" class="nav-link" data-scroll-target="#creación-del-proyecto-quarto"><span class="header-section-number">2.13</span> Creación del proyecto Quarto</a></li>
-  <li><a href="#estructura-inicial-de-carpetas" id="toc-estructura-inicial-de-carpetas" class="nav-link" data-scroll-target="#estructura-inicial-de-carpetas"><span class="header-section-number">2.14</span> Estructura inicial de carpetas</a></li>
-  <li><a href="#primer-registro-de-aprendizaje" id="toc-primer-registro-de-aprendizaje" class="nav-link" data-scroll-target="#primer-registro-de-aprendizaje"><span class="header-section-number">2.15</span> Primer registro de aprendizaje</a></li>
-  <li><a href="#ejercicios-críticos" id="toc-ejercicios-críticos" class="nav-link" data-scroll-target="#ejercicios-críticos"><span class="header-section-number">2.16</span> Ejercicios críticos</a></li>
-  <li><a href="#proyecto-del-capítulo" id="toc-proyecto-del-capítulo" class="nav-link" data-scroll-target="#proyecto-del-capítulo"><span class="header-section-number">2.17</span> Proyecto del capítulo</a></li>
-  <li><a href="#rúbrica" id="toc-rúbrica" class="nav-link" data-scroll-target="#rúbrica"><span class="header-section-number">2.18</span> Rúbrica</a></li>
-  <li><a href="#tareas" id="toc-tareas" class="nav-link" data-scroll-target="#tareas"><span class="header-section-number">2.19</span> Tareas</a></li>
-  <li><a href="#criterio-para-avanzar" id="toc-criterio-para-avanzar" class="nav-link" data-scroll-target="#criterio-para-avanzar"><span class="header-section-number">2.20</span> Criterio para avanzar</a></li>
-  <li><a href="#revisión-futura" id="toc-revisión-futura" class="nav-link" data-scroll-target="#revisión-futura"><span class="header-section-number">2.21</span> Revisión futura</a></li>
+  <li><a href="#alcance-arquitectura-y-sistema-de-aprendizaje" id="toc-alcance-arquitectura-y-sistema-de-aprendizaje" class="nav-link active" data-scroll-target="#alcance-arquitectura-y-sistema-de-aprendizaje"><span class="header-section-number">3</span> Alcance, arquitectura y sistema de aprendizaje</a>
+  <ul class="collapse">
+  <li><a href="#delimitación-del-libro" id="toc-delimitación-del-libro" class="nav-link" data-scroll-target="#delimitación-del-libro"><span class="header-section-number">3.1</span> 1. Delimitación del libro</a>
+  <ul class="collapse">
+  <li><a href="#componentes-que-conviene-distinguir" id="toc-componentes-que-conviene-distinguir" class="nav-link" data-scroll-target="#componentes-que-conviene-distinguir"><span class="header-section-number">3.1.1</span> Componentes que conviene distinguir</a></li>
+  </ul></li>
+  <li><a href="#diagnóstico-inicial" id="toc-diagnóstico-inicial" class="nav-link" data-scroll-target="#diagnóstico-inicial"><span class="header-section-number">3.2</span> 2. Diagnóstico inicial</a></li>
+  <li><a href="#primera-actividad-representar-un-producto-real" id="toc-primera-actividad-representar-un-producto-real" class="nav-link" data-scroll-target="#primera-actividad-representar-un-producto-real"><span class="header-section-number">3.3</span> 3. Primera actividad: representar un producto real</a>
+  <ul class="collapse">
+  <li><a href="#preguntas-de-comprobación" id="toc-preguntas-de-comprobación" class="nav-link" data-scroll-target="#preguntas-de-comprobación"><span class="header-section-number">3.3.1</span> Preguntas de comprobación</a></li>
+  </ul></li>
+  <li><a href="#primera-tarea" id="toc-primera-tarea" class="nav-link" data-scroll-target="#primera-tarea"><span class="header-section-number">3.4</span> 4. Primera tarea</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/blob/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></h1>
 </div>
 
 
@@ -382,83 +365,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="identificación-del-capítulo" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="identificación-del-capítulo"><span class="header-section-number">2.1</span> Identificación del capítulo</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Elemento</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Código</td>
-<td>CCPE-000</td>
-</tr>
-<tr class="even">
-<td>Título</td>
-<td>Alcance, arquitectura y sistema de aprendizaje</td>
-</tr>
-<tr class="odd">
-<td>Proyecto</td>
-<td><code>quant-fisheries-learning</code></td>
-</tr>
-<tr class="even">
-<td>Producto del capítulo</td>
-<td>Mapa razonado de mi ecosistema digital científico</td>
-</tr>
-<tr class="odd">
-<td>Entorno principal</td>
-<td>Positron</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="posición-dentro-del-libro" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="posición-dentro-del-libro"><span class="header-section-number">2.2</span> Posición dentro del libro</h2>
-<p>Este capítulo abre el libro porque define el objeto de aprendizaje: no una herramienta aislada, sino el ecosistema completo que permite transformar datos científicos en productos reproducibles, verificables y comunicables.</p>
-</section>
-<section id="alcance" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="alcance"><span class="header-section-number">2.3</span> Alcance</h2>
-<p>El capítulo introduce el sistema de trabajo que conecta fuentes de datos, archivos, bases de datos, lenguajes, entornos de desarrollo, repositorios, documentos, colaboradores y productos científicos.</p>
-</section>
-<section id="relación-con-el-futuro-libro-estadístico" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="relación-con-el-futuro-libro-estadístico"><span class="header-section-number">2.4</span> Relación con el futuro libro estadístico</h2>
-<p>Este libro estudia infraestructura digital y reproducibilidad. El segundo libro estudiará inferencia, modelamiento cuantitativo y evaluación científica. Aquí pueden aparecer ejemplos de pesquerías o ecología, pero solo como contexto para comprender herramientas y flujos.</p>
-</section>
-<section id="pregunta-central" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="pregunta-central"><span class="header-section-number">2.5</span> Pregunta central</h2>
-<p>¿Cómo debe organizarse el ecosistema digital de un investigador para que su trabajo sea reproducible, portable, auditable, seguro y sostenible aunque cambien las herramientas?</p>
-</section>
-<section id="diagnóstico-inicial" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="diagnóstico-inicial"><span class="header-section-number">2.6</span> Diagnóstico inicial</h2>
-<p>Responder antes de leer soluciones.</p>
-<ol type="1">
-<li>¿Qué diferencia existe entre R, Positron y un archivo <code>.R</code>?</li>
-<li>¿Qué diferencia existe entre IMARFIS, Oracle y SQL?</li>
-<li>¿Qué problema resuelve Git que no resuelve una copia de seguridad?</li>
-<li>¿Qué parte de mi flujo actual depende de copiar archivos manualmente?</li>
-<li>¿Qué debería permanecer reproducible si Positron desapareciera?</li>
-<li>¿Cómo distinguiría un lenguaje, un formato y una plataforma?</li>
-<li>¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?</li>
-<li>¿Qué criterio usaría para decidir si una tarea debe automatizarse?</li>
-</ol>
-</section>
-<section id="problema-motivador" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="problema-motivador"><span class="header-section-number">2.7</span> Problema motivador</h2>
-<p>Un producto científico puede parecer terminado porque existe un informe, una figura o un artículo. Sin embargo, puede ser frágil si no es posible reconstruirlo desde sus datos, código, decisiones y dependencias.</p>
-</section>
-<section id="concepto-de-ecosistema-digital-científico" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="concepto-de-ecosistema-digital-científico"><span class="header-section-number">2.8</span> Concepto de ecosistema digital científico</h2>
-<p>Un ecosistema digital científico es el conjunto organizado de personas, datos, archivos, lenguajes, herramientas, bases de datos, repositorios, servicios, reglas y flujos de trabajo que permiten producir conocimiento científico reproducible.</p>
-</section>
-<section id="diferencias-entre-componentes" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="diferencias-entre-componentes"><span class="header-section-number">2.9</span> Diferencias entre componentes</h2>
+<section id="alcance-arquitectura-y-sistema-de-aprendizaje" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Alcance, arquitectura y sistema de aprendizaje</h1>
+<p><code>CCPE-000</code> · Primera sesión</p>
+<p>Un producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.</p>
+<div class="expected-result">
+<p><strong>Producto esperado.</strong> Un primer mapa razonado de un producto científico real, con entradas, salidas, dependencias, pasos manuales y riesgos.</p>
+</div>
+<section id="delimitación-del-libro" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="delimitación-del-libro"><span class="header-section-number">3.1</span> 1. Delimitación del libro</h2>
+<p>El objeto de aprendizaje es el <strong>ecosistema digital científico</strong>: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.</p>
+<p>El libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.</p>
+<div class="key-concept">
+<p><strong>Concepto clave.</strong> Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.</p>
+</div>
+<section id="componentes-que-conviene-distinguir" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="componentes-que-conviene-distinguir"><span class="header-section-number">3.1.1</span> Componentes que conviene distinguir</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -469,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="header">
 <th>Tipo</th>
 <th>Pregunta que responde</th>
-<th>Ejemplo</th>
+<th>Ejemplos</th>
 </tr>
 </thead>
 <tbody>
@@ -479,140 +401,100 @@ ul.task-list li input[type="checkbox"] {
 <td>R, Python, SQL</td>
 </tr>
 <tr class="even">
-<td>IDE</td>
-<td>¿Dónde escribo, ejecuto y organizo el trabajo?</td>
+<td>Entorno de desarrollo</td>
+<td>¿Dónde escribo, ejecuto y organizo?</td>
 <td>Positron</td>
 </tr>
 <tr class="odd">
 <td>Formato</td>
-<td>¿Cómo se almacena la información?</td>
-<td><code>.csv</code>, <code>.qmd</code>, <code>.xlsx</code>, <code>.parquet</code></td>
+<td>¿Cómo se representa o almacena?</td>
+<td><code>.csv</code>, <code>.qmd</code>, <code>.parquet</code></td>
 </tr>
 <tr class="even">
 <td>Base de datos</td>
-<td>¿Dónde se estructuran y consultan datos persistentes?</td>
-<td>Oracle, PostgreSQL, DuckDB</td>
+<td>¿Dónde consulto datos persistentes?</td>
+<td>PostgreSQL, DuckDB</td>
 </tr>
 <tr class="odd">
-<td>Plataforma</td>
-<td>¿Dónde se aloja, ejecuta o colabora?</td>
-<td>GitHub, GitHub Pages, Posit Connect</td>
+<td>Plataforma o servicio</td>
+<td>¿Dónde colaboro, alojo o publico?</td>
+<td>GitHub, GitHub Pages</td>
 </tr>
 <tr class="even">
-<td>Servicio</td>
-<td>¿Qué capacidad remota consumo?</td>
-<td>API, cloud storage, servidor institucional</td>
-</tr>
-<tr class="odd">
 <td>Flujo de trabajo</td>
-<td>¿Qué secuencia produce un resultado?</td>
-<td>datos → script → figura → informe</td>
+<td>¿Qué secuencia produce el resultado?</td>
+<td>datos → código → informe</td>
 </tr>
 </tbody>
 </table>
+<div class="check">
+<p><strong>Comprobación.</strong> Explique con sus propias palabras por qué R, Positron y un archivo <code>.R</code> no son el mismo tipo de componente.</p>
+</div>
 </section>
-<section id="principios-que-permanecen-aunque-cambien-las-herramientas" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="principios-que-permanecen-aunque-cambien-las-herramientas"><span class="header-section-number">2.10</span> Principios que permanecen aunque cambien las herramientas</h2>
+</section>
+<section id="diagnóstico-inicial" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="diagnóstico-inicial"><span class="header-section-number">3.2</span> 2. Diagnóstico inicial</h2>
+<p>Responda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.</p>
 <ol type="1">
-<li>Portabilidad de formatos.</li>
-<li>Registro explícito de decisiones.</li>
-<li>Separación entre datos crudos y datos derivados.</li>
-<li>Código versionado.</li>
-<li>Ambientes computacionales documentados.</li>
-<li>Productos reconstruibles.</li>
-<li>Seguridad proporcional a la sensibilidad de los datos.</li>
-<li>Automatización de tareas repetibles y verificables.</li>
+<li>¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?</li>
+<li>¿Qué problema resuelve Git que no resuelve una copia de seguridad?</li>
+<li>¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?</li>
+<li>¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?</li>
+<li>¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?</li>
+<li>¿Qué criterio emplearía para decidir si una tarea debe automatizarse?</li>
 </ol>
+<div class="reflection">
+<p><strong>Reflexión.</strong> Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.</p>
+</div>
 </section>
-<section id="arquitectura-general-del-proyecto" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="arquitectura-general-del-proyecto"><span class="header-section-number">2.11</span> Arquitectura general del proyecto</h2>
-<p>La arquitectura base separa libro, clases, posts, datos, scripts, ejercicios, soluciones, referencias y publicación web.</p>
+<section id="primera-actividad-representar-un-producto-real" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="primera-actividad-representar-un-producto-real"><span class="header-section-number">3.3</span> 3. Primera actividad: representar un producto real</h2>
+<p>Elija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:</p>
+<pre class="text"><code>fuente → adquisición → dato de trabajo → transformación → validación
+       → figura o tabla → documento → publicación o archivo</code></pre>
+<p>Para cada paso, anote:</p>
+<ul>
+<li>responsable y herramienta;</li>
+<li>entrada y salida;</li>
+<li>ubicación y regla de versión;</li>
+<li>acción manual o automática;</li>
+<li>restricción de acceso;</li>
+<li>evidencia necesaria para repetirlo.</li>
+</ul>
+<div class="activity">
+<p><strong>Actividad (25 minutos).</strong> Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.</p>
+</div>
+<section id="preguntas-de-comprobación" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="preguntas-de-comprobación"><span class="header-section-number">3.3.1</span> Preguntas de comprobación</h3>
+<ul>
+<li>¿Una persona distinta podría localizar la entrada correcta?</li>
+<li>¿El mapa separa el dato original del dato derivado?</li>
+<li>¿Se reconoce qué versión del código produjo el resultado?</li>
+<li>¿Existe algún dato o servicio que no deba publicarse?</li>
+<li>¿Cuál es el punto de falla con mayor impacto científico?</li>
+</ul>
+<div class="common-error">
+<p><strong>Error frecuente.</strong> Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.</p>
+</div>
 </section>
-<section id="configuración-inicial-en-positron" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="configuración-inicial-en-positron"><span class="header-section-number">2.12</span> Configuración inicial en Positron</h2>
-<p>La configuración se realizará abriendo la carpeta raíz <code>quant-fisheries-learning</code> en Positron y usando la terminal integrada para ejecutar comandos de Quarto, Git y validación.</p>
 </section>
-<section id="creación-del-proyecto-quarto" class="level2" data-number="2.13">
-<h2 data-number="2.13" class="anchored" data-anchor-id="creación-del-proyecto-quarto"><span class="header-section-number">2.13</span> Creación del proyecto Quarto</h2>
-<p>La publicación principal se define como un proyecto Quarto tipo <code>book</code>. El archivo central de configuración es <code>book/_quarto.yml</code>.</p>
-</section>
-<section id="estructura-inicial-de-carpetas" class="level2" data-number="2.14">
-<h2 data-number="2.14" class="anchored" data-anchor-id="estructura-inicial-de-carpetas"><span class="header-section-number">2.14</span> Estructura inicial de carpetas</h2>
-<pre class="text"><code>quant-fisheries-learning/
-├── book/
-├── classes/
-├── posts/
-├── data/
-├── scripts/
-├── exercises/
-├── solutions/
-├── references/
-├── docs/
-└── .github/workflows/</code></pre>
-</section>
-<section id="primer-registro-de-aprendizaje" class="level2" data-number="2.15">
-<h2 data-number="2.15" class="anchored" data-anchor-id="primer-registro-de-aprendizaje"><span class="header-section-number">2.15</span> Primer registro de aprendizaje</h2>
-<p>Registrar cada sesión con fecha, tema, evidencia y nivel alcanzado en la escala 0–4.</p>
-</section>
-<section id="ejercicios-críticos" class="level2" data-number="2.16">
-<h2 data-number="2.16" class="anchored" data-anchor-id="ejercicios-críticos"><span class="header-section-number">2.16</span> Ejercicios críticos</h2>
+<section id="primera-tarea" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="primera-tarea"><span class="header-section-number">3.4</span> 4. Primera tarea</h2>
+<p>Revise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:</p>
 <ol type="1">
-<li>Clasificar diez componentes de mi ecosistema digital.</li>
-<li>Identificar tres puntos de falla reproducible.</li>
-<li>Comparar copia de seguridad y control de versiones.</li>
-<li>Explicar qué conservaría si cambia el IDE.</li>
+<li>el propósito y los usuarios del producto;</li>
+<li>tres riesgos de reproducibilidad, seguridad o mantenimiento;</li>
+<li>una mejora pequeña que pueda verificarse;</li>
+<li>la evidencia con la que demostraría esa mejora;</li>
+<li>una pregunta que deba resolverse en la siguiente sesión.</li>
 </ol>
-</section>
-<section id="proyecto-del-capítulo" class="level2" data-number="2.17">
-<h2 data-number="2.17" class="anchored" data-anchor-id="proyecto-del-capítulo"><span class="header-section-number">2.17</span> Proyecto del capítulo</h2>
-<p>Construir un mapa razonado de mi ecosistema digital científico, indicando entradas, salidas, dependencias, tareas manuales, riesgos y alternativas.</p>
-</section>
-<section id="rúbrica" class="level2" data-number="2.18">
-<h2 data-number="2.18" class="anchored" data-anchor-id="rúbrica"><span class="header-section-number">2.18</span> Rúbrica</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Nivel</th>
-<th>Evidencia</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td>No distingue componentes básicos</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Reconoce componentes con ayuda</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td>Explica componentes y ejecuta pasos básicos</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td>Diseña, compara, valida y diagnostica el flujo</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td>Enseña, revisa y mejora el sistema de otra persona</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="tareas" class="level2" data-number="2.19">
-<h2 data-number="2.19" class="anchored" data-anchor-id="tareas"><span class="header-section-number">2.19</span> Tareas</h2>
-<p>Completar el diagnóstico inicial y el inventario del ecosistema digital para un producto científico real.</p>
-</section>
-<section id="criterio-para-avanzar" class="level2" data-number="2.20">
-<h2 data-number="2.20" class="anchored" data-anchor-id="criterio-para-avanzar"><span class="header-section-number">2.20</span> Criterio para avanzar</h2>
-<p>Avanzar solo cuando puedas explicar el ecosistema digital científico, distinguir sus componentes, representar tu flujo actual, identificar tres problemas y justificar una arquitectura inicial.</p>
-</section>
-<section id="revisión-futura" class="level2" data-number="2.21">
-<h2 data-number="2.21" class="anchored" data-anchor-id="revisión-futura"><span class="header-section-number">2.21</span> Revisión futura</h2>
-<p>Este capítulo deberá revisarse cada año porque las herramientas cambian, pero los principios de reproducibilidad, portabilidad, trazabilidad y seguridad permanecen.</p>
+<div class="expected-result">
+<p><strong>Criterio de avance.</strong> El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.</p>
+</div>
+<p>No publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -654,12 +536,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -715,6 +597,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1030,8 +917,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Presentación">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Presentación</span></span>
+      <a href="../index.html" class="pagination-link" aria-label="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1041,8 +928,22 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Elmer Quispe-Salazar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/blob/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Publicado con <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

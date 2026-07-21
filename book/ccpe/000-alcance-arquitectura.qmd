@@ -1,136 +1,105 @@
-# CCPE-000 — Alcance, arquitectura y sistema de aprendizaje
+---
+title: "Alcance, arquitectura y sistema de aprendizaje"
+chapter-code: "CCPE-000"
+description: "Primera sesión para delimitar el ecosistema digital científico y representar un flujo de trabajo real."
+---
 
-## Identificación del capítulo
+# Alcance, arquitectura y sistema de aprendizaje
 
-| Elemento | Descripción |
-|---|---|
-| Código | CCPE-000 |
-| Título | Alcance, arquitectura y sistema de aprendizaje |
-| Proyecto | `quant-fisheries-learning` |
-| Producto del capítulo | Mapa razonado de mi ecosistema digital científico |
-| Entorno principal | Positron |
+`CCPE-000` · Primera sesión
 
-## Posición dentro del libro
+Un producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.
 
-Este capítulo abre el libro porque define el objeto de aprendizaje: no una herramienta aislada, sino el ecosistema completo que permite transformar datos científicos en productos reproducibles, verificables y comunicables.
+::: {.expected-result}
+**Producto esperado.** Un primer mapa razonado de un producto científico real, con entradas, salidas, dependencias, pasos manuales y riesgos.
+:::
 
-## Alcance
+## 1. Delimitación del libro
 
-El capítulo introduce el sistema de trabajo que conecta fuentes de datos, archivos, bases de datos, lenguajes, entornos de desarrollo, repositorios, documentos, colaboradores y productos científicos.
+El objeto de aprendizaje es el **ecosistema digital científico**: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.
 
-## Relación con el futuro libro estadístico
+El libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.
 
-Este libro estudia infraestructura digital y reproducibilidad. El segundo libro estudiará inferencia, modelamiento cuantitativo y evaluación científica. Aquí pueden aparecer ejemplos de pesquerías o ecología, pero solo como contexto para comprender herramientas y flujos.
+::: {.key-concept}
+**Concepto clave.** Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.
+:::
 
-## Pregunta central
+### Componentes que conviene distinguir
 
-¿Cómo debe organizarse el ecosistema digital de un investigador para que su trabajo sea reproducible, portable, auditable, seguro y sostenible aunque cambien las herramientas?
-
-## Diagnóstico inicial
-
-Responder antes de leer soluciones.
-
-1. ¿Qué diferencia existe entre R, Positron y un archivo `.R`?
-2. ¿Qué diferencia existe entre IMARFIS, Oracle y SQL?
-3. ¿Qué problema resuelve Git que no resuelve una copia de seguridad?
-4. ¿Qué parte de mi flujo actual depende de copiar archivos manualmente?
-5. ¿Qué debería permanecer reproducible si Positron desapareciera?
-6. ¿Cómo distinguiría un lenguaje, un formato y una plataforma?
-7. ¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?
-8. ¿Qué criterio usaría para decidir si una tarea debe automatizarse?
-
-## Problema motivador
-
-Un producto científico puede parecer terminado porque existe un informe, una figura o un artículo. Sin embargo, puede ser frágil si no es posible reconstruirlo desde sus datos, código, decisiones y dependencias.
-
-## Concepto de ecosistema digital científico
-
-Un ecosistema digital científico es el conjunto organizado de personas, datos, archivos, lenguajes, herramientas, bases de datos, repositorios, servicios, reglas y flujos de trabajo que permiten producir conocimiento científico reproducible.
-
-## Diferencias entre componentes
-
-| Tipo | Pregunta que responde | Ejemplo |
+| Tipo | Pregunta que responde | Ejemplos |
 |---|---|---|
 | Lenguaje | ¿Con qué instrucciones proceso información? | R, Python, SQL |
-| IDE | ¿Dónde escribo, ejecuto y organizo el trabajo? | Positron |
-| Formato | ¿Cómo se almacena la información? | `.csv`, `.qmd`, `.xlsx`, `.parquet` |
-| Base de datos | ¿Dónde se estructuran y consultan datos persistentes? | Oracle, PostgreSQL, DuckDB |
-| Plataforma | ¿Dónde se aloja, ejecuta o colabora? | GitHub, GitHub Pages, Posit Connect |
-| Servicio | ¿Qué capacidad remota consumo? | API, cloud storage, servidor institucional |
-| Flujo de trabajo | ¿Qué secuencia produce un resultado? | datos → script → figura → informe |
+| Entorno de desarrollo | ¿Dónde escribo, ejecuto y organizo? | Positron |
+| Formato | ¿Cómo se representa o almacena? | `.csv`, `.qmd`, `.parquet` |
+| Base de datos | ¿Dónde consulto datos persistentes? | PostgreSQL, DuckDB |
+| Plataforma o servicio | ¿Dónde colaboro, alojo o publico? | GitHub, GitHub Pages |
+| Flujo de trabajo | ¿Qué secuencia produce el resultado? | datos → código → informe |
 
-## Principios que permanecen aunque cambien las herramientas
+::: {.check}
+**Comprobación.** Explique con sus propias palabras por qué R, Positron y un archivo `.R` no son el mismo tipo de componente.
+:::
 
-1. Portabilidad de formatos.
-2. Registro explícito de decisiones.
-3. Separación entre datos crudos y datos derivados.
-4. Código versionado.
-5. Ambientes computacionales documentados.
-6. Productos reconstruibles.
-7. Seguridad proporcional a la sensibilidad de los datos.
-8. Automatización de tareas repetibles y verificables.
+## 2. Diagnóstico inicial
 
-## Arquitectura general del proyecto
+Responda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.
 
-La arquitectura base separa libro, clases, posts, datos, scripts, ejercicios, soluciones, referencias y publicación web.
+1. ¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?
+2. ¿Qué problema resuelve Git que no resuelve una copia de seguridad?
+3. ¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?
+4. ¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?
+5. ¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?
+6. ¿Qué criterio emplearía para decidir si una tarea debe automatizarse?
 
-## Configuración inicial en Positron
+::: {.reflection}
+**Reflexión.** Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.
+:::
 
-La configuración se realizará abriendo la carpeta raíz `quant-fisheries-learning` en Positron y usando la terminal integrada para ejecutar comandos de Quarto, Git y validación.
+## 3. Primera actividad: representar un producto real
 
-## Creación del proyecto Quarto
-
-La publicación principal se define como un proyecto Quarto tipo `book`. El archivo central de configuración es `book/_quarto.yml`.
-
-## Estructura inicial de carpetas
+Elija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:
 
 ```text
-quant-fisheries-learning/
-├── book/
-├── classes/
-├── posts/
-├── data/
-├── scripts/
-├── exercises/
-├── solutions/
-├── references/
-├── docs/
-└── .github/workflows/
+fuente → adquisición → dato de trabajo → transformación → validación
+       → figura o tabla → documento → publicación o archivo
 ```
 
-## Primer registro de aprendizaje
+Para cada paso, anote:
 
-Registrar cada sesión con fecha, tema, evidencia y nivel alcanzado en la escala 0–4.
+- responsable y herramienta;
+- entrada y salida;
+- ubicación y regla de versión;
+- acción manual o automática;
+- restricción de acceso;
+- evidencia necesaria para repetirlo.
 
-## Ejercicios críticos
+::: {.activity}
+**Actividad (25 minutos).** Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.
+:::
 
-1. Clasificar diez componentes de mi ecosistema digital.
-2. Identificar tres puntos de falla reproducible.
-3. Comparar copia de seguridad y control de versiones.
-4. Explicar qué conservaría si cambia el IDE.
+### Preguntas de comprobación
 
-## Proyecto del capítulo
+- ¿Una persona distinta podría localizar la entrada correcta?
+- ¿El mapa separa el dato original del dato derivado?
+- ¿Se reconoce qué versión del código produjo el resultado?
+- ¿Existe algún dato o servicio que no deba publicarse?
+- ¿Cuál es el punto de falla con mayor impacto científico?
 
-Construir un mapa razonado de mi ecosistema digital científico, indicando entradas, salidas, dependencias, tareas manuales, riesgos y alternativas.
+::: {.common-error}
+**Error frecuente.** Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.
+:::
 
-## Rúbrica
+## 4. Primera tarea
 
-| Nivel | Evidencia |
-|---:|---|
-| 0 | No distingue componentes básicos |
-| 1 | Reconoce componentes con ayuda |
-| 2 | Explica componentes y ejecuta pasos básicos |
-| 3 | Diseña, compara, valida y diagnostica el flujo |
-| 4 | Enseña, revisa y mejora el sistema de otra persona |
+Revise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:
 
-## Tareas
+1. el propósito y los usuarios del producto;
+2. tres riesgos de reproducibilidad, seguridad o mantenimiento;
+3. una mejora pequeña que pueda verificarse;
+4. la evidencia con la que demostraría esa mejora;
+5. una pregunta que deba resolverse en la siguiente sesión.
 
-Completar el diagnóstico inicial y el inventario del ecosistema digital para un producto científico real.
+::: {.expected-result}
+**Criterio de avance.** El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.
+:::
 
-## Criterio para avanzar
-
-Avanzar solo cuando puedas explicar el ecosistema digital científico, distinguir sus componentes, representar tu flujo actual, identificar tres problemas y justificar una arquitectura inicial.
-
-## Revisión futura
-
-Este capítulo deberá revisarse cada año porque las herramientas cambian, pero los principios de reproducibilidad, portabilidad, trazabilidad y seguridad permanecen.
+No publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.

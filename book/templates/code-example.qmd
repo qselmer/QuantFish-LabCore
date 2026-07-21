@@ -1,0 +1,51 @@
+---
+title: "Plantilla técnica de código ejecutable"
+listing: false
+---
+
+# Ejemplo técnico de R, Python y SQL
+
+Esta plantilla no forma parte de la navegación del libro. Los bloques están desactivados para que la renderización no dependa de paquetes, intérpretes ni bases de datos adicionales.
+
+## R
+
+```{r}
+#| label: fig-serie-ejemplo
+#| fig-cap: "Serie ilustrativa generada en R."
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+# archivo: scripts/r/ejemplo.R
+plot(1:5, type = "b")
+```
+
+La figura @fig-serie-ejemplo se generará únicamente al cambiar `eval: false` por `eval: true` y disponer de R.
+
+## Python
+
+```{python}
+#| label: tbl-registros-ejemplo
+#| tbl-cap: "Registros ilustrativos generados en Python."
+#| eval: false
+#| echo: true
+#| code-fold: true
+# archivo: scripts/python/ejemplo.py
+import pandas as pd
+pd.DataFrame({"periodo": [1, 2], "valor": [10, 12]})
+```
+
+La tabla @tbl-registros-ejemplo requiere activar la evaluación y disponer de `pandas`; esta dependencia no se declara para el proyecto porque el bloque es solo ilustrativo.
+
+## SQL
+
+```{sql}
+--| eval: false
+--| echo: true
+--| code-line-numbers: true
+-- archivo: scripts/sql/ejemplo.sql
+SELECT periodo, valor
+FROM datos_procesados
+ORDER BY periodo;
+```
+
+El SQL se muestra, pero no se conecta a ningún servicio. Para ejecutar un bloque, documente primero el motor y use credenciales fuera del repositorio. `eval: false` es la opción segura por defecto; `eval: true` solo debe utilizarse cuando el entorno y los datos hayan sido verificados.

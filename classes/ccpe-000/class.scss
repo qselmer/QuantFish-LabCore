@@ -1,0 +1,16 @@
+/*-- scss:defaults --*/
+$body-bg: #ffffff;
+$body-color: #24313a;
+$link-color: #0f766e;
+$presentation-heading-color: #123047;
+$presentation-font-size-root: 34px;
+$font-family-sans-serif: "Inter", "Segoe UI", Arial, sans-serif;
+$font-family-monospace: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+
+/*-- scss:rules --*/
+.reveal h1, .reveal h2 { letter-spacing: -0.02em; }
+.reveal h2 { border-bottom: 3px solid #155e75; padding-bottom: .18em; }
+.reveal table { font-size: .72em; }
+.reveal pre { border-left: 5px solid #0f766e; box-shadow: none; width: 100%; }
+.reveal code { max-height: 520px; }
+.reveal .slide-number { color: #5e6b73; }

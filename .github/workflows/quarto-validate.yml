@@ -1,0 +1,26 @@
+name: Validate Quarto sources
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render book
+        run: quarto render book --to html
+
+      - name: Render class
+        run: quarto render classes/ccpe-000/ccpe-000-clase.qmd --to revealjs

@@ -1,13 +1,59 @@
-# Presentación
+---
+title: "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa"
+subtitle: "Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial"
+author: "Elmer Quispe-Salazar"
+license: "CC BY 4.0"
+---
 
-Este libro desarrolla el ecosistema digital que necesita un investigador moderno en ciencia pesquera y ecología cuantitativa.
+# Presentación {.unnumbered}
 
-No es un libro de estadística aplicada. Su objetivo es construir infraestructura, criterio técnico y flujos reproducibles para datos, código, colaboración, publicación e inteligencia artificial.
+Este libro abierto ayuda a construir un entorno de trabajo reproducible para la ciencia pesquera y la ecología cuantitativa. Integra datos, código, documentación, automatización, colaboración y publicación sin atar el aprendizaje a una herramienta concreta.
 
-## Estructura inicial
+[Abrir el repositorio en GitHub](https://github.com/qselmer/quant-fisheries-learning){.btn .btn-primary role="button"}
 
-1. Fundamentos del ecosistema digital científico.
-2. Datos, archivos, formatos y bases de datos.
-3. Lenguajes computacionales y entornos de desarrollo.
-4. Reproducibilidad, publicación y colaboración.
-5. Automatización, servidores, cloud, HPC e inteligencia artificial.
+## A quién se dirige
+
+Está pensado para investigadores, profesionales, docentes y estudiantes que producen resultados científicos con archivos, scripts, bases de datos y documentos, y necesitan que ese trabajo sea portable, auditable y sostenible.
+
+## El problema que resuelve
+
+Un resultado puede ser correcto y, aun así, resultar imposible de reconstruir. El libro propone criterios y prácticas para conectar cada producto con sus fuentes, transformaciones, decisiones, versiones y condiciones de ejecución.
+
+## Alcance
+
+Se estudian organización de proyectos, formatos, lenguajes, entornos de desarrollo, control de versiones, publicación reproducible, automatización y uso responsable de inteligencia artificial. Los ejemplos proceden de las pesquerías y la ecología cuantitativa.
+
+::: {.callout-note title="Qué no cubre"}
+Este no es un libro de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE.
+:::
+
+## Cómo utilizarlo
+
+Cada unidad mantiene cuatro productos distintos:
+
+1. **Aprendizaje personal:** preguntas, pruebas y registro de avances.
+2. **Capítulo:** explicación narrativa y reproducible en el libro web.
+3. **Clase:** experiencia docente con tiempos, actividades y evaluación.
+4. **Post:** síntesis pública redactada solo después de evaluar el aprendizaje.
+
+Se recomienda leer el problema, realizar el diagnóstico sin consultar respuestas, completar la actividad y conservar evidencia del resultado.
+
+## Estado de desarrollo
+
+El proyecto se encuentra en construcción. La primera unidad establece el alcance, la arquitectura y el sistema de aprendizaje; el contenido se ampliará de forma incremental y validada.
+
+## Datos y seguridad
+
+::: {.callout-warning title="Datos de ejemplo y datos institucionales"}
+Los ejemplos públicos deben usar datos abiertos, sintéticos o anonimizados. Los datos institucionales, credenciales y rutas locales no deben incorporarse al repositorio ni a la publicación.
+:::
+
+## Autor, licencia y cita
+
+**Autor:** Elmer Quispe-Salazar
+
+**Licencia del contenido:** [Creative Commons Atribución 4.0 Internacional](https://creativecommons.org/licenses/by/4.0/deed.es)
+
+**Repositorio:** [qselmer/quant-fisheries-learning](https://github.com/qselmer/quant-fisheries-learning)
+
+Para citar esta obra, use el título, el autor, el año de la versión consultada, la URL oficial y la fecha de acceso.

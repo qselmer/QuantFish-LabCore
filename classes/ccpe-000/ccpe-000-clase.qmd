@@ -1,20 +1,26 @@
 ---
 title: "CCPE-000 — Alcance, arquitectura y sistema de aprendizaje"
-subtitle: "Clase 1: construir el mapa razonado del ecosistema digital científico"
+subtitle: "Primera sesión: representar un producto científico real"
 author: "Elmer Quispe-Salazar"
 lang: es
 date: today
 format:
   revealjs:
     theme: simple
-    slide-number: true
-    chalkboard: true
-    preview-links: auto
+    width: 1600
+    height: 900
+    margin: 0.08
+    slide-number: c/t
+    navigation-mode: linear
+    transition: none
     incremental: false
+    code-line-numbers: true
+    code-overflow: wrap
+    chalkboard: false
+    preview-links: auto
     self-contained: false
+    css: class.scss
   pptx:
-    slide-level: 2
-  beamer:
     slide-level: 2
 execute:
   echo: true
@@ -23,393 +29,172 @@ execute:
 editor: source
 ---
 
-## Propósito de la sesión
+## Pregunta de entrada
 
-Comprender que un producto científico no depende solo de un script o de un software, sino de un **ecosistema digital** compuesto por datos, archivos, lenguajes, bases de datos, repositorios, documentos, personas, reglas y procesos.
+¿Qué tendría que conservarse para reconstruir un producto científico si mañana cambiara su computadora o su entorno de desarrollo?
 
 ::: {.notes}
-Abrir la clase con un caso real: un artículo, informe o evaluación que usa datos institucionales, scripts, figuras y documentos. La idea central es que la reproducibilidad depende del sistema completo, no solo del código.
+Tiempo: 5 minutos. Solicitar respuestas breves y conservar dos ejemplos para retomarlos al cierre. No corregir todavía.
 :::
 
-## Objetivos de aprendizaje
+## Objetivos y producto
 
-Al finalizar la clase, el participante podrá:
+Al finalizar, podrá:
 
-1. diferenciar producto científico y ecosistema digital;
-2. clasificar componentes como lenguaje, IDE, formato, base de datos, plataforma, servicio o flujo de trabajo;
-3. identificar dependencias, procesos manuales y riesgos de irreproducibilidad;
-4. justificar por qué Quarto, Git y GitHub Pages forman una arquitectura base para libros, clases y posts;
-5. construir el primer inventario razonado de un producto científico real.
+- distinguir componentes y relaciones de un ecosistema digital;
+- reconocer pasos manuales, dependencias y restricciones;
+- representar un flujo real y priorizar un riesgo.
 
-## Resultado esperado
+**Producto:** primer mapa razonado de un producto científico.
 
-El producto de la sesión será el primer borrador del:
+::: {.notes}
+Tiempo: 5 minutos. Aclarar que la sesión produce un mapa inicial, no una arquitectura definitiva.
+:::
 
-**Mapa razonado de mi ecosistema digital científico**
+## Ruta de 90 minutos
 
-Debe incluir:
-
-- fuentes de datos;
-- archivos y formatos;
-- lenguajes y herramientas;
-- repositorios y productos;
-- colaboradores;
-- procesos manuales y automáticos;
-- riesgos;
-- oportunidades de automatización.
-
-## Guion de 90 minutos
-
-| Bloque | Tiempo | Actividad |
-|---|---:|---|
-| 1. Problema motivador | 10 min | Discutir por qué un producto puede ser correcto pero irreproducible |
-| 2. Concepto central | 15 min | Definir ecosistema digital científico |
-| 3. Clasificación de componentes | 20 min | Diferenciar lenguaje, IDE, formato, plataforma, base de datos y flujo |
-| 4. Arquitectura base | 15 min | Entender `quant-fisheries-learning` como proyecto Quarto + Git |
-| 5. Inventario inicial | 20 min | Completar tablas del producto seleccionado |
-| 6. Evaluación rápida | 10 min | Identificar el componente más frágil y justificar evidencia de mejora |
-
-## Problema
-
-Un artículo, informe o dashboard puede existir como producto final, pero ser científicamente frágil si no puede reconstruirse desde:
-
-- los datos originales;
-- las consultas realizadas;
-- los scripts utilizados;
-- las versiones de archivos;
-- las decisiones de limpieza;
-- las dependencias computacionales;
-- el documento fuente;
-- el historial de cambios.
-
-## Pregunta inicial
-
-> ¿Por qué un artículo científico no puede considerarse únicamente el resultado de ejecutar un script en R?
-
-Responder en tres frases.
-
-## Intuición
-
-Un flujo científico es una cadena de transformación:
-
-```text
-datos → organización → procesamiento → validación → análisis → comunicación → preservación
-```
-
-Si una parte de la cadena no queda registrada, el producto puede ser difícil de auditar, corregir o repetir.
-
-## Concepto
-
-Un **ecosistema digital científico** es el conjunto organizado de:
-
-- personas;
-- datos;
-- archivos;
-- formatos;
-- lenguajes;
-- herramientas;
-- bases de datos;
-- repositorios;
-- servicios;
-- reglas;
-- flujos de trabajo;
-- infraestructura.
-
-Su función es transformar información científica en conocimiento verificable, reproducible y comunicable.
-
-## Definición operativa
-
-Para este libro, un ecosistema digital científico será evaluado por seis propiedades:
-
-| Propiedad | Pregunta de evaluación |
-|---|---|
-| Reproducibilidad | ¿Puedo reconstruir el resultado? |
-| Portabilidad | ¿Puedo mover el flujo a otro entorno? |
-| Trazabilidad | ¿Puedo saber qué cambió, cuándo y por qué? |
-| Seguridad | ¿Los datos están protegidos según su sensibilidad? |
-| Escalabilidad | ¿El flujo soporta más datos, más usuarios o más productos? |
-| Sostenibilidad | ¿Otra persona puede mantenerlo? |
-
-## Representación mínima
-
-Un mapa inicial puede representarse así:
-
-```text
-Fuente de datos
-  ↓
-Extracción o descarga
-  ↓
-Archivo crudo
-  ↓
-Validación
-  ↓
-Dato procesado
-  ↓
-Script analítico
-  ↓
-Figura / tabla
-  ↓
-Informe / libro / post / presentación
-  ↓
-Publicación y archivo
-```
-
-## Clasificación de componentes
-
-| Componente | Tipo | Función principal |
-|---|---|---|
-| R | Lenguaje | Procesamiento, análisis, visualización |
-| Python | Lenguaje | Automatización, análisis, APIs, aplicaciones |
-| SQL | Lenguaje | Consulta y manipulación de bases de datos |
-| Positron | IDE | Escribir, ejecutar y organizar código científico |
-| `.R` | Archivo de código | Guarda instrucciones en R |
-| `.qmd` | Documento fuente | Integra texto, código y salida reproducible |
-| Oracle | Sistema gestor de base de datos | Almacena y administra datos institucionales |
-| IMARFIS | Sistema institucional | Plataforma o sistema que expone datos pesqueros |
-| Git | Sistema de control de versiones | Registra cambios del proyecto |
-| GitHub | Plataforma | Aloja repositorios y facilita colaboración |
-| GitHub Pages | Servicio de publicación | Publica sitios estáticos en la web |
-| Quarto | Sistema editorial computacional | Genera libros, clases, informes y posts |
-
-## Diferencia crítica
-
-No confundir:
-
-| Concepto | Responde a | Ejemplo |
-|---|---|---|
-| Lenguaje | ¿Con qué instrucciones proceso información? | R, Python, SQL |
-| IDE | ¿Dónde escribo y ejecuto? | Positron |
-| Formato | ¿Cómo se guarda la información? | `.csv`, `.xlsx`, `.qmd` |
-| Base de datos | ¿Dónde se administra información estructurada? | Oracle, PostgreSQL |
-| Plataforma | ¿Dónde colaboro, alojo o publico? | GitHub |
-| Servicio | ¿Qué capacidad externa consumo? | GitHub Pages, API |
-| Flujo de trabajo | ¿Qué secuencia produce el resultado? | datos → código → informe |
-
-## Arquitectura base del proyecto
-
-La carpeta raíz será:
-
-```text
-QuantFish-LabCore/
-└── quant-fisheries-learning/
-    ├── book/
-    ├── classes/
-    ├── posts/
-    ├── data/
-    ├── scripts/
-    ├── exercises/
-    ├── solutions/
-    ├── references/
-    ├── docs/
-    └── .github/workflows/
-```
-
-## ¿Por qué esta arquitectura?
-
-| Carpeta | Función |
-|---|---|
-| `book/` | Fuente del libro Quarto |
-| `classes/` | Clases reproducibles en Quarto |
-| `posts/` | Posts web derivados del aprendizaje |
-| `data/` | Datos crudos, externos, procesados y metadatos |
-| `scripts/` | Código R, Python y SQL reutilizable |
-| `exercises/` | Ejercicios para aprendizaje |
-| `solutions/` | Solucionarios |
-| `references/` | Bibliografía y estilos de citación |
-| `docs/` | Salida HTML para GitHub Pages |
-| `.github/workflows/` | Automatización de publicación |
-
-## Quarto como sistema editorial
-
-Quarto permite escribir una sola fuente `.qmd` y producir distintos formatos:
-
-```text
-.qmd → HTML
-.qmd → PDF
-.qmd → Word
-.qmd → revealjs
-.qmd → pptx
-.qmd → beamer
-```
-
-Para este proyecto:
-
-| Producto | Fuente | Salida principal |
-|---|---|---|
-| Libro | `.qmd` | HTML web |
-| Clase | `.qmd` | revealjs, pptx o beamer |
-| Post | `.qmd` | HTML web |
-| Ejercicios | `.qmd` | HTML/PDF |
-
-## Procedimiento en Positron
-
-### Paso 1
-
-Abrir la carpeta raíz:
-
-```text
-File → Open Folder → QuantFish-LabCore/quant-fisheries-learning
-```
-
-### Paso 2
-
-Abrir la terminal integrada de Positron:
-
-```text
-Terminal → New Terminal
-```
-
-### Paso 3
-
-Verificar Quarto y Git:
-
-```bash
-quarto --version
-git --version
-```
-
-Resultado esperado: ambos comandos devuelven una versión instalada.
-
-## Renderizar el libro
-
-Desde la raíz del repositorio:
-
-```bash
-cd book
-quarto render
-```
-
-Resultado esperado:
-
-```text
-docs/index.html
-```
-
-El libro se publica desde `docs/`.
-
-## Renderizar esta clase
-
-Desde la raíz del repositorio:
-
-```bash
-quarto render classes/ccpe-000/ccpe-000-clase.qmd --to revealjs
-```
-
-Para PowerPoint:
-
-```bash
-quarto render classes/ccpe-000/ccpe-000-clase.qmd --to pptx
-```
-
-Para PDF tipo LaTeX Beamer:
-
-```bash
-quarto render classes/ccpe-000/ccpe-000-clase.qmd --to beamer
-```
-
-## Actividad 1: producto científico seleccionado
-
-Completar:
-
-| Campo | Respuesta |
-|---|---|
-| Producto seleccionado |  |
-| Resultado final esperado |  |
-| Usuarios principales |  |
-| Datos principales |  |
-| Herramientas actuales |  |
-| Principal dificultad |  |
-
-## Actividad 2: inventario de fuentes
-
-| Fuente | Responsable | Forma de acceso | Frecuencia | Restricción |
-|---|---|---|---|---|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-
-Pregunta crítica:
-
-> ¿Qué fuente sería más difícil de reconstruir si mañana pierdes tu computadora local?
-
-## Actividad 3: inventario de archivos
-
-| Contenido | Formato | Ubicación | Versión identificable | Riesgo |
-|---|---|---|---|---|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-
-Pregunta crítica:
-
-> ¿Qué archivo tiene mayor probabilidad de existir en varias versiones incompatibles?
-
-## Actividad 4: procesos manuales
-
-| Proceso | Manual / semi / automático | Evidencia | Riesgo |
-|---|---|---|---|
-| Descargar datos |  |  |  |
-| Renombrar archivos |  |  |  |
-| Limpiar datos |  |  |  |
-| Generar figuras |  |  |  |
-| Actualizar informe |  |  |  |
-
-Pregunta crítica:
-
-> ¿Qué proceso manual genera mayor riesgo científico, no solo mayor incomodidad?
-
-## Ejercicio de clasificación
-
-Clasifica cada elemento:
-
-| Elemento | Clasificación propuesta | Justificación |
-|---|---|---|
-| R |  |  |
-| Positron |  |  |
-| `.R` |  |  |
-| `.qmd` |  |  |
-| Oracle |  |  |
-| SQL |  |  |
-| Git |  |  |
-| GitHub Pages |  |  |
-| Excel |  |  |
-| DuckDB |  |  |
-
-## Evaluación rápida
-
-Responde con escala 0–4:
-
-| Capacidad | Nivel |
+| Bloque | Tiempo |
 |---|---:|
-| Explico qué es un ecosistema digital científico |  |
-| Distingo lenguaje, IDE, formato, plataforma y base de datos |  |
-| Represento mi flujo actual |  |
-| Identifico problemas y riesgos |  |
-| Justifico una arquitectura inicial |  |
-| Explico qué debe ser independiente de Positron |  |
+| Problema y diagnóstico | 15 min |
+| Concepto y demostración | 20 min |
+| Actividad de mapeo | 35 min |
+| Revisión entre pares | 10 min |
+| Evaluación y tarea | 10 min |
 
-## Rúbrica de avance
+## Un resultado puede existir y ser frágil
 
-| Nivel | Evidencia |
-|---:|---|
-| 0 | No identifica componentes ni relaciones |
-| 1 | Reconoce componentes con ayuda |
-| 2 | Explica componentes y ejecuta instrucciones básicas |
-| 3 | Diseña, compara, valida y diagnostica el flujo |
-| 4 | Enseña, revisa y mejora la arquitectura de otro flujo |
+Una figura final no revela necesariamente:
 
-## Cierre
+- qué datos se usaron;
+- qué transformaciones ocurrieron;
+- qué versión del código se ejecutó;
+- qué decisiones fueron manuales;
+- qué información tiene acceso restringido.
 
-La idea central de CCPE-000 es:
+::: {.notes}
+Tiempo: 7 minutos. Mostrar un resultado conocido sin revelar datos sensibles y preguntar qué falta para reconstruirlo.
+:::
 
-> La ciencia computacional reproducible no depende de una herramienta aislada, sino de una arquitectura explícita que conecta datos, código, documentación, colaboración, publicación y preservación.
+## Diagnóstico individual
 
-## Tarea para el chat
+1. ¿Qué diferencia hay entre lenguaje, IDE y archivo?
+2. ¿Qué aporta Git que no aporta una copia de seguridad?
+3. ¿Dónde aparece el mayor riesgo de versión incorrecta?
+4. ¿Qué debe seguir funcionando si cambia Positron?
 
-Elegir un producto científico real y responder:
+::: {.notes}
+Tiempo: 8 minutos. Las respuestas son privadas y no se resuelven durante el diagnóstico.
+:::
 
-1. ¿qué información entra?;
-2. ¿qué se produce?;
-3. ¿qué pasos son manuales?;
-4. ¿dónde existe mayor riesgo de versión incorrecta?;
-5. ¿qué tendría que quedar documentado para que otra persona reconstruya el producto?
+## Ecosistema digital científico
+
+Es el sistema organizado de personas, datos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que convierte información en conocimiento verificable.
+
+**Idea central:** la reproducibilidad depende de relaciones explícitas, no de una aplicación aislada.
+
+## No confundir componentes
+
+| Tipo | Pregunta | Ejemplo |
+|---|---|---|
+| Lenguaje | ¿Con qué instrucciones? | R, Python, SQL |
+| IDE | ¿Dónde escribo y ejecuto? | Positron |
+| Formato | ¿Cómo se representa? | `.csv`, `.qmd` |
+| Base de datos | ¿Dónde consulto? | PostgreSQL |
+| Plataforma | ¿Dónde colaboro o publico? | GitHub |
+
+::: {.notes}
+Tiempo: 8 minutos. Pedir al grupo un ejemplo adicional por categoría.
+:::
+
+## Demostración: seguir una figura
+
+```text
+fuente → adquisición → dato crudo → transformación
+       → validación → figura → documento → publicación
+```
+
+En cada flecha preguntamos: **¿quién, con qué, desde qué versión y con qué evidencia?**
+
+::: {.notes}
+Tiempo: 12 minutos. Dibujar el flujo y agregar en vivo un paso manual, una restricción y una evidencia.
+:::
+
+## Actividad: mapa razonado
+
+Elija un producto real y represente:
+
+- entradas y salidas;
+- responsables y herramientas;
+- pasos manuales y automáticos;
+- ubicación y regla de versión;
+- restricciones de acceso;
+- evidencia para repetir cada transformación.
+
+::: {.notes}
+Tiempo: 25 minutos. Trabajo individual. Circular y preguntar por relaciones que falten; no diseñar el mapa por el participante.
+:::
+
+## Marcas para leer el mapa
+
+- **Círculo:** paso manual.
+- **Candado:** información restringida.
+- **Interrogación:** dependencia no explicada.
+- **Estrella:** evidencia verificable.
+
+Después, seleccione el punto de falla con mayor impacto científico.
+
+::: {.notes}
+Tiempo: 10 minutos. Esta es la segunda parte de la actividad.
+:::
+
+## Revisión entre pares
+
+La otra persona intenta responder:
+
+1. ¿Dónde está la entrada correcta?
+2. ¿Qué transforma cada paso?
+3. ¿Qué versión produjo la salida?
+4. ¿Qué no debe publicarse?
+5. ¿Qué relación sigue siendo ambigua?
+
+::: {.notes}
+Tiempo: 10 minutos. La revisión busca preguntas, no soluciones.
+:::
+
+## Evaluación de salida
+
+En una tarjeta, escriba:
+
+- el riesgo prioritario;
+- una mejora pequeña;
+- la evidencia que demostraría la mejora;
+- una pregunta pendiente.
+
+::: {.notes}
+Tiempo: 5 minutos. Recoger la tarjeta como evidencia de aprendizaje.
+:::
+
+## Tarea y criterio de avance
+
+Entregar el mapa revisado con tres riesgos y una mejora verificable.
+
+Se avanza cuando otra persona puede reconocer entradas, transformaciones, salidas, responsables y restricciones **sin recibir datos institucionales**.
+
+::: {.notes}
+Tiempo: 5 minutos. Recordar que el post se redactará solo después de evaluar la tarea.
+:::
+
+## Solucionario para facilitación
+
+No existe un mapa único. Una respuesta sólida:
+
+- distingue tipos de componentes;
+- conecta cada transformación con evidencia;
+- separa datos originales y derivados;
+- reconoce versiones y responsables;
+- protege información restringida;
+- prioriza por impacto científico, no por incomodidad.
+
+::: {.notes}
+Esta diapositiva puede ocultarse durante la actividad. Usarla para retroalimentación, no para responder el diagnóstico inicial.
+:::

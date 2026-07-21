@@ -2,9 +2,7 @@
 
 ## Ubicación recomendada
 
-```text
-C:/Users/<tu_usuario>/Documents/QuantFish-LabCore/quant-fisheries-learning/
-```
+Use una carpeta de proyectos accesible para su cuenta. Todas las instrucciones del repositorio emplean rutas relativas.
 
 ## Pasos
 

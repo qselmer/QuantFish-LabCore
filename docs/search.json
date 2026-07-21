@@ -4,261 +4,134 @@
     "href": "index.html",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
     "section": "",
-    "text": "1 Presentación\nEste libro desarrolla el ecosistema digital que necesita un investigador moderno en ciencia pesquera y ecología cuantitativa.\nNo es un libro de estadística aplicada. Su objetivo es construir infraestructura, criterio técnico y flujos reproducibles para datos, código, colaboración, publicación e inteligencia artificial.",
+    "text": "Presentación\nEste libro abierto ayuda a construir un entorno de trabajo reproducible para la ciencia pesquera y la ecología cuantitativa. Integra datos, código, documentación, automatización, colaboración y publicación sin atar el aprendizaje a una herramienta concreta.\nAbrir el repositorio en GitHub",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Presentación</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
     ]
   },
   {
-    "objectID": "index.html#estructura-inicial",
-    "href": "index.html#estructura-inicial",
+    "objectID": "index.html#a-quién-se-dirige",
+    "href": "index.html#a-quién-se-dirige",
     "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
-    "section": "1.1 Estructura inicial",
-    "text": "1.1 Estructura inicial\n\nFundamentos del ecosistema digital científico.\nDatos, archivos, formatos y bases de datos.\nLenguajes computacionales y entornos de desarrollo.\nReproducibilidad, publicación y colaboración.\nAutomatización, servidores, cloud, HPC e inteligencia artificial.",
+    "section": "0.1 A quién se dirige",
+    "text": "0.1 A quién se dirige\nEstá pensado para investigadores, profesionales, docentes y estudiantes que producen resultados científicos con archivos, scripts, bases de datos y documentos, y necesitan que ese trabajo sea portable, auditable y sostenible.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Presentación</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#el-problema-que-resuelve",
+    "href": "index.html#el-problema-que-resuelve",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.2 El problema que resuelve",
+    "text": "0.2 El problema que resuelve\nUn resultado puede ser correcto y, aun así, resultar imposible de reconstruir. El libro propone criterios y prácticas para conectar cada producto con sus fuentes, transformaciones, decisiones, versiones y condiciones de ejecución.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#alcance",
+    "href": "index.html#alcance",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.3 Alcance",
+    "text": "0.3 Alcance\nSe estudian organización de proyectos, formatos, lenguajes, entornos de desarrollo, control de versiones, publicación reproducible, automatización y uso responsable de inteligencia artificial. Los ejemplos proceden de las pesquerías y la ecología cuantitativa.\n\n\n\n\n\n\nQué no cubre\n\n\n\nEste no es un libro de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#cómo-utilizarlo",
+    "href": "index.html#cómo-utilizarlo",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.4 Cómo utilizarlo",
+    "text": "0.4 Cómo utilizarlo\nCada unidad mantiene cuatro productos distintos:\n\nAprendizaje personal: preguntas, pruebas y registro de avances.\nCapítulo: explicación narrativa y reproducible en el libro web.\nClase: experiencia docente con tiempos, actividades y evaluación.\nPost: síntesis pública redactada solo después de evaluar el aprendizaje.\n\nSe recomienda leer el problema, realizar el diagnóstico sin consultar respuestas, completar la actividad y conservar evidencia del resultado.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#estado-de-desarrollo",
+    "href": "index.html#estado-de-desarrollo",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.5 Estado de desarrollo",
+    "text": "0.5 Estado de desarrollo\nEl proyecto se encuentra en construcción. La primera unidad establece el alcance, la arquitectura y el sistema de aprendizaje; el contenido se ampliará de forma incremental y validada.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#datos-y-seguridad",
+    "href": "index.html#datos-y-seguridad",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.6 Datos y seguridad",
+    "text": "0.6 Datos y seguridad\n\n\n\n\n\n\nDatos de ejemplo y datos institucionales\n\n\n\nLos ejemplos públicos deben usar datos abiertos, sintéticos o anonimizados. Los datos institucionales, credenciales y rutas locales no deben incorporarse al repositorio ni a la publicación.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#autor-licencia-y-cita",
+    "href": "index.html#autor-licencia-y-cita",
+    "title": "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa",
+    "section": "0.7 Autor, licencia y cita",
+    "text": "0.7 Autor, licencia y cita\nAutor: Elmer Quispe-Salazar\nLicencia del contenido: Creative Commons Atribución 4.0 Internacional\nRepositorio: qselmer/quant-fisheries-learning\nPara citar esta obra, use el título, el autor, el año de la versión consultada, la URL oficial y la fecha de acceso.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html",
     "href": "ccpe/000-alcance-arquitectura.html",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
+    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
     "section": "",
-    "text": "2.1 Identificación del capítulo",
+    "text": "3 Alcance, arquitectura y sistema de aprendizaje\nCCPE-000 · Primera sesión\nUn producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
-    "objectID": "ccpe/000-alcance-arquitectura.html#identificación-del-capítulo",
-    "href": "ccpe/000-alcance-arquitectura.html#identificación-del-capítulo",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "",
-    "text": "Elemento\nDescripción\n\n\n\n\nCódigo\nCCPE-000\n\n\nTítulo\nAlcance, arquitectura y sistema de aprendizaje\n\n\nProyecto\nquant-fisheries-learning\n\n\nProducto del capítulo\nMapa razonado de mi ecosistema digital científico\n\n\nEntorno principal\nPositron",
+    "objectID": "ccpe/000-alcance-arquitectura.html#delimitación-del-libro",
+    "href": "ccpe/000-alcance-arquitectura.html#delimitación-del-libro",
+    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "3.1 1. Delimitación del libro",
+    "text": "3.1 1. Delimitación del libro\nEl objeto de aprendizaje es el ecosistema digital científico: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.\nEl libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.\n\nConcepto clave. Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.\n\n\n3.1.1 Componentes que conviene distinguir\n\n\n\n\n\n\n\n\nTipo\nPregunta que responde\nEjemplos\n\n\n\n\nLenguaje\n¿Con qué instrucciones proceso información?\nR, Python, SQL\n\n\nEntorno de desarrollo\n¿Dónde escribo, ejecuto y organizo?\nPositron\n\n\nFormato\n¿Cómo se representa o almacena?\n.csv, .qmd, .parquet\n\n\nBase de datos\n¿Dónde consulto datos persistentes?\nPostgreSQL, DuckDB\n\n\nPlataforma o servicio\n¿Dónde colaboro, alojo o publico?\nGitHub, GitHub Pages\n\n\nFlujo de trabajo\n¿Qué secuencia produce el resultado?\ndatos → código → informe\n\n\n\n\nComprobación. Explique con sus propias palabras por qué R, Positron y un archivo .R no son el mismo tipo de componente.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#posición-dentro-del-libro",
-    "href": "ccpe/000-alcance-arquitectura.html#posición-dentro-del-libro",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.2 Posición dentro del libro",
-    "text": "2.2 Posición dentro del libro\nEste capítulo abre el libro porque define el objeto de aprendizaje: no una herramienta aislada, sino el ecosistema completo que permite transformar datos científicos en productos reproducibles, verificables y comunicables.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#alcance",
-    "href": "ccpe/000-alcance-arquitectura.html#alcance",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.3 Alcance",
-    "text": "2.3 Alcance\nEl capítulo introduce el sistema de trabajo que conecta fuentes de datos, archivos, bases de datos, lenguajes, entornos de desarrollo, repositorios, documentos, colaboradores y productos científicos.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#relación-con-el-futuro-libro-estadístico",
-    "href": "ccpe/000-alcance-arquitectura.html#relación-con-el-futuro-libro-estadístico",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.4 Relación con el futuro libro estadístico",
-    "text": "2.4 Relación con el futuro libro estadístico\nEste libro estudia infraestructura digital y reproducibilidad. El segundo libro estudiará inferencia, modelamiento cuantitativo y evaluación científica. Aquí pueden aparecer ejemplos de pesquerías o ecología, pero solo como contexto para comprender herramientas y flujos.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#pregunta-central",
-    "href": "ccpe/000-alcance-arquitectura.html#pregunta-central",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.5 Pregunta central",
-    "text": "2.5 Pregunta central\n¿Cómo debe organizarse el ecosistema digital de un investigador para que su trabajo sea reproducible, portable, auditable, seguro y sostenible aunque cambien las herramientas?",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
     "objectID": "ccpe/000-alcance-arquitectura.html#diagnóstico-inicial",
     "href": "ccpe/000-alcance-arquitectura.html#diagnóstico-inicial",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.6 Diagnóstico inicial",
-    "text": "2.6 Diagnóstico inicial\nResponder antes de leer soluciones.\n\n¿Qué diferencia existe entre R, Positron y un archivo .R?\n¿Qué diferencia existe entre IMARFIS, Oracle y SQL?\n¿Qué problema resuelve Git que no resuelve una copia de seguridad?\n¿Qué parte de mi flujo actual depende de copiar archivos manualmente?\n¿Qué debería permanecer reproducible si Positron desapareciera?\n¿Cómo distinguiría un lenguaje, un formato y una plataforma?\n¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?\n¿Qué criterio usaría para decidir si una tarea debe automatizarse?",
+    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "3.2 2. Diagnóstico inicial",
+    "text": "3.2 2. Diagnóstico inicial\nResponda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.\n\n¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?\n¿Qué problema resuelve Git que no resuelve una copia de seguridad?\n¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?\n¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?\n¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?\n¿Qué criterio emplearía para decidir si una tarea debe automatizarse?\n\n\nReflexión. Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
-    "objectID": "ccpe/000-alcance-arquitectura.html#problema-motivador",
-    "href": "ccpe/000-alcance-arquitectura.html#problema-motivador",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.7 Problema motivador",
-    "text": "2.7 Problema motivador\nUn producto científico puede parecer terminado porque existe un informe, una figura o un artículo. Sin embargo, puede ser frágil si no es posible reconstruirlo desde sus datos, código, decisiones y dependencias.",
+    "objectID": "ccpe/000-alcance-arquitectura.html#primera-actividad-representar-un-producto-real",
+    "href": "ccpe/000-alcance-arquitectura.html#primera-actividad-representar-un-producto-real",
+    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "3.3 3. Primera actividad: representar un producto real",
+    "text": "3.3 3. Primera actividad: representar un producto real\nElija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:\nfuente → adquisición → dato de trabajo → transformación → validación\n       → figura o tabla → documento → publicación o archivo\nPara cada paso, anote:\n\nresponsable y herramienta;\nentrada y salida;\nubicación y regla de versión;\nacción manual o automática;\nrestricción de acceso;\nevidencia necesaria para repetirlo.\n\n\nActividad (25 minutos). Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.\n\n\n3.3.1 Preguntas de comprobación\n\n¿Una persona distinta podría localizar la entrada correcta?\n¿El mapa separa el dato original del dato derivado?\n¿Se reconoce qué versión del código produjo el resultado?\n¿Existe algún dato o servicio que no deba publicarse?\n¿Cuál es el punto de falla con mayor impacto científico?\n\n\nError frecuente. Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   },
   {
-    "objectID": "ccpe/000-alcance-arquitectura.html#concepto-de-ecosistema-digital-científico",
-    "href": "ccpe/000-alcance-arquitectura.html#concepto-de-ecosistema-digital-científico",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.8 Concepto de ecosistema digital científico",
-    "text": "2.8 Concepto de ecosistema digital científico\nUn ecosistema digital científico es el conjunto organizado de personas, datos, archivos, lenguajes, herramientas, bases de datos, repositorios, servicios, reglas y flujos de trabajo que permiten producir conocimiento científico reproducible.",
+    "objectID": "ccpe/000-alcance-arquitectura.html#primera-tarea",
+    "href": "ccpe/000-alcance-arquitectura.html#primera-tarea",
+    "title": "2  Alcance, arquitectura y sistema de aprendizaje",
+    "section": "3.4 4. Primera tarea",
+    "text": "3.4 4. Primera tarea\nRevise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:\n\nel propósito y los usuarios del producto;\ntres riesgos de reproducibilidad, seguridad o mantenimiento;\nuna mejora pequeña que pueda verificarse;\nla evidencia con la que demostraría esa mejora;\nuna pregunta que deba resolverse en la siguiente sesión.\n\n\nCriterio de avance. El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.\n\nNo publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.",
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#diferencias-entre-componentes",
-    "href": "ccpe/000-alcance-arquitectura.html#diferencias-entre-componentes",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.9 Diferencias entre componentes",
-    "text": "2.9 Diferencias entre componentes\n\n\n\n\n\n\n\n\nTipo\nPregunta que responde\nEjemplo\n\n\n\n\nLenguaje\n¿Con qué instrucciones proceso información?\nR, Python, SQL\n\n\nIDE\n¿Dónde escribo, ejecuto y organizo el trabajo?\nPositron\n\n\nFormato\n¿Cómo se almacena la información?\n.csv, .qmd, .xlsx, .parquet\n\n\nBase de datos\n¿Dónde se estructuran y consultan datos persistentes?\nOracle, PostgreSQL, DuckDB\n\n\nPlataforma\n¿Dónde se aloja, ejecuta o colabora?\nGitHub, GitHub Pages, Posit Connect\n\n\nServicio\n¿Qué capacidad remota consumo?\nAPI, cloud storage, servidor institucional\n\n\nFlujo de trabajo\n¿Qué secuencia produce un resultado?\ndatos → script → figura → informe",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#principios-que-permanecen-aunque-cambien-las-herramientas",
-    "href": "ccpe/000-alcance-arquitectura.html#principios-que-permanecen-aunque-cambien-las-herramientas",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.10 Principios que permanecen aunque cambien las herramientas",
-    "text": "2.10 Principios que permanecen aunque cambien las herramientas\n\nPortabilidad de formatos.\nRegistro explícito de decisiones.\nSeparación entre datos crudos y datos derivados.\nCódigo versionado.\nAmbientes computacionales documentados.\nProductos reconstruibles.\nSeguridad proporcional a la sensibilidad de los datos.\nAutomatización de tareas repetibles y verificables.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#arquitectura-general-del-proyecto",
-    "href": "ccpe/000-alcance-arquitectura.html#arquitectura-general-del-proyecto",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.11 Arquitectura general del proyecto",
-    "text": "2.11 Arquitectura general del proyecto\nLa arquitectura base separa libro, clases, posts, datos, scripts, ejercicios, soluciones, referencias y publicación web.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#configuración-inicial-en-positron",
-    "href": "ccpe/000-alcance-arquitectura.html#configuración-inicial-en-positron",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.12 Configuración inicial en Positron",
-    "text": "2.12 Configuración inicial en Positron\nLa configuración se realizará abriendo la carpeta raíz quant-fisheries-learning en Positron y usando la terminal integrada para ejecutar comandos de Quarto, Git y validación.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#creación-del-proyecto-quarto",
-    "href": "ccpe/000-alcance-arquitectura.html#creación-del-proyecto-quarto",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.13 Creación del proyecto Quarto",
-    "text": "2.13 Creación del proyecto Quarto\nLa publicación principal se define como un proyecto Quarto tipo book. El archivo central de configuración es book/_quarto.yml.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#estructura-inicial-de-carpetas",
-    "href": "ccpe/000-alcance-arquitectura.html#estructura-inicial-de-carpetas",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.14 Estructura inicial de carpetas",
-    "text": "2.14 Estructura inicial de carpetas\nquant-fisheries-learning/\n├── book/\n├── classes/\n├── posts/\n├── data/\n├── scripts/\n├── exercises/\n├── solutions/\n├── references/\n├── docs/\n└── .github/workflows/",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#primer-registro-de-aprendizaje",
-    "href": "ccpe/000-alcance-arquitectura.html#primer-registro-de-aprendizaje",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.15 Primer registro de aprendizaje",
-    "text": "2.15 Primer registro de aprendizaje\nRegistrar cada sesión con fecha, tema, evidencia y nivel alcanzado en la escala 0–4.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#ejercicios-críticos",
-    "href": "ccpe/000-alcance-arquitectura.html#ejercicios-críticos",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.16 Ejercicios críticos",
-    "text": "2.16 Ejercicios críticos\n\nClasificar diez componentes de mi ecosistema digital.\nIdentificar tres puntos de falla reproducible.\nComparar copia de seguridad y control de versiones.\nExplicar qué conservaría si cambia el IDE.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#proyecto-del-capítulo",
-    "href": "ccpe/000-alcance-arquitectura.html#proyecto-del-capítulo",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.17 Proyecto del capítulo",
-    "text": "2.17 Proyecto del capítulo\nConstruir un mapa razonado de mi ecosistema digital científico, indicando entradas, salidas, dependencias, tareas manuales, riesgos y alternativas.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#rúbrica",
-    "href": "ccpe/000-alcance-arquitectura.html#rúbrica",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.18 Rúbrica",
-    "text": "2.18 Rúbrica\n\n\n\nNivel\nEvidencia\n\n\n\n\n0\nNo distingue componentes básicos\n\n\n1\nReconoce componentes con ayuda\n\n\n2\nExplica componentes y ejecuta pasos básicos\n\n\n3\nDiseña, compara, valida y diagnostica el flujo\n\n\n4\nEnseña, revisa y mejora el sistema de otra persona",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#tareas",
-    "href": "ccpe/000-alcance-arquitectura.html#tareas",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.19 Tareas",
-    "text": "2.19 Tareas\nCompletar el diagnóstico inicial y el inventario del ecosistema digital para un producto científico real.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#criterio-para-avanzar",
-    "href": "ccpe/000-alcance-arquitectura.html#criterio-para-avanzar",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.20 Criterio para avanzar",
-    "text": "2.20 Criterio para avanzar\nAvanzar solo cuando puedas explicar el ecosistema digital científico, distinguir sus componentes, representar tu flujo actual, identificar tres problemas y justificar una arquitectura inicial.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
-    ]
-  },
-  {
-    "objectID": "ccpe/000-alcance-arquitectura.html#revisión-futura",
-    "href": "ccpe/000-alcance-arquitectura.html#revisión-futura",
-    "title": "2  CCPE-000 — Alcance, arquitectura y sistema de aprendizaje",
-    "section": "2.21 Revisión futura",
-    "text": "2.21 Revisión futura\nEste capítulo deberá revisarse cada año porque las herramientas cambian, pero los principios de reproducibilidad, portabilidad, trazabilidad y seguridad permanecen.",
-    "crumbs": [
-      "Fundamentos del ecosistema digital científico",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
     ]
   }
 ]
