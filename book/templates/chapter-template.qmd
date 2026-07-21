@@ -1,0 +1,62 @@
+---
+title: "Título del capítulo"
+chapter-code: "CCPE-XXX"
+description: "Descripción breve para navegación y buscadores."
+---
+
+# Título del capítulo
+
+`CCPE-XXX` · Identificación administrativa discreta
+
+**Pregunta central:** ¿Qué pregunta guía el capítulo?
+
+**Objetivos:** al finalizar, la persona podrá explicar, implementar y validar el procedimiento.  
+**Importancia:** indique qué problema científico o de trabajo resuelve.  
+**Prerrequisitos:** enumere únicamente los conocimientos necesarios.
+
+## Problema
+
+Presente una situación concreta y su producto esperado.
+
+## Intuición
+
+Explique la idea antes de introducir terminología.
+
+## Concepto y definición
+
+::: {.definition}
+**Definición.** Formule el concepto de manera verificable.
+:::
+
+## Representación
+
+Use un esquema, ejemplo o tabla solo cuando aclare relaciones.
+
+## Procedimiento e implementación
+
+Describa pasos reproducibles y muestre el código mínimo necesario.
+
+## Validación e interpretación
+
+::: {.check}
+**Comprobación.** Indique qué evidencia demuestra que el resultado es correcto.
+:::
+
+## Reflexión y práctica
+
+::: {.exercise}
+**Ejercicio crítico.** Cambie una condición, anticipe el efecto y compruébelo.
+:::
+
+**Proyecto pequeño:** producto, restricciones y evidencia de finalización.  
+**Rúbrica:** niveles observables de 0 a 4.  
+**Tarea:** transferencia a un caso propio.  
+**Criterio para avanzar:** evidencia mínima requerida.
+
+## Revisión futura
+
+Registre fecha, decisión pendiente y condición que obligaría a revisar el capítulo.
+
+## Referencias
+
+Incluya únicamente fuentes citadas en el texto.

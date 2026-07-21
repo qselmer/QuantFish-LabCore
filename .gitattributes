@@ -1,0 +1,2 @@
+# Quarto genera HTML y recursos minificados; su espaciado no se edita manualmente.
+docs/** -whitespace

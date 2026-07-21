@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Elmer Quispe-Salazar">
+<meta name="description" content="Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.">
 
 <title>Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
 <style>
@@ -38,14 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6bf358d2ca42bf22d951783d27d62db.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-65cd6b2dcbe879340fa210c47b6da349.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6bf358d2ca42bf22d951783d27d62db.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d271c880086adac3871dc271d5f8550e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-bf1880598fe60990790de6be5fdbbe4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-55b0ce188fffde600b3324db885a47c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-bf1880598fe60990790de6be5fdbbe4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -60,22 +61,25 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="assets/styles/book.css">
+<meta property="og:title" content="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+<meta property="og:description" content="Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.">
+<meta property="og:site_name" content="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -246,13 +250,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Presentación</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -266,32 +270,19 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/qselmer/quant-fisheries-learning" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Ecosistema-digital-para-la-ciencia-pesquera-y-la-ecología-cuantitativa.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-    <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-linkedin pe-1"></i>
-            LinkedIn
-            </a>
-          </li>
-      </ul>
-    </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/qselmer/quant-fisheries-learning" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -299,14 +290,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Presentación</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Fundamentos del ecosistema digital científico</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -314,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ccpe/000-alcance-arquitectura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span></a>
   </div>
 </li>
       </ul>
@@ -332,15 +323,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación" id="toc-presentación" class="nav-link active" data-scroll-target="#presentación"><span class="header-section-number">1</span> Presentación</a>
+  <li><a href="#presentación" id="toc-presentación" class="nav-link active" data-scroll-target="#presentación">Presentación</a>
   <ul class="collapse">
-  <li><a href="#estructura-inicial" id="toc-estructura-inicial" class="nav-link" data-scroll-target="#estructura-inicial"><span class="header-section-number">1.1</span> Estructura inicial</a></li>
+  <li><a href="#a-quién-se-dirige" id="toc-a-quién-se-dirige" class="nav-link" data-scroll-target="#a-quién-se-dirige"><span class="header-section-number">0.1</span> A quién se dirige</a></li>
+  <li><a href="#el-problema-que-resuelve" id="toc-el-problema-que-resuelve" class="nav-link" data-scroll-target="#el-problema-que-resuelve"><span class="header-section-number">0.2</span> El problema que resuelve</a></li>
+  <li><a href="#alcance" id="toc-alcance" class="nav-link" data-scroll-target="#alcance"><span class="header-section-number">0.3</span> Alcance</a></li>
+  <li><a href="#cómo-utilizarlo" id="toc-cómo-utilizarlo" class="nav-link" data-scroll-target="#cómo-utilizarlo"><span class="header-section-number">0.4</span> Cómo utilizarlo</a></li>
+  <li><a href="#estado-de-desarrollo" id="toc-estado-de-desarrollo" class="nav-link" data-scroll-target="#estado-de-desarrollo"><span class="header-section-number">0.5</span> Estado de desarrollo</a></li>
+  <li><a href="#datos-y-seguridad" id="toc-datos-y-seguridad" class="nav-link" data-scroll-target="#datos-y-seguridad"><span class="header-section-number">0.6</span> Datos y seguridad</a></li>
+  <li><a href="#autor-licencia-y-cita" id="toc-autor-licencia-y-cita" class="nav-link" data-scroll-target="#autor-licencia-y-cita"><span class="header-section-number">0.7</span> Autor, licencia y cita</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/index.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -352,17 +349,28 @@ ul.task-list li input[type="checkbox"] {
 <p class="subtitle lead">Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial</p>
 </div>
 
+<div>
+  <div class="description">
+    Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
              <p>Elmer Quispe-Salazar </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 de julio de 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -372,19 +380,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Presentación</h1>
-<p>Este libro desarrolla el ecosistema digital que necesita un investigador moderno en ciencia pesquera y ecología cuantitativa.</p>
-<p>No es un libro de estadística aplicada. Su objetivo es construir infraestructura, criterio técnico y flujos reproducibles para datos, código, colaboración, publicación e inteligencia artificial.</p>
-<section id="estructura-inicial" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="estructura-inicial"><span class="header-section-number">1.1</span> Estructura inicial</h2>
+<section id="presentación" class="level1 unnumbered">
+<h1 class="unnumbered">Presentación</h1>
+<p>Este libro abierto ayuda a construir un entorno de trabajo reproducible para la ciencia pesquera y la ecología cuantitativa. Integra datos, código, documentación, automatización, colaboración y publicación sin atar el aprendizaje a una herramienta concreta.</p>
+<p><a href="https://github.com/qselmer/quant-fisheries-learning" class="btn btn-primary" role="button">Abrir el repositorio en GitHub</a></p>
+<section id="a-quién-se-dirige" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="a-quién-se-dirige"><span class="header-section-number">0.1</span> A quién se dirige</h2>
+<p>Está pensado para investigadores, profesionales, docentes y estudiantes que producen resultados científicos con archivos, scripts, bases de datos y documentos, y necesitan que ese trabajo sea portable, auditable y sostenible.</p>
+</section>
+<section id="el-problema-que-resuelve" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="el-problema-que-resuelve"><span class="header-section-number">0.2</span> El problema que resuelve</h2>
+<p>Un resultado puede ser correcto y, aun así, resultar imposible de reconstruir. El libro propone criterios y prácticas para conectar cada producto con sus fuentes, transformaciones, decisiones, versiones y condiciones de ejecución.</p>
+</section>
+<section id="alcance" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="alcance"><span class="header-section-number">0.3</span> Alcance</h2>
+<p>Se estudian organización de proyectos, formatos, lenguajes, entornos de desarrollo, control de versiones, publicación reproducible, automatización y uso responsable de inteligencia artificial. Los ejemplos proceden de las pesquerías y la ecología cuantitativa.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Qué no cubre">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Qué no cubre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este no es un libro de estadística aplicada. No desarrolla teoría de GLM, GAM, modelos mixtos o bayesianos, modelos espacio-temporales, dinámica poblacional, evaluación de stocks ni MSE.</p>
+</div>
+</div>
+</section>
+<section id="cómo-utilizarlo" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="cómo-utilizarlo"><span class="header-section-number">0.4</span> Cómo utilizarlo</h2>
+<p>Cada unidad mantiene cuatro productos distintos:</p>
 <ol type="1">
-<li>Fundamentos del ecosistema digital científico.</li>
-<li>Datos, archivos, formatos y bases de datos.</li>
-<li>Lenguajes computacionales y entornos de desarrollo.</li>
-<li>Reproducibilidad, publicación y colaboración.</li>
-<li>Automatización, servidores, cloud, HPC e inteligencia artificial.</li>
+<li><strong>Aprendizaje personal:</strong> preguntas, pruebas y registro de avances.</li>
+<li><strong>Capítulo:</strong> explicación narrativa y reproducible en el libro web.</li>
+<li><strong>Clase:</strong> experiencia docente con tiempos, actividades y evaluación.</li>
+<li><strong>Post:</strong> síntesis pública redactada solo después de evaluar el aprendizaje.</li>
 </ol>
+<p>Se recomienda leer el problema, realizar el diagnóstico sin consultar respuestas, completar la actividad y conservar evidencia del resultado.</p>
+</section>
+<section id="estado-de-desarrollo" class="level2" data-number="0.5">
+<h2 data-number="0.5" class="anchored" data-anchor-id="estado-de-desarrollo"><span class="header-section-number">0.5</span> Estado de desarrollo</h2>
+<p>El proyecto se encuentra en construcción. La primera unidad establece el alcance, la arquitectura y el sistema de aprendizaje; el contenido se ampliará de forma incremental y validada.</p>
+</section>
+<section id="datos-y-seguridad" class="level2" data-number="0.6">
+<h2 data-number="0.6" class="anchored" data-anchor-id="datos-y-seguridad"><span class="header-section-number">0.6</span> Datos y seguridad</h2>
+<div class="callout callout-style-default callout-warning callout-titled" title="Datos de ejemplo y datos institucionales">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Datos de ejemplo y datos institucionales
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los ejemplos públicos deben usar datos abiertos, sintéticos o anonimizados. Los datos institucionales, credenciales y rutas locales no deben incorporarse al repositorio ni a la publicación.</p>
+</div>
+</div>
+</section>
+<section id="autor-licencia-y-cita" class="level2" data-number="0.7">
+<h2 data-number="0.7" class="anchored" data-anchor-id="autor-licencia-y-cita"><span class="header-section-number">0.7</span> Autor, licencia y cita</h2>
+<p><strong>Autor:</strong> Elmer Quispe-Salazar</p>
+<p><strong>Licencia del contenido:</strong> <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Creative Commons Atribución 4.0 Internacional</a></p>
+<p><strong>Repositorio:</strong> <a href="https://github.com/qselmer/quant-fisheries-learning">qselmer/quant-fisheries-learning</a></p>
+<p>Para citar esta obra, use el título, el autor, el año de la versión consultada, la URL oficial y la fecha de acceso.</p>
 
 
 </section>
@@ -429,12 +490,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -490,6 +551,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -807,14 +873,28 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ccpe/000-alcance-arquitectura.html" class="pagination-link" aria-label="CCPE-000 — Alcance, arquitectura y sistema de aprendizaje">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CCPE-000 — Alcance, arquitectura y sistema de aprendizaje</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ccpe/000-alcance-arquitectura.html" class="pagination-link" aria-label="Alcance, arquitectura y sistema de aprendizaje">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Elmer Quispe-Salazar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/index.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Publicado con <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/quant-fisheries-learning/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/qselmer/quant-fisheries-learning/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

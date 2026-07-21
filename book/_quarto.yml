@@ -6,24 +6,33 @@ project:
     - index.qmd
     - ccpe/000-alcance-arquitectura.qmd
     - references.qmd
+  resources:
+    - .nojekyll
+
+lang: es
 
 book:
   title: "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa"
   subtitle: "Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial"
   author: "Elmer Quispe-Salazar"
+  date: last-modified
+  description: "Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa."
   site-url: "https://qselmer.github.io/quant-fisheries-learning/"
   repo-url: "https://github.com/qselmer/quant-fisheries-learning"
-  repo-actions: [edit, issue]
-  language: es
+  repo-actions: [source, edit, issue]
   search: true
-  downloads: [pdf]
-  sharing: [twitter, linkedin]
+  reader-mode: true
+  page-navigation: true
+  open-graph: true
   chapters:
     - index.qmd
     - part: "Fundamentos del ecosistema digital científico"
       chapters:
         - ccpe/000-alcance-arquitectura.qmd
     - references.qmd
+  page-footer:
+    left: "© 2026 Elmer Quispe-Salazar"
+    right: "Publicado con [Quarto](https://quarto.org/)"
 
 bibliography: ../references/references.bib
 csl: ../references/apa.csl
@@ -31,18 +40,16 @@ csl: ../references/apa.csl
 format:
   html:
     theme:
-      light: cosmo
-      dark: darkly
+      light: [cosmo, assets/styles/book.scss]
+      dark: [darkly, assets/styles/book.scss]
     toc: true
     toc-depth: 3
     number-sections: true
-    code-fold: show
     code-copy: true
-    css: assets/styles/book.css
-  pdf:
-    documentclass: scrreprt
-    toc: true
-    number-sections: true
+    code-overflow: wrap
+    code-fold: false
+    link-external-newwindow: true
+    smooth-scroll: true
 
 execute:
   echo: true
