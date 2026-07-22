@@ -6,6 +6,8 @@ project:
     - index.qmd
     - contents.qmd
     - ccpe/000-alcance-arquitectura.qmd
+    - part-iv/index.qmd
+    - part-iv/22-code-principles.qmd
     - references.qmd
   resources:
     - .nojekyll
@@ -31,6 +33,9 @@ book:
     - part: "Fundamentos del ecosistema digital científico"
       chapters:
         - ccpe/000-alcance-arquitectura.qmd
+    - part: part-iv/index.qmd
+      chapters:
+        - part-iv/22-code-principles.qmd
     - references.qmd
   page-footer:
     left: "© 2026 Elmer Quispe-Salazar"

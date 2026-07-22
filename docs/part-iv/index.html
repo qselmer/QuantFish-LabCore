@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Primera sesión para delimitar el ecosistema digital científico y representar un flujo de trabajo real.">
+<meta name="description" content="Arquitectura computacional para convertir código científico en evidencia trazable, verificable y mantenible.">
 
-<title>1&nbsp; Alcance, arquitectura y sistema de aprendizaje – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
+<title>Código, versiones y reproducibilidad – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-iv/index.html" rel="next">
-<link href="../contents.html" rel="prev">
+<link href="../part-iv/22-code-principles.html" rel="next">
+<link href="../ccpe/000-alcance-arquitectura.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -71,9 +106,12 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="1&nbsp; Alcance, arquitectura y sistema de aprendizaje – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+<meta property="og:title" content="Código, versiones y reproducibilidad – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
 <meta property="og:description" content="Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.">
 <meta property="og:site_name" content="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
 </head>
@@ -87,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-iv/index.html">Código, versiones y reproducibilidad</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -143,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ccpe/000-alcance-arquitectura.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ccpe/000-alcance-arquitectura.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span></a>
   </div>
 </li>
@@ -151,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part-iv/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../part-iv/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Código, versiones y reproducibilidad</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -182,25 +220,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#delimitación-del-libro" id="toc-delimitación-del-libro" class="nav-link active" data-scroll-target="#delimitación-del-libro"><span class="header-section-number">1.1</span> Delimitación del libro</a>
-  <ul class="collapse">
-  <li><a href="#componentes-que-conviene-distinguir" id="toc-componentes-que-conviene-distinguir" class="nav-link" data-scroll-target="#componentes-que-conviene-distinguir">Componentes que conviene distinguir</a></li>
-  </ul></li>
-  <li><a href="#diagnóstico-inicial" id="toc-diagnóstico-inicial" class="nav-link" data-scroll-target="#diagnóstico-inicial"><span class="header-section-number">1.2</span> Diagnóstico inicial</a></li>
-  <li><a href="#primera-actividad-representar-un-producto-real" id="toc-primera-actividad-representar-un-producto-real" class="nav-link" data-scroll-target="#primera-actividad-representar-un-producto-real"><span class="header-section-number">1.3</span> Primera actividad: representar un producto real</a>
-  <ul class="collapse">
-  <li><a href="#preguntas-de-comprobación" id="toc-preguntas-de-comprobación" class="nav-link" data-scroll-target="#preguntas-de-comprobación">Preguntas de comprobación</a></li>
-  </ul></li>
-  <li><a href="#primera-tarea" id="toc-primera-tarea" class="nav-link" data-scroll-target="#primera-tarea"><span class="header-section-number">1.4</span> Primera tarea</a></li>
+  <li><a href="#recorrido-de-la-parte" id="toc-recorrido-de-la-parte" class="nav-link active" data-scroll-target="#recorrido-de-la-parte">Recorrido de la parte</a></li>
+  <li><a href="#proyecto-integrador-previsto" id="toc-proyecto-integrador-previsto" class="nav-link" data-scroll-target="#proyecto-integrador-previsto">Proyecto integrador previsto</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/part-iv/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/part-iv/index.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html">Fundamentos del ecosistema digital científico</a></li><li class="breadcrumb-item"><a href="../ccpe/000-alcance-arquitectura.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></h1>
+<h1 class="title">Código, versiones y reproducibilidad</h1>
 </div>
 
 
@@ -217,22 +247,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p class="chapter-code">
-CCPE-000 · Primera sesión
-</p>
-<p>Un producto científico no es solamente su informe, figura o script final. También depende de datos, decisiones, herramientas, versiones y personas. Esta sesión permite reconocer ese sistema antes de intentar mejorarlo.</p>
-<div class="expected-result" title="Resultado de la sesión">
-<p><strong>Producto esperado.</strong> Un primer mapa razonado de un producto científico real, con entradas, salidas, dependencias, pasos manuales y riesgos.</p>
+<p>El código científico ocupa una posición singular: es una herramienta de trabajo y, al mismo tiempo, una parte de la evidencia que conecta datos con resultados. Un informe puede describir un procedimiento con precisión y aun así resultar imposible de reconstruir si las transformaciones reales quedaron dispersas entre scripts, clics, archivos intermedios y decisiones no registradas.</p>
+<p>Guardar copias sucesivas tampoco equivale a controlar versiones. Una carpeta con archivos llamados <code>final</code>, <code>final_2</code> y <code>final_ahora_si</code> conserva estados, pero no explica qué cambió, por qué cambió, quién lo revisó ni qué resultado corresponde a cada estado. Git aporta una historia estructurada; GitHub añade colaboración y publicación; Quarto conecta la narrativa con código, resultados y referencias. Ninguna de estas herramientas, por sí sola, garantiza reproducibilidad.</p>
+<div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  A[Problema científico] --&gt; B[Datos]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  B --&gt; C[Código]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  C --&gt; D[Versiones]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  D --&gt; E[Validación]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  E --&gt; F[Documento]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  F --&gt; G[Publicación]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  G --&gt; H[Mantenimiento]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  H -. retroalimentación .-&gt; A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-part-iv-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-part-iv-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-part-iv-flow">flowchart LR
+  A[Problema científico] --&gt; B[Datos]
+  B --&gt; C[Código]
+  C --&gt; D[Versiones]
+  D --&gt; E[Validación]
+  E --&gt; F[Documento]
+  F --&gt; G[Publicación]
+  G --&gt; H[Mantenimiento]
+  H -. retroalimentación .-&gt; A
+</pre>
 </div>
-<section id="delimitación-del-libro" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="delimitación-del-libro"><span class="header-section-number">1.1</span> Delimitación del libro</h2>
-<p>El objeto de aprendizaje es el <strong>ecosistema digital científico</strong>: el conjunto organizado de personas, datos, archivos, formatos, lenguajes, herramientas, repositorios, servicios, reglas y flujos que permite producir conocimiento verificable y comunicable.</p>
-<p>El libro se concentra en infraestructura digital, reproducibilidad, portabilidad, trazabilidad y seguridad. Puede usar ejemplos pesqueros o ecológicos para enseñar herramientas, pero deja la teoría estadística y el modelamiento cuantitativo para otro proyecto.</p>
-<div class="key-concept" title="Concepto clave">
-<p><strong>Concepto clave.</strong> Las herramientas cambian; deben permanecer la posibilidad de reconstruir el producto, el registro de decisiones y la separación entre fuentes, transformaciones y resultados.</p>
 </div>
-<section id="componentes-que-conviene-distinguir" class="level3">
-<h3 class="anchored" data-anchor-id="componentes-que-conviene-distinguir">Componentes que conviene distinguir</h3>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-part-iv-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Del problema científico al mantenimiento de un producto computacional.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La reproducibilidad requiere algo más que compartir código: exige entradas identificables, dependencias documentadas, configuración explícita, orden de ejecución, validaciones y evidencia de que el producto publicado corresponde a una versión concreta. Las pruebas reducen la probabilidad de propagar errores; la documentación conserva decisiones y límites; el mantenimiento evita que un resultado quede inutilizable cuando cambian las personas o el entorno.</p>
+<section id="recorrido-de-la-parte" class="level2">
+<h2 class="anchored" data-anchor-id="recorrido-de-la-parte">Recorrido de la parte</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -241,109 +294,61 @@ CCPE-000 · Primera sesión
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tipo</th>
-<th>Pregunta que responde</th>
-<th>Ejemplos</th>
+<th>Capítulo</th>
+<th>Pregunta central</th>
+<th>Producto práctico</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Lenguaje</td>
-<td>¿Con qué instrucciones proceso información?</td>
-<td>R, Python, SQL</td>
+<td>Principios de código científico</td>
+<td>¿Qué hace que un código sea científicamente defendible?</td>
+<td>Script refactorizado</td>
 </tr>
 <tr class="even">
-<td>Entorno de desarrollo</td>
-<td>¿Dónde escribo, ejecuto y organizo?</td>
-<td>Positron</td>
+<td>Control de versiones con Git</td>
+<td>¿Cómo se conserva la historia del trabajo?</td>
+<td>Repositorio con commits</td>
 </tr>
 <tr class="odd">
-<td>Formato</td>
-<td>¿Cómo se representa o almacena?</td>
-<td><code>.csv</code>, <code>.qmd</code>, <code>.parquet</code></td>
+<td>Colaboración y publicación con GitHub</td>
+<td>¿Cómo se colabora y publica?</td>
+<td>Flujo con issue y pull request</td>
 </tr>
 <tr class="even">
-<td>Base de datos</td>
-<td>¿Dónde consulto datos persistentes?</td>
-<td>PostgreSQL, DuckDB</td>
+<td>Documentos científicos con Quarto</td>
+<td>¿Cómo se conectan narrativa, código y resultados?</td>
+<td>Documento reproducible</td>
 </tr>
 <tr class="odd">
-<td>Plataforma o servicio</td>
-<td>¿Dónde colaboro, alojo o publico?</td>
-<td>GitHub, GitHub Pages</td>
+<td>Investigación reproducible</td>
+<td>¿Qué necesita otra persona para reconstruir el resultado?</td>
+<td>Auditoría de reproducibilidad</td>
 </tr>
 <tr class="even">
-<td>Flujo de trabajo</td>
-<td>¿Qué secuencia produce el resultado?</td>
-<td>datos → código → informe</td>
+<td>Ingeniería de software científico</td>
+<td>¿Cuándo un script debe convertirse en un sistema?</td>
+<td>Flujo modular</td>
+</tr>
+<tr class="odd">
+<td>Pruebas, validación y calidad</td>
+<td>¿Cómo se detectan errores antes de publicar?</td>
+<td>Suite mínima de pruebas</td>
+</tr>
+<tr class="even">
+<td>Documentación y mantenimiento</td>
+<td>¿Cómo se conserva utilizable el trabajo?</td>
+<td>Plan de mantenimiento</td>
 </tr>
 </tbody>
 </table>
-<div class="check" title="Comprobación">
-<p><strong>Comprobación.</strong> Explique con sus propias palabras por qué R, Positron y un archivo <code>.R</code> no son el mismo tipo de componente.</p>
+<div class="part-roadmap">
+<p><strong>Caso transversal.</strong> La parte utiliza un informe reproducible de desembarques pesqueros construido con datos sintéticos. Cada capítulo mejora una dimensión del mismo producto sin introducir teoría estadística ni datos institucionales.</p>
 </div>
 </section>
-</section>
-<section id="diagnóstico-inicial" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="diagnóstico-inicial"><span class="header-section-number">1.2</span> Diagnóstico inicial</h2>
-<p>Responda antes de buscar soluciones. El diagnóstico no se califica por aciertos: sirve para registrar el punto de partida.</p>
-<ol type="1">
-<li>¿Qué diferencia existe entre un lenguaje, un entorno de desarrollo y un archivo de código?</li>
-<li>¿Qué problema resuelve Git que no resuelve una copia de seguridad?</li>
-<li>¿Qué parte de su flujo depende de copiar o renombrar archivos manualmente?</li>
-<li>¿Qué debería permanecer reproducible si cambia el entorno de desarrollo?</li>
-<li>¿Dónde existe mayor riesgo de usar una versión incorrecta de datos, código o resultados?</li>
-<li>¿Qué criterio emplearía para decidir si una tarea debe automatizarse?</li>
-</ol>
-<div class="reflection" title="Reflexión">
-<p><strong>Reflexión.</strong> Señale qué respuesta le resultó más incierta y qué evidencia necesitaría para revisarla al final de la sesión.</p>
-</div>
-</section>
-<section id="primera-actividad-representar-un-producto-real" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="primera-actividad-representar-un-producto-real"><span class="header-section-number">1.3</span> Primera actividad: representar un producto real</h2>
-<p>Elija un informe, artículo, tablero, figura recurrente u otro producto que conozca. Dibuje su recorrido mínimo:</p>
-<pre class="text"><code>fuente → adquisición → dato de trabajo → transformación → validación
-       → figura o tabla → documento → publicación o archivo</code></pre>
-<p>Para cada paso, anote:</p>
-<ul>
-<li>responsable y herramienta;</li>
-<li>entrada y salida;</li>
-<li>ubicación y regla de versión;</li>
-<li>acción manual o automática;</li>
-<li>restricción de acceso;</li>
-<li>evidencia necesaria para repetirlo.</li>
-</ul>
-<div class="activity" title="Actividad">
-<p><strong>Actividad (25 minutos).</strong> Construya el mapa en papel o en un formato abierto. Marque con un círculo los pasos manuales, con un candado la información restringida y con un signo de interrogación las dependencias que no pueda explicar.</p>
-</div>
-<section id="preguntas-de-comprobación" class="level3">
-<h3 class="anchored" data-anchor-id="preguntas-de-comprobación">Preguntas de comprobación</h3>
-<ul>
-<li>¿Una persona distinta podría localizar la entrada correcta?</li>
-<li>¿El mapa separa el dato original del dato derivado?</li>
-<li>¿Se reconoce qué versión del código produjo el resultado?</li>
-<li>¿Existe algún dato o servicio que no deba publicarse?</li>
-<li>¿Cuál es el punto de falla con mayor impacto científico?</li>
-</ul>
-<div class="common-error" title="Error frecuente">
-<p><strong>Error frecuente.</strong> Enumerar programas no equivale a representar un flujo. El mapa debe mostrar relaciones, transformaciones y evidencia.</p>
-</div>
-</section>
-</section>
-<section id="primera-tarea" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="primera-tarea"><span class="header-section-number">1.4</span> Primera tarea</h2>
-<p>Revise el mapa fuera de la sesión y entréguelo acompañado por una nota breve que incluya:</p>
-<ol type="1">
-<li>el propósito y los usuarios del producto;</li>
-<li>tres riesgos de reproducibilidad, seguridad o mantenimiento;</li>
-<li>una mejora pequeña que pueda verificarse;</li>
-<li>la evidencia con la que demostraría esa mejora;</li>
-<li>una pregunta que deba resolverse en la siguiente sesión.</li>
-</ol>
-<div class="expected-result" title="Criterio de avance">
-<p><strong>Criterio de avance.</strong> El mapa permite reconocer entradas, transformaciones, salidas, responsables, restricciones y al menos tres riesgos, sin exponer datos institucionales.</p>
-</div>
-<p>No publique todavía un post sobre esta unidad. Primero complete la tarea, contraste el diagnóstico y evalúe la evidencia de aprendizaje.</p>
+<section id="proyecto-integrador-previsto" class="level2">
+<h2 class="anchored" data-anchor-id="proyecto-integrador-previsto">Proyecto integrador previsto</h2>
+<p>El recorrido culminará en la transformación de un script aislado en un repositorio capaz de validar datos sintéticos, generar un informe HTML, registrar su historia y documentar su mantenimiento. En esta fase inicial solo se desarrolla el primer eslabón: reconocer qué hace defendible al código y refactorizar un script frágil.</p>
 
 
 </section>
@@ -755,13 +760,13 @@ CCPE-000 · Primera sesión
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents.html" class="pagination-link" aria-label="Índice general">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Índice general</span>
+      <a href="../ccpe/000-alcance-arquitectura.html" class="pagination-link" aria-label="Alcance, arquitectura y sistema de aprendizaje">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-iv/index.html" class="pagination-link" aria-label="Código, versiones y reproducibilidad">
-        <span class="nav-page-text">Código, versiones y reproducibilidad</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-iv/22-code-principles.html" class="pagination-link" aria-label="Principios de código científico">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Principios de código científico</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -773,7 +778,7 @@ CCPE-000 · Primera sesión
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/ccpe/000-alcance-arquitectura.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/part-iv/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/part-iv/index.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Publicado con <a href="https://quarto.org/">Quarto</a></p>
 </div>

@@ -1,0 +1,446 @@
+---
+title: "Principios de código científico"
+chapter-code: "CCPE-022"
+description: "Principios para producir código comprensible, verificable, portable y científicamente defendible."
+---
+
+<p class="chapter-code">CCPE-022</p>
+
+**Pregunta central:** ¿Qué características hacen que un código sea comprensible, verificable y científicamente defendible?
+
+El código interviene en decisiones científicas aunque permanezca invisible en el producto final. Selecciona registros, transforma unidades, excluye observaciones, resume categorías y determina qué valores llegan a una tabla o figura. Por ello, su calidad no es únicamente una preocupación técnica: afecta la posibilidad de examinar la cadena de razonamiento que sostiene un resultado.
+
+Este capítulo utiliza un informe de desembarques completamente sintético. El objetivo no es inferir propiedades de una pesquería, sino estudiar cómo una transformación sencilla puede volverse comprensible, verificable y reconstruible.
+
+## Importancia científica
+
+Un programa que termina sin errores demuestra solamente que el intérprete pudo ejecutar una secuencia de instrucciones bajo ciertas condiciones. No demuestra que se leyó el archivo correcto, que las unidades son las esperadas, que las exclusiones son justificables ni que la salida corresponde a la versión que se documentó. La corrección científica exige conectar la intención con una implementación y aportar evidencia para evaluar esa conexión.
+
+Wilson y colaboradores proponen escribir programas para personas, automatizar tareas repetibles, trabajar mediante cambios incrementales, modularizar y planificar los errores mediante aserciones y pruebas [@wilson2014]. Estas prácticas no garantizan conclusiones correctas; reducen ambigüedades y hacen que los fallos sean más fáciles de detectar. Una guía posterior enfatiza medidas alcanzables para equipos con recursos limitados, entre ellas organizar datos, escribir análisis claros, registrar cambios y conservar productos reconstruibles [@wilson2017goodenough].
+
+::: {.learning-check}
+**Comprobación.** ¿Qué evidencia adicional, además de una ejecución sin errores, permitiría confiar en una tabla producida por un script?
+:::
+
+## Objetivos y prerrequisitos
+
+Al finalizar el capítulo será posible:
+
+- distinguir ejecución, corrección y defendibilidad científica;
+- reconocer prácticas frágiles y explicar su riesgo;
+- separar configuración, validación, transformación y exportación;
+- elegir entre un script lineal y una estructura modular;
+- refactorizar un flujo pequeño en R o Python;
+- definir evidencia verificable para entradas, decisiones y salidas.
+
+Se presupone familiaridad básica con archivos de texto, tablas y ejecución de scripts. No se requiere teoría estadística ni dominio simultáneo de R y Python.
+
+## Problema motivador
+
+Un equipo recibe un archivo CSV y necesita totalizar desembarques sintéticos por especie. Una primera implementación produce una tabla plausible. El archivo se envía por correo y la figura se copia a un informe. Semanas después, nadie puede responder con seguridad:
+
+- cuál de varias copias del CSV se utilizó;
+- por qué un registro negativo apareció en los datos;
+- si las filas marcadas como inválidas fueron excluidas;
+- dónde se definió la ruta de salida;
+- qué versión del script produjo la tabla publicada;
+- si una ejecución posterior sobrescribió la evidencia anterior.
+
+El problema no es que el lenguaje haya fallado. El problema es que la arquitectura del trabajo no permite inspeccionar las decisiones.
+
+## De código que funciona a código defendible
+
+### Ejecución, corrección y confianza
+
+Conviene separar tres afirmaciones:
+
+1. **El código se ejecuta:** el intérprete completa las instrucciones.
+2. **El código implementa lo esperado:** las transformaciones corresponden a una especificación.
+3. **El resultado es científicamente defendible:** existen datos, metadatos, decisiones, versiones y validaciones suficientes para examinar cómo se obtuvo.
+
+La primera afirmación es operacional. La segunda requiere pruebas contra expectativas. La tercera añade procedencia, interpretación y comunicación. Un resultado puede cumplir la primera y fallar las otras dos.
+
+::: {.learning-check}
+**Comprobación.** Proponga un caso en el que un script termine correctamente, pero lea el archivo equivocado.
+:::
+
+### Propiedades fundamentales
+
+**Legibilidad.** Otra persona puede seguir la intención sin reconstruir mentalmente demasiados detalles. Los nombres, el orden y la estructura revelan el propósito.
+
+**Corrección.** El programa satisface una especificación observable para los casos considerados. La corrección se apoya en ejemplos conocidos, aserciones y pruebas; no se deduce del estilo.
+
+**Explicitud.** Rutas, parámetros, unidades, filtros y supuestos importantes aparecen declarados. Una decisión crítica no queda escondida en una celda, un clic o un número sin nombre.
+
+**Modularidad.** Las responsabilidades pueden examinarse por separado. Leer, validar, transformar y exportar no forman necesariamente una sola función extensa.
+
+**Trazabilidad.** Es posible relacionar una salida con entradas, configuración y versión del código.
+
+**Determinismo.** Bajo las mismas entradas y condiciones declaradas, el flujo produce el mismo resultado. Cuando existe aleatoriedad, se documenta y controla la semilla.
+
+**Portabilidad.** El proyecto puede trasladarse sin editar rutas ligadas a una computadora. Esto no significa que todo funcione en cualquier sistema sin preparación, sino que sus requisitos y variaciones están declarados.
+
+::: {.definition}
+**Código científico defendible** es aquel cuya intención, entradas, transformaciones, decisiones y salidas pueden ser examinadas mediante evidencia suficiente, y cuyos límites se comunican de manera explícita.
+:::
+
+## Anatomía de un script científico defendible
+
+```{mermaid}
+%%| label: fig-defensible-script
+%%| fig-cap: "Anatomía de un script científico defendible."
+flowchart LR
+  A[Configuración] --> B[Validación de entradas]
+  B --> C[Transformación]
+  C --> D[Validación de resultados]
+  D --> E[Exportación]
+  E --> F[Registro]
+  B -. falla temprana .-> X[Mensaje accionable]
+  D -. inconsistencia .-> X
+```
+
+La secuencia de la @fig-defensible-script convierte supuestos implícitos en puntos de inspección. La configuración identifica archivos y parámetros. La validación de entradas verifica esquema, tipos y restricciones. La transformación realiza el trabajo sustantivo. La validación de resultados comprueba propiedades esperadas. La exportación escribe un producto sin confundirlo con la fuente. El registro deja evidencia de qué ocurrió.
+
+No todo script necesita una infraestructura de registros compleja. En un flujo pequeño puede bastar un mensaje con el número de filas, la ruta de salida y la fecha. La proporcionalidad es una propiedad de buen diseño.
+
+## Separar datos, código, configuración y resultados
+
+Una organización defendible evita que el script modifique su fuente y distingue cuatro responsabilidades:
+
+```text
+data/example/part-iv/       # datos sintéticos y metadatos
+scripts/python/part-iv/     # implementación Python
+scripts/r/part-iv/          # implementación R
+scripts/sql/part-iv/        # esquema y consulta SQL
+outputs/part-iv/            # productos regenerables, no incluidos aquí
+```
+
+Los datos describen observaciones o ejemplos; el código describe transformaciones; la configuración selecciona parámetros y ubicaciones; los resultados son productos regenerables. Mezclarlos dificulta saber qué debe preservarse y qué puede reconstruirse.
+
+Las rutas relativas se interpretan desde un punto de referencia acordado, normalmente la raíz del proyecto. No son una solución mágica: una ruta relativa ambigua también falla si cada script supone un directorio distinto. La regla debe documentarse y los comandos deben ejecutarse desde un contexto predecible.
+
+::: {.learning-check}
+**Comprobación.** ¿Qué archivos deberían considerarse fuentes autoritativas y cuáles deberían poder regenerarse?
+:::
+
+## Nombres, orden y estructura
+
+Un nombre útil comunica la función en el dominio. `landings_t` informa más que `x`; `valid_landings` informa más que `data2`. Sin embargo, nombres excesivamente largos pueden ocultar la estructura. La meta no es describir toda la historia en cada identificador, sino mantener un vocabulario consistente.
+
+Un script pequeño suele resultar más legible cuando sigue un orden estable:
+
+1. descripción y condiciones de uso;
+2. constantes o argumentos;
+3. funciones;
+4. lectura y validación;
+5. transformación;
+6. validación y exportación;
+7. mensajes finales.
+
+Los comentarios deben explicar propósito, restricciones y decisiones. Un comentario como `# sumar valores` repite una instrucción evidente; uno como `# excluir registros invalid, conservar review para inspección` documenta una decisión que el código no explica por sí solo.
+
+## Funciones y modularidad proporcional
+
+Una función mejora el análisis cuando encapsula una responsabilidad con entradas, salida y condiciones claras. También permite probar una transformación sin ejecutar todo el flujo. No conviene crear una función para cada línea ni ocultar una secuencia simple detrás de numerosas capas.
+
+Un criterio práctico para extraer una función es preguntar:
+
+- ¿esta operación tiene un nombre significativo?
+- ¿se repite o se probará por separado?
+- ¿pueden describirse claramente sus entradas y salida?
+- ¿reduce la carga mental del flujo principal?
+
+Si la respuesta es negativa, dividir puede aumentar la navegación sin aportar comprensión. Modularidad no significa fragmentación.
+
+::: {.design-decision}
+**Decisión de diseño.** Un script lineal es suficiente cuando el flujo es corto, tiene una sola ejecución prevista y sus pasos permanecen claros. Debe dividirse cuando las responsabilidades se mezclan, las pruebas requieren aislamiento o una parte se reutiliza. Convertirlo en paquete o aplicación solo se justifica por necesidades reales de distribución, estabilidad o interfaz.
+:::
+
+## Configuración y valores escritos directamente
+
+Un valor escrito directamente en una expresión no siempre es un problema. `1000` puede ser una conversión transparente de kilogramos a toneladas si la unidad está documentada. Se vuelve frágil cuando representa una decisión que cambiará, carece de nombre o aparece repetida.
+
+En lugar de dispersar filtros y umbrales, conviene declarar constantes o argumentos:
+
+```python
+VALID_FLAGS = {"ok", "review", "invalid"}
+INCLUDE_FLAGS = {"ok", "review"}
+```
+
+La configuración debe permanecer pequeña y cercana al uso hasta que exista una razón para extraerla. Un archivo YAML para dos constantes puede ser sobreingeniería; un archivo de configuración resulta útil cuando varias ejecuciones comparten opciones o cuando personas no programadoras deben revisarlas.
+
+## Validación de entradas y manejo de errores
+
+Validar significa transformar expectativas en comprobaciones ejecutables. Para el caso sintético se requieren siete columnas, identificadores únicos, fechas interpretables, cantidades numéricas y banderas conocidas. Además, un valor negativo solo puede aparecer marcado como inválido.
+
+Una validación eficaz falla temprano y comunica una acción posible. `Error` aporta poca información. `Fila 40: valor negativo sin marca invalid` permite localizar la causa. Silenciar el problema o convertir automáticamente un valor dudoso puede producir una tabla aparentemente limpia a costa de ocultar incertidumbre.
+
+No todos los casos deben detener el flujo. La marca `review` representa una observación que requiere inspección, pero que la especificación permite conservar. La decisión entre detener, advertir o continuar pertenece al dominio y debe documentarse.
+
+## Mensajes, registros y evidencia
+
+Los mensajes deben responder preguntas operacionales:
+
+- ¿qué entrada se leyó?;
+- ¿cuántos registros se procesaron?;
+- ¿qué validaciones se ejecutaron?;
+- ¿qué observaciones se excluyeron y por qué?;
+- ¿dónde quedó la salida?;
+- ¿con qué versión o parámetros se produjo?
+
+En un script pequeño, mensajes de consola y un archivo de salida versionado pueden bastar. En procesos recurrentes conviene un registro estructurado. Registrar cada detalle también es perjudicial: oculta los eventos relevantes y puede exponer información sensible.
+
+## Determinismo y semillas
+
+El resumen por especie es determinista: no contiene muestreo ni optimización aleatoria. Agregar una semilla no mejoraría nada. Cuando un procedimiento sí usa aleatoriedad, la semilla permite repetir una secuencia bajo un generador y una versión determinados, pero no reemplaza la documentación del algoritmo ni garantiza identidad entre plataformas.
+
+La regla es simple: controlar aleatoriedad cuando existe; no introducir semillas como ritual. También deben controlarse fuentes menos evidentes de variación, como orden no garantizado de registros, zona horaria, codificación o versiones de dependencias.
+
+## Eliminar pasos manuales ocultos
+
+Abrir el CSV, borrar una fila, cambiar una coma y guardar una nueva copia produce una transformación sin registro ejecutable. La corrección puede ser razonable, pero queda separada de su justificación. Una alternativa es mantener la fuente intacta y expresar la regla en código o en una tabla de correcciones con autor, fecha y motivo.
+
+No toda revisión humana debe automatizarse. Decidir si una observación es plausible puede requerir experiencia. Lo defendible es registrar la decisión y su evidencia, no fingir que el juicio humano desapareció.
+
+## Diagnóstico de un script frágil
+
+La siguiente versión deliberadamente frágil ilustra problemas comunes. No debe ejecutarse.
+
+```{python}
+#| eval: false
+#| filename: "fragile_landings.py"
+import pandas as pd
+
+d = pd.read_csv("Desktop/desembarques.csv")
+d = d[d.quality_flag != "invalid"]
+d["landings_t"] = d["landings_t"].fillna(0)
+x = d.groupby("species")["landings_t"].sum()
+x.to_csv("Desktop/final.csv")
+print("listo")
+```
+
+El script depende de una ruta personal, introduce una dependencia no declarada, no valida columnas ni tipos, convierte faltantes en cero sin justificarlo, usa nombres ambiguos, sobrescribe una salida genérica y solo informa `listo`. El resumen podría ser numéricamente correcto para una copia particular y seguir siendo imposible de defender.
+
+| Práctica frágil | Riesgo | Alternativa recomendada | Evidencia de mejora |
+|---|---|---|---|
+| Ruta absoluta | Falla fuera de una computadora | Argumento o ruta relativa al proyecto | Ejecución desde otra ubicación |
+| Nombres ambiguos | Confunde intención y estados | Vocabulario del dominio | Revisión explica el flujo sin adivinar |
+| Pasos manuales | Transformaciones invisibles | Regla ejecutable o registro de decisión | Fuente intacta e historial |
+| Valores incrustados | Decisión difícil de localizar | Constante o configuración proporcional | Parámetro identificado |
+| Falta de validación | Error silencioso de esquema o tipo | Comprobaciones antes de transformar | Fallo temprano con caso inválido |
+| Resultados sobrescritos | Pérdida de evidencia | Salida separada y política de versiones | Producto asociado a una ejecución |
+| Archivos sin metadatos | Significado incierto | Diccionario y versión del conjunto | `metadata.yml` revisable |
+| Funciones extensas | Responsabilidades mezcladas | Funciones cohesionadas | Pruebas por responsabilidad |
+| Comentarios literales | Ruido y desactualización | Documentar propósito y decisión | Comentario explica el porqué |
+
+: Prácticas frágiles, riesgos y evidencia de mejora. {#tbl-fragile-practices}
+
+::: {.learning-check}
+**Comprobación.** ¿Cuál de los problemas de la @tbl-fragile-practices podría producir una salida plausible sin generar un error visible?
+:::
+
+## Arquitectura refactorizada
+
+La mejora no comienza dividiendo el archivo al azar. Comienza formulando un contrato:
+
+- entrada: CSV UTF-8 con siete columnas definidas;
+- restricciones: identificadores únicos, fechas ISO, valores numéricos y banderas conocidas;
+- decisión: excluir `invalid`, conservar `review`;
+- transformación: suma por especie;
+- salida: CSV ordenado con una cifra decimal;
+- fallo: mensaje no ambiguo y salida no generada.
+
+```{mermaid}
+%%| label: fig-validation-flow
+%%| fig-cap: "Esquema de validación del caso sintético."
+flowchart TD
+  A[Leer encabezado] --> B{¿Esquema exacto?}
+  B -- no --> X[Detener con diagnóstico]
+  B -- sí --> C[Comprobar tipos e identificadores]
+  C --> D{¿Restricciones válidas?}
+  D -- no --> X
+  D -- sí --> E[Excluir solo invalid]
+  E --> F[Resumir y ordenar]
+  F --> G[Validar salida]
+  G --> H[Exportar]
+```
+
+El diseño de la @fig-validation-flow separa el control de entradas de la transformación. Así, una prueba de esquema no necesita calcular el resumen, y una prueba de suma puede usar registros ya validados.
+
+## Implementación en Python
+
+La implementación completa usa únicamente la biblioteca estándar y se encuentra en `scripts/python/part-iv/summarize_landings.py`. El flujo principal es breve porque delega responsabilidades con nombres explícitos:
+
+```{python}
+#| eval: false
+#| filename: "scripts/python/part-iv/summarize_landings.py"
+rows = read_landings(args.input)
+errors = validate(rows)
+if errors:
+    raise SystemExit("Validación fallida:\n- " + "\n- ".join(errors))
+write_summary(summarize(rows), args.output)
+```
+
+Una invocación desde la raíz del proyecto sería:
+
+```{bash}
+#| eval: false
+python scripts/python/part-iv/summarize_landings.py \
+  data/example/part-iv/synthetic-landings.csv \
+  outputs/part-iv/summary-python.csv
+```
+
+El conjunto contiene deliberadamente un valor negativo marcado como `invalid`. La validación acepta esa combinación porque representa un registro conocido que debe excluirse. Cambiar la bandera a `ok` debe detener la ejecución. Este contraejemplo demuestra que una validación útil expresa una regla, no solo confirma casos correctos.
+
+## Implementación equivalente en R
+
+La alternativa en R base se encuentra en `scripts/r/part-iv/summarize_landings.R`. No es necesario ejecutar ambas implementaciones. La elección puede responder al entorno del equipo, a dependencias existentes o a la integración con otros productos.
+
+```{r}
+#| eval: false
+#| filename: "scripts/r/part-iv/summarize_landings.R"
+valid <- input[input$quality_flag != "invalid", ]
+summary <- aggregate(landings_t ~ species, data = valid, FUN = sum)
+summary <- summary[order(summary$species), ]
+write.csv(summary, output_path, row.names = FALSE, quote = FALSE)
+```
+
+```{bash}
+#| eval: false
+Rscript scripts/r/part-iv/summarize_landings.R \
+  data/example/part-iv/synthetic-landings.csv \
+  outputs/part-iv/summary-r.csv
+```
+
+La equivalencia relevante no es que ambos archivos tengan la misma forma interna, sino que implementen el mismo contrato y produzcan resultados comparables para entradas válidas.
+
+## Perspectiva SQL
+
+`scripts/sql/part-iv/summarize_landings.sql` declara un esquema con clave primaria, bandera restringida y regla para valores negativos. SQL resulta apropiado cuando los datos ya están administrados por un motor y la transformación puede expresarse cerca de ellos. No conviene introducir una base de datos solo para sumar un CSV pequeño.
+
+```{sql}
+--| eval: false
+SELECT species, ROUND(SUM(landings_t), 1) AS landings_t
+FROM synthetic_landings
+WHERE quality_flag <> 'invalid'
+GROUP BY species
+ORDER BY species;
+```
+
+## Validar el resultado
+
+La salida debe satisfacer propiedades independientes de valores particulares:
+
+- contiene exactamente `species` y `landings_t`;
+- cada especie aparece una sola vez;
+- no incluye cantidades negativas;
+- está ordenada por especie;
+- la suma total coincide con los registros no marcados `invalid`;
+- no modifica el archivo fuente.
+
+También conviene mantener uno o dos valores esperados calculados mediante un caso pequeño y revisable. Comparar solamente Python contra R no basta: ambas implementaciones podrían compartir la misma interpretación equivocada.
+
+::: {.validation-checklist}
+**Lista de validación.** Antes de aceptar la refactorización: provoque un esquema incompleto, duplique un `source_id`, cambie la bandera del valor negativo y confirme que cada fallo produce un diagnóstico específico sin generar salida.
+:::
+
+## Comparación antes y después
+
+La versión frágil es más corta, pero su brevedad transfiere trabajo al lector: debe conocer la computadora, suponer el esquema y confiar en decisiones ocultas. La versión refactorizada añade código porque hace explícito el contrato. La mejora no se mide por líneas ni por cantidad de funciones, sino por preguntas que ahora pueden responderse con evidencia.
+
+| Dimensión | Antes | Después |
+|---|---|---|
+| Entrada | Ruta personal implícita | Argumento y esquema declarado |
+| Decisiones | Filtros sin contrato | Política de banderas documentada |
+| Fallos | Mensajes genéricos o tardíos | Diagnósticos específicos y tempranos |
+| Salida | Archivo genérico sobrescrito | Destino explícito y separable |
+| Dependencias | Biblioteca no declarada | R base o biblioteca estándar de Python |
+| Revisión | Lectura lineal de todo el script | Responsabilidades inspeccionables |
+
+: Comparación de la arquitectura antes y después de refactorizar. {#tbl-before-after}
+
+## Errores frecuentes y alternativas
+
+**Confundir estilo con corrección.** Un archivo bien formateado puede implementar una regla equivocada. El estilo facilita la revisión; no sustituye las pruebas.
+
+**Validar después de transformar.** Cuando los tipos se convierten silenciosamente, la evidencia del problema puede desaparecer. Las entradas deben comprobarse antes de tomar decisiones irreversibles.
+
+**Capturar todos los errores.** Un bloque genérico que continúa ante cualquier excepción puede publicar una salida parcial. Solo deben gestionarse los fallos que el programa comprende y puede comunicar.
+
+**Crear abstracciones prematuras.** Diseñar clases, plugins y archivos de configuración antes de entender el flujo aumenta el costo de cambio. La arquitectura debe crecer con riesgos observados.
+
+**Optimizar antes de medir.** Un resumen de 40 filas no necesita paralelismo. La claridad domina hasta que una medición demuestre un problema de rendimiento.
+
+**Suponer que portable significa idéntico.** Diferencias de versión, sistema, codificación o zona horaria pueden afectar resultados. La portabilidad se demuestra en entornos definidos.
+
+## Decidir cuándo detener la refactorización
+
+La refactorización tiene rendimientos decrecientes. Para un análisis exploratorio de una sola tarde, bastan nombres claros, fuente intacta y validaciones esenciales. Para un informe periódico, se justifican argumentos, funciones, registros y pruebas. Para un servicio usado por varias personas, podrían requerirse interfaces estables, empaquetado y automatización.
+
+La pregunta no es «¿puede añadirse otra capa?», sino «¿qué riesgo verificable reduciría?». Si la nueva abstracción no mejora comprensión, prueba, reutilización o operación, probablemente deba posponerse.
+
+## Ejercicios críticos
+
+1. Clasifique diez problemas del script frágil como riesgo de corrección, portabilidad, trazabilidad o mantenimiento. Justifique los casos que pertenecen a más de una categoría.
+2. Anticipe qué ocurrirá si falta `quality_flag`. Después compruebe la predicción con una copia temporal.
+3. Diseñe un contraejemplo que pase una validación superficial de tipos pero viole una regla del dominio.
+4. Compare la implementación R y Python. Identifique una diferencia de interfaz que no cambia el contrato y una que sí podría cambiarlo.
+5. Proponga un mensaje comprensible para una persona no técnica cuando aparezca un identificador duplicado.
+6. Decida si `metadata.yml` debe ser leído automáticamente en esta fase. Argumente costo y beneficio.
+7. Explique cuándo excluir `review` sería una decisión científica y no meramente técnica.
+
+## Proyecto pequeño: refactorizar el flujo sintético
+
+El producto del capítulo contiene:
+
+1. una copia identificada del script frágil;
+2. diagnóstico de al menos cinco prácticas y sus riesgos;
+3. contrato de entrada, transformación y salida;
+4. script refactorizado en R **o** Python;
+5. pruebas manuales o automatizadas de casos válidos e inválidos;
+6. salida reproducible separada de la fuente;
+7. nota de decisiones y límites;
+8. autoevaluación de 0 a 4.
+
+No se evalúa la cantidad de funciones. Se evalúa si otra persona puede examinar la intención, provocar fallos controlados y relacionar la salida con sus entradas.
+
+## Rúbrica y autoevaluación
+
+| Nivel | Evidencia observable |
+|---:|---|
+| 0 | Desconoce los componentes y no puede explicar el flujo. |
+| 1 | Reconoce prácticas frágiles y ejecuta cambios con ayuda. |
+| 2 | Explica y refactoriza de manera autónoma un script pequeño. |
+| 3 | Diseña, compara, valida y diagnostica alternativas con evidencia. |
+| 4 | Desarrolla, enseña y revisa código de otra persona con criterios explícitos. |
+
+: Escala de dominio del capítulo. {#tbl-code-rubric}
+
+## Tarea y criterio para avanzar
+
+Seleccione un script propio que no contenga información restringida. Documente su propósito, entradas, salidas, dependencias, decisiones manuales y cinco riesgos. Proponga una mejora pequeña, la evidencia que demostraría su efecto y una condición bajo la cual no convendría implementarla.
+
+Se avanza cuando puede explicarse qué hace defendible al código científico, detectarse al menos cinco prácticas frágiles, justificarse una estructura, validarse entradas y salidas, y señalarse qué debe permanecer reproducible aunque cambie la herramienta.
+
+## Resumen
+
+El código científico defendible hace visible el vínculo entre intención y resultado. Legibilidad, explicitud, modularidad, trazabilidad, determinismo y portabilidad se refuerzan, pero ninguna sustituye la validación científica. Separar configuración, entradas, transformación, salida y registro facilita la revisión. La arquitectura debe ser proporcional: un script claro puede ser suficiente; la sobreingeniería también crea riesgo.
+
+## Glosario
+
+**Aserción:** comprobación ejecutable de una propiedad que debe cumplirse.  
+**Configuración:** valores que seleccionan el comportamiento de una ejecución sin redefinir el algoritmo.  
+**Contrato:** descripción de entradas, condiciones, transformación, salida y fallos esperados.  
+**Determinismo:** propiedad de producir la misma salida bajo entradas y condiciones declaradas.  
+**Modularidad:** separación de responsabilidades examinables y combinables.  
+**Portabilidad:** capacidad de trasladar un flujo entre entornos definidos con cambios controlados.  
+**Trazabilidad:** capacidad de relacionar un producto con entradas, decisiones y versiones.  
+**Validación:** comprobación de que datos o resultados satisfacen expectativas explícitas.
+
+## Revisión futura
+
+Revisar anualmente los ejemplos contra versiones soportadas de R y Python, manteniendo la implementación libre de dependencias externas. Incorporar pruebas automatizadas en CCPE-028; no anticiparlas aquí con una infraestructura que todavía no se ha explicado.
+
+## Referencias
+
+Las recomendaciones se apoyan en prácticas revisadas por pares para computación científica [@wilson2014; @wilson2017goodenough], en la guía de estilo oficial de Python [@pep8] y en la documentación introductoria oficial de R [@rintro].

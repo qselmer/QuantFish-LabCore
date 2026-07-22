@@ -1,0 +1,45 @@
+---
+title: "Código, versiones y reproducibilidad"
+description: "Arquitectura computacional para convertir código científico en evidencia trazable, verificable y mantenible."
+---
+
+El código científico ocupa una posición singular: es una herramienta de trabajo y, al mismo tiempo, una parte de la evidencia que conecta datos con resultados. Un informe puede describir un procedimiento con precisión y aun así resultar imposible de reconstruir si las transformaciones reales quedaron dispersas entre scripts, clics, archivos intermedios y decisiones no registradas.
+
+Guardar copias sucesivas tampoco equivale a controlar versiones. Una carpeta con archivos llamados `final`, `final_2` y `final_ahora_si` conserva estados, pero no explica qué cambió, por qué cambió, quién lo revisó ni qué resultado corresponde a cada estado. Git aporta una historia estructurada; GitHub añade colaboración y publicación; Quarto conecta la narrativa con código, resultados y referencias. Ninguna de estas herramientas, por sí sola, garantiza reproducibilidad.
+
+```{mermaid}
+%%| label: fig-part-iv-flow
+%%| fig-cap: "Del problema científico al mantenimiento de un producto computacional."
+flowchart LR
+  A[Problema científico] --> B[Datos]
+  B --> C[Código]
+  C --> D[Versiones]
+  D --> E[Validación]
+  E --> F[Documento]
+  F --> G[Publicación]
+  G --> H[Mantenimiento]
+  H -. retroalimentación .-> A
+```
+
+La reproducibilidad requiere algo más que compartir código: exige entradas identificables, dependencias documentadas, configuración explícita, orden de ejecución, validaciones y evidencia de que el producto publicado corresponde a una versión concreta. Las pruebas reducen la probabilidad de propagar errores; la documentación conserva decisiones y límites; el mantenimiento evita que un resultado quede inutilizable cuando cambian las personas o el entorno.
+
+## Recorrido de la parte
+
+| Capítulo | Pregunta central | Producto práctico |
+|---|---|---|
+| Principios de código científico | ¿Qué hace que un código sea científicamente defendible? | Script refactorizado |
+| Control de versiones con Git | ¿Cómo se conserva la historia del trabajo? | Repositorio con commits |
+| Colaboración y publicación con GitHub | ¿Cómo se colabora y publica? | Flujo con issue y pull request |
+| Documentos científicos con Quarto | ¿Cómo se conectan narrativa, código y resultados? | Documento reproducible |
+| Investigación reproducible | ¿Qué necesita otra persona para reconstruir el resultado? | Auditoría de reproducibilidad |
+| Ingeniería de software científico | ¿Cuándo un script debe convertirse en un sistema? | Flujo modular |
+| Pruebas, validación y calidad | ¿Cómo se detectan errores antes de publicar? | Suite mínima de pruebas |
+| Documentación y mantenimiento | ¿Cómo se conserva utilizable el trabajo? | Plan de mantenimiento |
+
+::: {.part-roadmap}
+**Caso transversal.** La parte utiliza un informe reproducible de desembarques pesqueros construido con datos sintéticos. Cada capítulo mejora una dimensión del mismo producto sin introducir teoría estadística ni datos institucionales.
+:::
+
+## Proyecto integrador previsto
+
+El recorrido culminará en la transformación de un script aislado en un repositorio capaz de validar datos sintéticos, generar un informe HTML, registrar su historia y documentar su mantenimiento. En esta fase inicial solo se desarrolla el primer eslabón: reconocer qué hace defendible al código y refactorizar un script frágil.

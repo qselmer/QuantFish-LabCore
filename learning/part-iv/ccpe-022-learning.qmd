@@ -1,0 +1,89 @@
+---
+title: "Cuaderno personal: principios de código científico"
+subtitle: "CCPE-022"
+lang: es
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-copy: true
+---
+
+## Propósito
+
+Este cuaderno registra aprendizaje personal, no sustituye el capítulo ni constituye material de clase. El objetivo es convertir criterios generales de calidad en decisiones observables sobre un script científico pequeño.
+
+## Diagnóstico inicial
+
+Responde antes de consultar el capítulo.
+
+1. ¿Cuándo considerarías que un script funciona?
+2. ¿Por qué un resultado correcto una vez puede no ser reproducible?
+3. ¿Qué riesgo introduce una ruta absoluta?
+4. ¿Qué diferencia existe entre dividir código y hacerlo más comprensible?
+5. ¿Cuándo una función mejora un análisis y cuándo lo complica?
+6. ¿Qué evidencia demostraría que un script fue mejorado?
+
+**Registro inicial:**
+
+- Lo que ya puedo explicar:
+- Lo que todavía confundo:
+- Una práctica de mi trabajo que deseo revisar:
+
+## Actividad guiada: leer antes de editar
+
+Lee el script frágil del capítulo y completa esta matriz sin ejecutarlo.
+
+| Observación | Riesgo científico u operativo | Evidencia necesaria | Cambio mínimo |
+|---|---|---|---|
+| Ruta dependiente de una ubicación personal |  |  |  |
+| Faltantes convertidos a cero |  |  |  |
+| Salida llamada `final.csv` |  |  |  |
+| Mensaje `listo` |  |  |  |
+
+Compara luego tus observaciones con el contrato de la versión refactorizada. Marca qué riesgos habías detectado y cuáles aparecieron recién al leer la solución.
+
+## Práctica reproducible
+
+Trabaja con `data/example/part-iv/synthetic-landings.csv`. No edites el archivo fuente.
+
+1. Ejecuta una de las implementaciones de `scripts/` y guarda el comando utilizado.
+2. Comprueba que la fila negativa marcada como `invalid` no entra al resumen.
+3. Crea una copia temporal sin la columna `quality_flag` y registra el error obtenido.
+4. Explica por qué fallar temprano es preferible a producir una tabla incompleta.
+5. Compara el contrato de la versión elegida con una segunda implementación en otro lenguaje.
+
+```text
+Comando ejecutado:
+
+Resultado esperado:
+
+Resultado observado:
+
+Evidencia conservada:
+```
+
+## Tarea de transferencia
+
+Selecciona un script propio que no contenga datos sensibles. Sin refactorizarlo todavía, documenta su propósito, entradas, salidas, dependencias, pasos manuales, riesgos y evidencia que demostraría una mejora. Después escribe un contrato de cinco líneas —entrada, precondiciones, transformación, salida y errores— y propón solo tres cambios ordenados por reducción de riesgo.
+
+## Autoevaluación
+
+| Nivel | Evidencia observable |
+|---:|---|
+| 0 | Desconozco los principios y no identifico el contrato. |
+| 1 | Reconozco problemas y ejecuto con ayuda. |
+| 2 | Explico los principios y ejecuto de manera autónoma. |
+| 3 | Diseño, comparo, valido y diagnostico el script. |
+| 4 | Desarrollo, enseño y reviso una solución defendible. |
+
+## Criterio de avance
+
+Avanzo cuando alcanzo al menos nivel 3 y puedo explicar qué hace defendible al código científico, detectar cinco prácticas frágiles, justificar una estructura, validar entradas y salidas, y explicar qué debe permanecer reproducible. La evidencia incluye el comando ejecutado, una salida válida, un fallo intencional y el contrato del script. Si falta una evidencia, vuelvo a la sección correspondiente del capítulo antes de continuar.
+
+## Cierre reflexivo
+
+- La decisión más importante que cambié fue:
+- La evidencia que ahora exigiré a un script es:
+- El riesgo que todavía no sé controlar es:
+- Mi siguiente acción concreta será:

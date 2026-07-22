@@ -1,0 +1,31 @@
+dataset:
+  title: "Desembarques pesqueros sintéticos"
+  version: "1.0.0"
+  created: "2026-07-21"
+  license: "CC0-1.0"
+  synthetic: true
+  records: 40
+  description: "Datos inventados para formación en computación científica; no describen operaciones reales."
+fields:
+  date:
+    type: date
+    format: "YYYY-MM-DD"
+  port:
+    type: string
+    allowed: [Puerto Norte, Puerto Centro, Puerto Sur]
+  fleet:
+    type: string
+    allowed: [artesanal, menor_escala]
+  species:
+    type: string
+    allowed: [anchoveta, jurel, caballa, bonito]
+  landings_t:
+    type: number
+    unit: tonne
+    minimum: 0
+  source_id:
+    type: string
+    unique: true
+  quality_flag:
+    type: string
+    allowed: [ok, review, invalid]
