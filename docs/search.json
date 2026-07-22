@@ -124,7 +124,7 @@
     "href": "contents.html#parte-iv.-código-versiones-y-reproducibilidad",
     "title": "Índice general",
     "section": "Parte IV. Código, versiones y reproducibilidad",
-    "text": "Parte IV. Código, versiones y reproducibilidad\n\nPrincipios de código científico — En desarrollo\nControl de versiones con Git — En desarrollo\nColaboración y publicación con GitHub — En desarrollo\nDocumentos científicos con Quarto — En desarrollo\nInvestigación reproducible — En desarrollo\nIngeniería de software científico — En desarrollo\nPruebas, validación y control de calidad — En desarrollo\nDocumentación y mantenimiento del código — En desarrollo",
+    "text": "Parte IV. Código, versiones y reproducibilidad\n\nPrincipios de código científico — disponible\nControl de versiones con Git — En desarrollo\nColaboración y publicación con GitHub — En desarrollo\nDocumentos científicos con Quarto — En desarrollo\nInvestigación reproducible — En desarrollo\nIngeniería de software científico — En desarrollo\nPruebas, validación y control de calidad — En desarrollo\nDocumentación y mantenimiento del código — En desarrollo",
     "crumbs": [
       "Índice general"
     ]
@@ -232,6 +232,387 @@
     "crumbs": [
       "Fundamentos del ecosistema digital científico",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Alcance, arquitectura y sistema de aprendizaje</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/index.html",
+    "href": "part-iv/index.html",
+    "title": "Código, versiones y reproducibilidad",
+    "section": "",
+    "text": "Recorrido de la parte\nEl código científico ocupa una posición singular: es una herramienta de trabajo y, al mismo tiempo, una parte de la evidencia que conecta datos con resultados. Un informe puede describir un procedimiento con precisión y aun así resultar imposible de reconstruir si las transformaciones reales quedaron dispersas entre scripts, clics, archivos intermedios y decisiones no registradas.\nGuardar copias sucesivas tampoco equivale a controlar versiones. Una carpeta con archivos llamados final, final_2 y final_ahora_si conserva estados, pero no explica qué cambió, por qué cambió, quién lo revisó ni qué resultado corresponde a cada estado. Git aporta una historia estructurada; GitHub añade colaboración y publicación; Quarto conecta la narrativa con código, resultados y referencias. Ninguna de estas herramientas, por sí sola, garantiza reproducibilidad.\nLa reproducibilidad requiere algo más que compartir código: exige entradas identificables, dependencias documentadas, configuración explícita, orden de ejecución, validaciones y evidencia de que el producto publicado corresponde a una versión concreta. Las pruebas reducen la probabilidad de propagar errores; la documentación conserva decisiones y límites; el mantenimiento evita que un resultado quede inutilizable cuando cambian las personas o el entorno.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad"
+    ]
+  },
+  {
+    "objectID": "part-iv/index.html#recorrido-de-la-parte",
+    "href": "part-iv/index.html#recorrido-de-la-parte",
+    "title": "Código, versiones y reproducibilidad",
+    "section": "",
+    "text": "Capítulo\nPregunta central\nProducto práctico\n\n\n\n\nPrincipios de código científico\n¿Qué hace que un código sea científicamente defendible?\nScript refactorizado\n\n\nControl de versiones con Git\n¿Cómo se conserva la historia del trabajo?\nRepositorio con commits\n\n\nColaboración y publicación con GitHub\n¿Cómo se colabora y publica?\nFlujo con issue y pull request\n\n\nDocumentos científicos con Quarto\n¿Cómo se conectan narrativa, código y resultados?\nDocumento reproducible\n\n\nInvestigación reproducible\n¿Qué necesita otra persona para reconstruir el resultado?\nAuditoría de reproducibilidad\n\n\nIngeniería de software científico\n¿Cuándo un script debe convertirse en un sistema?\nFlujo modular\n\n\nPruebas, validación y calidad\n¿Cómo se detectan errores antes de publicar?\nSuite mínima de pruebas\n\n\nDocumentación y mantenimiento\n¿Cómo se conserva utilizable el trabajo?\nPlan de mantenimiento\n\n\n\n\nCaso transversal. La parte utiliza un informe reproducible de desembarques pesqueros construido con datos sintéticos. Cada capítulo mejora una dimensión del mismo producto sin introducir teoría estadística ni datos institucionales.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad"
+    ]
+  },
+  {
+    "objectID": "part-iv/index.html#proyecto-integrador-previsto",
+    "href": "part-iv/index.html#proyecto-integrador-previsto",
+    "title": "Código, versiones y reproducibilidad",
+    "section": "Proyecto integrador previsto",
+    "text": "Proyecto integrador previsto\nEl recorrido culminará en la transformación de un script aislado en un repositorio capaz de validar datos sintéticos, generar un informe HTML, registrar su historia y documentar su mantenimiento. En esta fase inicial solo se desarrolla el primer eslabón: reconocer qué hace defendible al código y refactorizar un script frágil.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html",
+    "href": "part-iv/22-code-principles.html",
+    "title": "2  Principios de código científico",
+    "section": "",
+    "text": "2.1 Importancia científica\nCCPE-022\nPregunta central: ¿Qué características hacen que un código sea comprensible, verificable y científicamente defendible?\nEl código interviene en decisiones científicas aunque permanezca invisible en el producto final. Selecciona registros, transforma unidades, excluye observaciones, resume categorías y determina qué valores llegan a una tabla o figura. Por ello, su calidad no es únicamente una preocupación técnica: afecta la posibilidad de examinar la cadena de razonamiento que sostiene un resultado.\nEste capítulo utiliza un informe de desembarques completamente sintético. El objetivo no es inferir propiedades de una pesquería, sino estudiar cómo una transformación sencilla puede volverse comprensible, verificable y reconstruible.\nUn programa que termina sin errores demuestra solamente que el intérprete pudo ejecutar una secuencia de instrucciones bajo ciertas condiciones. No demuestra que se leyó el archivo correcto, que las unidades son las esperadas, que las exclusiones son justificables ni que la salida corresponde a la versión que se documentó. La corrección científica exige conectar la intención con una implementación y aportar evidencia para evaluar esa conexión.\nWilson y colaboradores proponen escribir programas para personas, automatizar tareas repetibles, trabajar mediante cambios incrementales, modularizar y planificar los errores mediante aserciones y pruebas 1. Estas prácticas no garantizan conclusiones correctas; reducen ambigüedades y hacen que los fallos sean más fáciles de detectar. Una guía posterior enfatiza medidas alcanzables para equipos con recursos limitados, entre ellas organizar datos, escribir análisis claros, registrar cambios y conservar productos reconstruibles 2.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#importancia-científica",
+    "href": "part-iv/22-code-principles.html#importancia-científica",
+    "title": "2  Principios de código científico",
+    "section": "",
+    "text": "Comprobación. ¿Qué evidencia adicional, además de una ejecución sin errores, permitiría confiar en una tabla producida por un script?",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#objetivos-y-prerrequisitos",
+    "href": "part-iv/22-code-principles.html#objetivos-y-prerrequisitos",
+    "title": "2  Principios de código científico",
+    "section": "2.2 Objetivos y prerrequisitos",
+    "text": "2.2 Objetivos y prerrequisitos\nAl finalizar el capítulo será posible:\n\ndistinguir ejecución, corrección y defendibilidad científica;\nreconocer prácticas frágiles y explicar su riesgo;\nseparar configuración, validación, transformación y exportación;\nelegir entre un script lineal y una estructura modular;\nrefactorizar un flujo pequeño en R o Python;\ndefinir evidencia verificable para entradas, decisiones y salidas.\n\nSe presupone familiaridad básica con archivos de texto, tablas y ejecución de scripts. No se requiere teoría estadística ni dominio simultáneo de R y Python.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#problema-motivador",
+    "href": "part-iv/22-code-principles.html#problema-motivador",
+    "title": "2  Principios de código científico",
+    "section": "2.3 Problema motivador",
+    "text": "2.3 Problema motivador\nUn equipo recibe un archivo CSV y necesita totalizar desembarques sintéticos por especie. Una primera implementación produce una tabla plausible. El archivo se envía por correo y la figura se copia a un informe. Semanas después, nadie puede responder con seguridad:\n\ncuál de varias copias del CSV se utilizó;\npor qué un registro negativo apareció en los datos;\nsi las filas marcadas como inválidas fueron excluidas;\ndónde se definió la ruta de salida;\nqué versión del script produjo la tabla publicada;\nsi una ejecución posterior sobrescribió la evidencia anterior.\n\nEl problema no es que el lenguaje haya fallado. El problema es que la arquitectura del trabajo no permite inspeccionar las decisiones.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#de-código-que-funciona-a-código-defendible",
+    "href": "part-iv/22-code-principles.html#de-código-que-funciona-a-código-defendible",
+    "title": "2  Principios de código científico",
+    "section": "2.4 De código que funciona a código defendible",
+    "text": "2.4 De código que funciona a código defendible\n\nEjecución, corrección y confianza\nConviene separar tres afirmaciones:\n\nEl código se ejecuta: el intérprete completa las instrucciones.\nEl código implementa lo esperado: las transformaciones corresponden a una especificación.\nEl resultado es científicamente defendible: existen datos, metadatos, decisiones, versiones y validaciones suficientes para examinar cómo se obtuvo.\n\nLa primera afirmación es operacional. La segunda requiere pruebas contra expectativas. La tercera añade procedencia, interpretación y comunicación. Un resultado puede cumplir la primera y fallar las otras dos.\n\nComprobación. Proponga un caso en el que un script termine correctamente, pero lea el archivo equivocado.\n\n\n\nPropiedades fundamentales\nLegibilidad. Otra persona puede seguir la intención sin reconstruir mentalmente demasiados detalles. Los nombres, el orden y la estructura revelan el propósito.\nCorrección. El programa satisface una especificación observable para los casos considerados. La corrección se apoya en ejemplos conocidos, aserciones y pruebas; no se deduce del estilo.\nExplicitud. Rutas, parámetros, unidades, filtros y supuestos importantes aparecen declarados. Una decisión crítica no queda escondida en una celda, un clic o un número sin nombre.\nModularidad. Las responsabilidades pueden examinarse por separado. Leer, validar, transformar y exportar no forman necesariamente una sola función extensa.\nTrazabilidad. Es posible relacionar una salida con entradas, configuración y versión del código.\nDeterminismo. Bajo las mismas entradas y condiciones declaradas, el flujo produce el mismo resultado. Cuando existe aleatoriedad, se documenta y controla la semilla.\nPortabilidad. El proyecto puede trasladarse sin editar rutas ligadas a una computadora. Esto no significa que todo funcione en cualquier sistema sin preparación, sino que sus requisitos y variaciones están declarados.\n\nCódigo científico defendible es aquel cuya intención, entradas, transformaciones, decisiones y salidas pueden ser examinadas mediante evidencia suficiente, y cuyos límites se comunican de manera explícita.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#anatomía-de-un-script-científico-defendible",
+    "href": "part-iv/22-code-principles.html#anatomía-de-un-script-científico-defendible",
+    "title": "2  Principios de código científico",
+    "section": "2.5 Anatomía de un script científico defendible",
+    "text": "2.5 Anatomía de un script científico defendible\n\nflowchart LR\n  A[Configuración] --&gt; B[Validación de entradas]\n  B --&gt; C[Transformación]\n  C --&gt; D[Validación de resultados]\n  D --&gt; E[Exportación]\n  E --&gt; F[Registro]\n  B -. falla temprana .-&gt; X[Mensaje accionable]\n  D -. inconsistencia .-&gt; X\n\n\n\n\n\nflowchart LR\n  A[Configuración] --&gt; B[Validación de entradas]\n  B --&gt; C[Transformación]\n  C --&gt; D[Validación de resultados]\n  D --&gt; E[Exportación]\n  E --&gt; F[Registro]\n  B -. falla temprana .-&gt; X[Mensaje accionable]\n  D -. inconsistencia .-&gt; X\n\n\n\n\nFigura 2.1: Anatomía de un script científico defendible.\n\n\n\n\n\nLa secuencia de la Figura 2.1 convierte supuestos implícitos en puntos de inspección. La configuración identifica archivos y parámetros. La validación de entradas verifica esquema, tipos y restricciones. La transformación realiza el trabajo sustantivo. La validación de resultados comprueba propiedades esperadas. La exportación escribe un producto sin confundirlo con la fuente. El registro deja evidencia de qué ocurrió.\nNo todo script necesita una infraestructura de registros compleja. En un flujo pequeño puede bastar un mensaje con el número de filas, la ruta de salida y la fecha. La proporcionalidad es una propiedad de buen diseño.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#separar-datos-código-configuración-y-resultados",
+    "href": "part-iv/22-code-principles.html#separar-datos-código-configuración-y-resultados",
+    "title": "2  Principios de código científico",
+    "section": "2.6 Separar datos, código, configuración y resultados",
+    "text": "2.6 Separar datos, código, configuración y resultados\nUna organización defendible evita que el script modifique su fuente y distingue cuatro responsabilidades:\ndata/example/part-iv/       # datos sintéticos y metadatos\nscripts/python/part-iv/     # implementación Python\nscripts/r/part-iv/          # implementación R\nscripts/sql/part-iv/        # esquema y consulta SQL\noutputs/part-iv/            # productos regenerables, no incluidos aquí\nLos datos describen observaciones o ejemplos; el código describe transformaciones; la configuración selecciona parámetros y ubicaciones; los resultados son productos regenerables. Mezclarlos dificulta saber qué debe preservarse y qué puede reconstruirse.\nLas rutas relativas se interpretan desde un punto de referencia acordado, normalmente la raíz del proyecto. No son una solución mágica: una ruta relativa ambigua también falla si cada script supone un directorio distinto. La regla debe documentarse y los comandos deben ejecutarse desde un contexto predecible.\n\nComprobación. ¿Qué archivos deberían considerarse fuentes autoritativas y cuáles deberían poder regenerarse?",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#nombres-orden-y-estructura",
+    "href": "part-iv/22-code-principles.html#nombres-orden-y-estructura",
+    "title": "2  Principios de código científico",
+    "section": "2.7 Nombres, orden y estructura",
+    "text": "2.7 Nombres, orden y estructura\nUn nombre útil comunica la función en el dominio. landings_t informa más que x; valid_landings informa más que data2. Sin embargo, nombres excesivamente largos pueden ocultar la estructura. La meta no es describir toda la historia en cada identificador, sino mantener un vocabulario consistente.\nUn script pequeño suele resultar más legible cuando sigue un orden estable:\n\ndescripción y condiciones de uso;\nconstantes o argumentos;\nfunciones;\nlectura y validación;\ntransformación;\nvalidación y exportación;\nmensajes finales.\n\nLos comentarios deben explicar propósito, restricciones y decisiones. Un comentario como # sumar valores repite una instrucción evidente; uno como # excluir registros invalid, conservar review para inspección documenta una decisión que el código no explica por sí solo.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#funciones-y-modularidad-proporcional",
+    "href": "part-iv/22-code-principles.html#funciones-y-modularidad-proporcional",
+    "title": "2  Principios de código científico",
+    "section": "2.8 Funciones y modularidad proporcional",
+    "text": "2.8 Funciones y modularidad proporcional\nUna función mejora el análisis cuando encapsula una responsabilidad con entradas, salida y condiciones claras. También permite probar una transformación sin ejecutar todo el flujo. No conviene crear una función para cada línea ni ocultar una secuencia simple detrás de numerosas capas.\nUn criterio práctico para extraer una función es preguntar:\n\n¿esta operación tiene un nombre significativo?\n¿se repite o se probará por separado?\n¿pueden describirse claramente sus entradas y salida?\n¿reduce la carga mental del flujo principal?\n\nSi la respuesta es negativa, dividir puede aumentar la navegación sin aportar comprensión. Modularidad no significa fragmentación.\n\nDecisión de diseño. Un script lineal es suficiente cuando el flujo es corto, tiene una sola ejecución prevista y sus pasos permanecen claros. Debe dividirse cuando las responsabilidades se mezclan, las pruebas requieren aislamiento o una parte se reutiliza. Convertirlo en paquete o aplicación solo se justifica por necesidades reales de distribución, estabilidad o interfaz.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#configuración-y-valores-escritos-directamente",
+    "href": "part-iv/22-code-principles.html#configuración-y-valores-escritos-directamente",
+    "title": "2  Principios de código científico",
+    "section": "2.9 Configuración y valores escritos directamente",
+    "text": "2.9 Configuración y valores escritos directamente\nUn valor escrito directamente en una expresión no siempre es un problema. 1000 puede ser una conversión transparente de kilogramos a toneladas si la unidad está documentada. Se vuelve frágil cuando representa una decisión que cambiará, carece de nombre o aparece repetida.\nEn lugar de dispersar filtros y umbrales, conviene declarar constantes o argumentos:\nVALID_FLAGS = {\"ok\", \"review\", \"invalid\"}\nINCLUDE_FLAGS = {\"ok\", \"review\"}\nLa configuración debe permanecer pequeña y cercana al uso hasta que exista una razón para extraerla. Un archivo YAML para dos constantes puede ser sobreingeniería; un archivo de configuración resulta útil cuando varias ejecuciones comparten opciones o cuando personas no programadoras deben revisarlas.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#validación-de-entradas-y-manejo-de-errores",
+    "href": "part-iv/22-code-principles.html#validación-de-entradas-y-manejo-de-errores",
+    "title": "2  Principios de código científico",
+    "section": "2.10 Validación de entradas y manejo de errores",
+    "text": "2.10 Validación de entradas y manejo de errores\nValidar significa transformar expectativas en comprobaciones ejecutables. Para el caso sintético se requieren siete columnas, identificadores únicos, fechas interpretables, cantidades numéricas y banderas conocidas. Además, un valor negativo solo puede aparecer marcado como inválido.\nUna validación eficaz falla temprano y comunica una acción posible. Error aporta poca información. Fila 40: valor negativo sin marca invalid permite localizar la causa. Silenciar el problema o convertir automáticamente un valor dudoso puede producir una tabla aparentemente limpia a costa de ocultar incertidumbre.\nNo todos los casos deben detener el flujo. La marca review representa una observación que requiere inspección, pero que la especificación permite conservar. La decisión entre detener, advertir o continuar pertenece al dominio y debe documentarse.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#mensajes-registros-y-evidencia",
+    "href": "part-iv/22-code-principles.html#mensajes-registros-y-evidencia",
+    "title": "2  Principios de código científico",
+    "section": "2.11 Mensajes, registros y evidencia",
+    "text": "2.11 Mensajes, registros y evidencia\nLos mensajes deben responder preguntas operacionales:\n\n¿qué entrada se leyó?;\n¿cuántos registros se procesaron?;\n¿qué validaciones se ejecutaron?;\n¿qué observaciones se excluyeron y por qué?;\n¿dónde quedó la salida?;\n¿con qué versión o parámetros se produjo?\n\nEn un script pequeño, mensajes de consola y un archivo de salida versionado pueden bastar. En procesos recurrentes conviene un registro estructurado. Registrar cada detalle también es perjudicial: oculta los eventos relevantes y puede exponer información sensible.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#determinismo-y-semillas",
+    "href": "part-iv/22-code-principles.html#determinismo-y-semillas",
+    "title": "2  Principios de código científico",
+    "section": "2.12 Determinismo y semillas",
+    "text": "2.12 Determinismo y semillas\nEl resumen por especie es determinista: no contiene muestreo ni optimización aleatoria. Agregar una semilla no mejoraría nada. Cuando un procedimiento sí usa aleatoriedad, la semilla permite repetir una secuencia bajo un generador y una versión determinados, pero no reemplaza la documentación del algoritmo ni garantiza identidad entre plataformas.\nLa regla es simple: controlar aleatoriedad cuando existe; no introducir semillas como ritual. También deben controlarse fuentes menos evidentes de variación, como orden no garantizado de registros, zona horaria, codificación o versiones de dependencias.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#eliminar-pasos-manuales-ocultos",
+    "href": "part-iv/22-code-principles.html#eliminar-pasos-manuales-ocultos",
+    "title": "2  Principios de código científico",
+    "section": "2.13 Eliminar pasos manuales ocultos",
+    "text": "2.13 Eliminar pasos manuales ocultos\nAbrir el CSV, borrar una fila, cambiar una coma y guardar una nueva copia produce una transformación sin registro ejecutable. La corrección puede ser razonable, pero queda separada de su justificación. Una alternativa es mantener la fuente intacta y expresar la regla en código o en una tabla de correcciones con autor, fecha y motivo.\nNo toda revisión humana debe automatizarse. Decidir si una observación es plausible puede requerir experiencia. Lo defendible es registrar la decisión y su evidencia, no fingir que el juicio humano desapareció.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#diagnóstico-de-un-script-frágil",
+    "href": "part-iv/22-code-principles.html#diagnóstico-de-un-script-frágil",
+    "title": "2  Principios de código científico",
+    "section": "2.14 Diagnóstico de un script frágil",
+    "text": "2.14 Diagnóstico de un script frágil\nLa siguiente versión deliberadamente frágil ilustra problemas comunes. No debe ejecutarse.\n\n\n\nfragile_landings.py\n\nimport pandas as pd\n\nd = pd.read_csv(\"Desktop/desembarques.csv\")\nd = d[d.quality_flag != \"invalid\"]\nd[\"landings_t\"] = d[\"landings_t\"].fillna(0)\nx = d.groupby(\"species\")[\"landings_t\"].sum()\nx.to_csv(\"Desktop/final.csv\")\nprint(\"listo\")\n\n\nEl script depende de una ruta personal, introduce una dependencia no declarada, no valida columnas ni tipos, convierte faltantes en cero sin justificarlo, usa nombres ambiguos, sobrescribe una salida genérica y solo informa listo. El resumen podría ser numéricamente correcto para una copia particular y seguir siendo imposible de defender.\n\n\n\nTabla 2.1: Prácticas frágiles, riesgos y evidencia de mejora.\n\n\n\n\n\n\n\n\n\n\n\nPráctica frágil\nRiesgo\nAlternativa recomendada\nEvidencia de mejora\n\n\n\n\nRuta absoluta\nFalla fuera de una computadora\nArgumento o ruta relativa al proyecto\nEjecución desde otra ubicación\n\n\nNombres ambiguos\nConfunde intención y estados\nVocabulario del dominio\nRevisión explica el flujo sin adivinar\n\n\nPasos manuales\nTransformaciones invisibles\nRegla ejecutable o registro de decisión\nFuente intacta e historial\n\n\nValores incrustados\nDecisión difícil de localizar\nConstante o configuración proporcional\nParámetro identificado\n\n\nFalta de validación\nError silencioso de esquema o tipo\nComprobaciones antes de transformar\nFallo temprano con caso inválido\n\n\nResultados sobrescritos\nPérdida de evidencia\nSalida separada y política de versiones\nProducto asociado a una ejecución\n\n\nArchivos sin metadatos\nSignificado incierto\nDiccionario y versión del conjunto\nmetadata.yml revisable\n\n\nFunciones extensas\nResponsabilidades mezcladas\nFunciones cohesionadas\nPruebas por responsabilidad\n\n\nComentarios literales\nRuido y desactualización\nDocumentar propósito y decisión\nComentario explica el porqué\n\n\n\n\n\n\n\nComprobación. ¿Cuál de los problemas de la Tabla 2.1 podría producir una salida plausible sin generar un error visible?",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#arquitectura-refactorizada",
+    "href": "part-iv/22-code-principles.html#arquitectura-refactorizada",
+    "title": "2  Principios de código científico",
+    "section": "2.15 Arquitectura refactorizada",
+    "text": "2.15 Arquitectura refactorizada\nLa mejora no comienza dividiendo el archivo al azar. Comienza formulando un contrato:\n\nentrada: CSV UTF-8 con siete columnas definidas;\nrestricciones: identificadores únicos, fechas ISO, valores numéricos y banderas conocidas;\ndecisión: excluir invalid, conservar review;\ntransformación: suma por especie;\nsalida: CSV ordenado con una cifra decimal;\nfallo: mensaje no ambiguo y salida no generada.\n\n\nflowchart TD\n  A[Leer encabezado] --&gt; B{¿Esquema exacto?}\n  B -- no --&gt; X[Detener con diagnóstico]\n  B -- sí --&gt; C[Comprobar tipos e identificadores]\n  C --&gt; D{¿Restricciones válidas?}\n  D -- no --&gt; X\n  D -- sí --&gt; E[Excluir solo invalid]\n  E --&gt; F[Resumir y ordenar]\n  F --&gt; G[Validar salida]\n  G --&gt; H[Exportar]\n\n\n\n\n\nflowchart TD\n  A[Leer encabezado] --&gt; B{¿Esquema exacto?}\n  B -- no --&gt; X[Detener con diagnóstico]\n  B -- sí --&gt; C[Comprobar tipos e identificadores]\n  C --&gt; D{¿Restricciones válidas?}\n  D -- no --&gt; X\n  D -- sí --&gt; E[Excluir solo invalid]\n  E --&gt; F[Resumir y ordenar]\n  F --&gt; G[Validar salida]\n  G --&gt; H[Exportar]\n\n\n\n\nFigura 2.2: Esquema de validación del caso sintético.\n\n\n\n\n\nEl diseño de la Figura 2.2 separa el control de entradas de la transformación. Así, una prueba de esquema no necesita calcular el resumen, y una prueba de suma puede usar registros ya validados.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#implementación-en-python",
+    "href": "part-iv/22-code-principles.html#implementación-en-python",
+    "title": "2  Principios de código científico",
+    "section": "2.16 Implementación en Python",
+    "text": "2.16 Implementación en Python\nLa implementación completa usa únicamente la biblioteca estándar y se encuentra en scripts/python/part-iv/summarize_landings.py. El flujo principal es breve porque delega responsabilidades con nombres explícitos:\n\n\n\nscripts/python/part-iv/summarize_landings.py\n\nrows = read_landings(args.input)\nerrors = validate(rows)\nif errors:\n    raise SystemExit(\"Validación fallida:\\n- \" + \"\\n- \".join(errors))\nwrite_summary(summarize(rows), args.output)\n\n\nUna invocación desde la raíz del proyecto sería:\n\npython scripts/python/part-iv/summarize_landings.py \\\n  data/example/part-iv/synthetic-landings.csv \\\n  outputs/part-iv/summary-python.csv\n\nEl conjunto contiene deliberadamente un valor negativo marcado como invalid. La validación acepta esa combinación porque representa un registro conocido que debe excluirse. Cambiar la bandera a ok debe detener la ejecución. Este contraejemplo demuestra que una validación útil expresa una regla, no solo confirma casos correctos.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#implementación-equivalente-en-r",
+    "href": "part-iv/22-code-principles.html#implementación-equivalente-en-r",
+    "title": "2  Principios de código científico",
+    "section": "2.17 Implementación equivalente en R",
+    "text": "2.17 Implementación equivalente en R\nLa alternativa en R base se encuentra en scripts/r/part-iv/summarize_landings.R. No es necesario ejecutar ambas implementaciones. La elección puede responder al entorno del equipo, a dependencias existentes o a la integración con otros productos.\n\n\n\nscripts/r/part-iv/summarize_landings.R\n\nvalid &lt;- input[input$quality_flag != \"invalid\", ]\nsummary &lt;- aggregate(landings_t ~ species, data = valid, FUN = sum)\nsummary &lt;- summary[order(summary$species), ]\nwrite.csv(summary, output_path, row.names = FALSE, quote = FALSE)\n\n\n\nRscript scripts/r/part-iv/summarize_landings.R \\\n  data/example/part-iv/synthetic-landings.csv \\\n  outputs/part-iv/summary-r.csv\n\nLa equivalencia relevante no es que ambos archivos tengan la misma forma interna, sino que implementen el mismo contrato y produzcan resultados comparables para entradas válidas.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#perspectiva-sql",
+    "href": "part-iv/22-code-principles.html#perspectiva-sql",
+    "title": "2  Principios de código científico",
+    "section": "2.18 Perspectiva SQL",
+    "text": "2.18 Perspectiva SQL\nscripts/sql/part-iv/summarize_landings.sql declara un esquema con clave primaria, bandera restringida y regla para valores negativos. SQL resulta apropiado cuando los datos ya están administrados por un motor y la transformación puede expresarse cerca de ellos. No conviene introducir una base de datos solo para sumar un CSV pequeño.\n\nSELECT species, ROUND(SUM(landings_t), 1) AS landings_t\nFROM synthetic_landings\nWHERE quality_flag &lt;&gt; 'invalid'\nGROUP BY species\nORDER BY species;",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#validar-el-resultado",
+    "href": "part-iv/22-code-principles.html#validar-el-resultado",
+    "title": "2  Principios de código científico",
+    "section": "2.19 Validar el resultado",
+    "text": "2.19 Validar el resultado\nLa salida debe satisfacer propiedades independientes de valores particulares:\n\ncontiene exactamente species y landings_t;\ncada especie aparece una sola vez;\nno incluye cantidades negativas;\nestá ordenada por especie;\nla suma total coincide con los registros no marcados invalid;\nno modifica el archivo fuente.\n\nTambién conviene mantener uno o dos valores esperados calculados mediante un caso pequeño y revisable. Comparar solamente Python contra R no basta: ambas implementaciones podrían compartir la misma interpretación equivocada.\n\nLista de validación. Antes de aceptar la refactorización: provoque un esquema incompleto, duplique un source_id, cambie la bandera del valor negativo y confirme que cada fallo produce un diagnóstico específico sin generar salida.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#comparación-antes-y-después",
+    "href": "part-iv/22-code-principles.html#comparación-antes-y-después",
+    "title": "2  Principios de código científico",
+    "section": "2.20 Comparación antes y después",
+    "text": "2.20 Comparación antes y después\nLa versión frágil es más corta, pero su brevedad transfiere trabajo al lector: debe conocer la computadora, suponer el esquema y confiar en decisiones ocultas. La versión refactorizada añade código porque hace explícito el contrato. La mejora no se mide por líneas ni por cantidad de funciones, sino por preguntas que ahora pueden responderse con evidencia.\n\n\n\nTabla 2.2: Comparación de la arquitectura antes y después de refactorizar.\n\n\n\n\n\n\n\n\n\n\nDimensión\nAntes\nDespués\n\n\n\n\nEntrada\nRuta personal implícita\nArgumento y esquema declarado\n\n\nDecisiones\nFiltros sin contrato\nPolítica de banderas documentada\n\n\nFallos\nMensajes genéricos o tardíos\nDiagnósticos específicos y tempranos\n\n\nSalida\nArchivo genérico sobrescrito\nDestino explícito y separable\n\n\nDependencias\nBiblioteca no declarada\nR base o biblioteca estándar de Python\n\n\nRevisión\nLectura lineal de todo el script\nResponsabilidades inspeccionables",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#errores-frecuentes-y-alternativas",
+    "href": "part-iv/22-code-principles.html#errores-frecuentes-y-alternativas",
+    "title": "2  Principios de código científico",
+    "section": "2.21 Errores frecuentes y alternativas",
+    "text": "2.21 Errores frecuentes y alternativas\nConfundir estilo con corrección. Un archivo bien formateado puede implementar una regla equivocada. El estilo facilita la revisión; no sustituye las pruebas.\nValidar después de transformar. Cuando los tipos se convierten silenciosamente, la evidencia del problema puede desaparecer. Las entradas deben comprobarse antes de tomar decisiones irreversibles.\nCapturar todos los errores. Un bloque genérico que continúa ante cualquier excepción puede publicar una salida parcial. Solo deben gestionarse los fallos que el programa comprende y puede comunicar.\nCrear abstracciones prematuras. Diseñar clases, plugins y archivos de configuración antes de entender el flujo aumenta el costo de cambio. La arquitectura debe crecer con riesgos observados.\nOptimizar antes de medir. Un resumen de 40 filas no necesita paralelismo. La claridad domina hasta que una medición demuestre un problema de rendimiento.\nSuponer que portable significa idéntico. Diferencias de versión, sistema, codificación o zona horaria pueden afectar resultados. La portabilidad se demuestra en entornos definidos.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#decidir-cuándo-detener-la-refactorización",
+    "href": "part-iv/22-code-principles.html#decidir-cuándo-detener-la-refactorización",
+    "title": "2  Principios de código científico",
+    "section": "2.22 Decidir cuándo detener la refactorización",
+    "text": "2.22 Decidir cuándo detener la refactorización\nLa refactorización tiene rendimientos decrecientes. Para un análisis exploratorio de una sola tarde, bastan nombres claros, fuente intacta y validaciones esenciales. Para un informe periódico, se justifican argumentos, funciones, registros y pruebas. Para un servicio usado por varias personas, podrían requerirse interfaces estables, empaquetado y automatización.\nLa pregunta no es «¿puede añadirse otra capa?», sino «¿qué riesgo verificable reduciría?». Si la nueva abstracción no mejora comprensión, prueba, reutilización o operación, probablemente deba posponerse.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#ejercicios-críticos",
+    "href": "part-iv/22-code-principles.html#ejercicios-críticos",
+    "title": "2  Principios de código científico",
+    "section": "2.23 Ejercicios críticos",
+    "text": "2.23 Ejercicios críticos\n\nClasifique diez problemas del script frágil como riesgo de corrección, portabilidad, trazabilidad o mantenimiento. Justifique los casos que pertenecen a más de una categoría.\nAnticipe qué ocurrirá si falta quality_flag. Después compruebe la predicción con una copia temporal.\nDiseñe un contraejemplo que pase una validación superficial de tipos pero viole una regla del dominio.\nCompare la implementación R y Python. Identifique una diferencia de interfaz que no cambia el contrato y una que sí podría cambiarlo.\nProponga un mensaje comprensible para una persona no técnica cuando aparezca un identificador duplicado.\nDecida si metadata.yml debe ser leído automáticamente en esta fase. Argumente costo y beneficio.\nExplique cuándo excluir review sería una decisión científica y no meramente técnica.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#proyecto-pequeño-refactorizar-el-flujo-sintético",
+    "href": "part-iv/22-code-principles.html#proyecto-pequeño-refactorizar-el-flujo-sintético",
+    "title": "2  Principios de código científico",
+    "section": "2.24 Proyecto pequeño: refactorizar el flujo sintético",
+    "text": "2.24 Proyecto pequeño: refactorizar el flujo sintético\nEl producto del capítulo contiene:\n\nuna copia identificada del script frágil;\ndiagnóstico de al menos cinco prácticas y sus riesgos;\ncontrato de entrada, transformación y salida;\nscript refactorizado en R o Python;\npruebas manuales o automatizadas de casos válidos e inválidos;\nsalida reproducible separada de la fuente;\nnota de decisiones y límites;\nautoevaluación de 0 a 4.\n\nNo se evalúa la cantidad de funciones. Se evalúa si otra persona puede examinar la intención, provocar fallos controlados y relacionar la salida con sus entradas.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#rúbrica-y-autoevaluación",
+    "href": "part-iv/22-code-principles.html#rúbrica-y-autoevaluación",
+    "title": "2  Principios de código científico",
+    "section": "2.25 Rúbrica y autoevaluación",
+    "text": "2.25 Rúbrica y autoevaluación\n\n\n\nTabla 2.3: Escala de dominio del capítulo.\n\n\n\n\n\n\n\n\n\nNivel\nEvidencia observable\n\n\n\n\n0\nDesconoce los componentes y no puede explicar el flujo.\n\n\n1\nReconoce prácticas frágiles y ejecuta cambios con ayuda.\n\n\n2\nExplica y refactoriza de manera autónoma un script pequeño.\n\n\n3\nDiseña, compara, valida y diagnostica alternativas con evidencia.\n\n\n4\nDesarrolla, enseña y revisa código de otra persona con criterios explícitos.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#tarea-y-criterio-para-avanzar",
+    "href": "part-iv/22-code-principles.html#tarea-y-criterio-para-avanzar",
+    "title": "2  Principios de código científico",
+    "section": "2.26 Tarea y criterio para avanzar",
+    "text": "2.26 Tarea y criterio para avanzar\nSeleccione un script propio que no contenga información restringida. Documente su propósito, entradas, salidas, dependencias, decisiones manuales y cinco riesgos. Proponga una mejora pequeña, la evidencia que demostraría su efecto y una condición bajo la cual no convendría implementarla.\nSe avanza cuando puede explicarse qué hace defendible al código científico, detectarse al menos cinco prácticas frágiles, justificarse una estructura, validarse entradas y salidas, y señalarse qué debe permanecer reproducible aunque cambie la herramienta.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#resumen",
+    "href": "part-iv/22-code-principles.html#resumen",
+    "title": "2  Principios de código científico",
+    "section": "2.27 Resumen",
+    "text": "2.27 Resumen\nEl código científico defendible hace visible el vínculo entre intención y resultado. Legibilidad, explicitud, modularidad, trazabilidad, determinismo y portabilidad se refuerzan, pero ninguna sustituye la validación científica. Separar configuración, entradas, transformación, salida y registro facilita la revisión. La arquitectura debe ser proporcional: un script claro puede ser suficiente; la sobreingeniería también crea riesgo.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#glosario",
+    "href": "part-iv/22-code-principles.html#glosario",
+    "title": "2  Principios de código científico",
+    "section": "2.28 Glosario",
+    "text": "2.28 Glosario\nAserción: comprobación ejecutable de una propiedad que debe cumplirse.\nConfiguración: valores que seleccionan el comportamiento de una ejecución sin redefinir el algoritmo.\nContrato: descripción de entradas, condiciones, transformación, salida y fallos esperados.\nDeterminismo: propiedad de producir la misma salida bajo entradas y condiciones declaradas.\nModularidad: separación de responsabilidades examinables y combinables.\nPortabilidad: capacidad de trasladar un flujo entre entornos definidos con cambios controlados.\nTrazabilidad: capacidad de relacionar un producto con entradas, decisiones y versiones.\nValidación: comprobación de que datos o resultados satisfacen expectativas explícitas.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#revisión-futura",
+    "href": "part-iv/22-code-principles.html#revisión-futura",
+    "title": "2  Principios de código científico",
+    "section": "2.29 Revisión futura",
+    "text": "2.29 Revisión futura\nRevisar anualmente los ejemplos contra versiones soportadas de R y Python, manteniendo la implementación libre de dependencias externas. Incorporar pruebas automatizadas en CCPE-028; no anticiparlas aquí con una infraestructura que todavía no se ha explicado.",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "part-iv/22-code-principles.html#referencias",
+    "href": "part-iv/22-code-principles.html#referencias",
+    "title": "2  Principios de código científico",
+    "section": "2.30 Referencias",
+    "text": "2.30 Referencias\nLas recomendaciones se apoyan en prácticas revisadas por pares para computación científica 12, en la guía de estilo oficial de Python 3 y en la documentación introductoria oficial de R 4.\n\n\n\n\nBest Practices for Scientific Computing\n\n\nGood Enough Practices in Scientific Computing\n\n\nPEP 8 – Style Guide for Python Code\n\n\nAn Introduction to R",
+    "crumbs": [
+      "Código, versiones y reproducibilidad",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Principios de código científico</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "Best practices\nfor scientific computing\n\n\nGood enough\npractices in scientific computing\n\n\nPEP 8 – style\nguide for python code\n\n\nAn\nintroduction to r",
+    "crumbs": [
+      "Referencias"
     ]
   }
 ]

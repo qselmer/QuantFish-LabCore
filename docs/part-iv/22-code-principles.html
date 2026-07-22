@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Principios para producir código comprensible, verificable, portable y científicamente defendible.">
+
+<title>2&nbsp; Principios de código científico – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../references.html" rel="next">
+<link href="../part-iv/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7bdfc6fd1cc75327436dce34fbe9533d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d03d477578135a263d6508707e135090.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="2&nbsp; Principios de código científico – Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+<meta property="og:description" content="Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa.">
+<meta property="og:site_name" content="Ecosistema digital para la ciencia pesquera y la ecología cuantitativa">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-iv/index.html">Código, versiones y reproducibilidad</a></li><li class="breadcrumb-item"><a href="../part-iv/22-code-principles.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Principios de código científico</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Ecosistema digital para la ciencia pesquera y la ecología cuantitativa</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/qselmer/QuantFish-LabCore" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice general</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos del ecosistema digital científico</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ccpe/000-alcance-arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Alcance, arquitectura y sistema de aprendizaje</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part-iv/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Código, versiones y reproducibilidad</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-iv/22-code-principles.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Principios de código científico</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#importancia-científica" id="toc-importancia-científica" class="nav-link active" data-scroll-target="#importancia-científica"><span class="header-section-number">2.1</span> Importancia científica</a></li>
+  <li><a href="#objetivos-y-prerrequisitos" id="toc-objetivos-y-prerrequisitos" class="nav-link" data-scroll-target="#objetivos-y-prerrequisitos"><span class="header-section-number">2.2</span> Objetivos y prerrequisitos</a></li>
+  <li><a href="#problema-motivador" id="toc-problema-motivador" class="nav-link" data-scroll-target="#problema-motivador"><span class="header-section-number">2.3</span> Problema motivador</a></li>
+  <li><a href="#de-código-que-funciona-a-código-defendible" id="toc-de-código-que-funciona-a-código-defendible" class="nav-link" data-scroll-target="#de-código-que-funciona-a-código-defendible"><span class="header-section-number">2.4</span> De código que funciona a código defendible</a>
+  <ul class="collapse">
+  <li><a href="#ejecución-corrección-y-confianza" id="toc-ejecución-corrección-y-confianza" class="nav-link" data-scroll-target="#ejecución-corrección-y-confianza">Ejecución, corrección y confianza</a></li>
+  <li><a href="#propiedades-fundamentales" id="toc-propiedades-fundamentales" class="nav-link" data-scroll-target="#propiedades-fundamentales">Propiedades fundamentales</a></li>
+  </ul></li>
+  <li><a href="#anatomía-de-un-script-científico-defendible" id="toc-anatomía-de-un-script-científico-defendible" class="nav-link" data-scroll-target="#anatomía-de-un-script-científico-defendible"><span class="header-section-number">2.5</span> Anatomía de un script científico defendible</a></li>
+  <li><a href="#separar-datos-código-configuración-y-resultados" id="toc-separar-datos-código-configuración-y-resultados" class="nav-link" data-scroll-target="#separar-datos-código-configuración-y-resultados"><span class="header-section-number">2.6</span> Separar datos, código, configuración y resultados</a></li>
+  <li><a href="#nombres-orden-y-estructura" id="toc-nombres-orden-y-estructura" class="nav-link" data-scroll-target="#nombres-orden-y-estructura"><span class="header-section-number">2.7</span> Nombres, orden y estructura</a></li>
+  <li><a href="#funciones-y-modularidad-proporcional" id="toc-funciones-y-modularidad-proporcional" class="nav-link" data-scroll-target="#funciones-y-modularidad-proporcional"><span class="header-section-number">2.8</span> Funciones y modularidad proporcional</a></li>
+  <li><a href="#configuración-y-valores-escritos-directamente" id="toc-configuración-y-valores-escritos-directamente" class="nav-link" data-scroll-target="#configuración-y-valores-escritos-directamente"><span class="header-section-number">2.9</span> Configuración y valores escritos directamente</a></li>
+  <li><a href="#validación-de-entradas-y-manejo-de-errores" id="toc-validación-de-entradas-y-manejo-de-errores" class="nav-link" data-scroll-target="#validación-de-entradas-y-manejo-de-errores"><span class="header-section-number">2.10</span> Validación de entradas y manejo de errores</a></li>
+  <li><a href="#mensajes-registros-y-evidencia" id="toc-mensajes-registros-y-evidencia" class="nav-link" data-scroll-target="#mensajes-registros-y-evidencia"><span class="header-section-number">2.11</span> Mensajes, registros y evidencia</a></li>
+  <li><a href="#determinismo-y-semillas" id="toc-determinismo-y-semillas" class="nav-link" data-scroll-target="#determinismo-y-semillas"><span class="header-section-number">2.12</span> Determinismo y semillas</a></li>
+  <li><a href="#eliminar-pasos-manuales-ocultos" id="toc-eliminar-pasos-manuales-ocultos" class="nav-link" data-scroll-target="#eliminar-pasos-manuales-ocultos"><span class="header-section-number">2.13</span> Eliminar pasos manuales ocultos</a></li>
+  <li><a href="#diagnóstico-de-un-script-frágil" id="toc-diagnóstico-de-un-script-frágil" class="nav-link" data-scroll-target="#diagnóstico-de-un-script-frágil"><span class="header-section-number">2.14</span> Diagnóstico de un script frágil</a></li>
+  <li><a href="#arquitectura-refactorizada" id="toc-arquitectura-refactorizada" class="nav-link" data-scroll-target="#arquitectura-refactorizada"><span class="header-section-number">2.15</span> Arquitectura refactorizada</a></li>
+  <li><a href="#implementación-en-python" id="toc-implementación-en-python" class="nav-link" data-scroll-target="#implementación-en-python"><span class="header-section-number">2.16</span> Implementación en Python</a></li>
+  <li><a href="#implementación-equivalente-en-r" id="toc-implementación-equivalente-en-r" class="nav-link" data-scroll-target="#implementación-equivalente-en-r"><span class="header-section-number">2.17</span> Implementación equivalente en R</a></li>
+  <li><a href="#perspectiva-sql" id="toc-perspectiva-sql" class="nav-link" data-scroll-target="#perspectiva-sql"><span class="header-section-number">2.18</span> Perspectiva SQL</a></li>
+  <li><a href="#validar-el-resultado" id="toc-validar-el-resultado" class="nav-link" data-scroll-target="#validar-el-resultado"><span class="header-section-number">2.19</span> Validar el resultado</a></li>
+  <li><a href="#comparación-antes-y-después" id="toc-comparación-antes-y-después" class="nav-link" data-scroll-target="#comparación-antes-y-después"><span class="header-section-number">2.20</span> Comparación antes y después</a></li>
+  <li><a href="#errores-frecuentes-y-alternativas" id="toc-errores-frecuentes-y-alternativas" class="nav-link" data-scroll-target="#errores-frecuentes-y-alternativas"><span class="header-section-number">2.21</span> Errores frecuentes y alternativas</a></li>
+  <li><a href="#decidir-cuándo-detener-la-refactorización" id="toc-decidir-cuándo-detener-la-refactorización" class="nav-link" data-scroll-target="#decidir-cuándo-detener-la-refactorización"><span class="header-section-number">2.22</span> Decidir cuándo detener la refactorización</a></li>
+  <li><a href="#ejercicios-críticos" id="toc-ejercicios-críticos" class="nav-link" data-scroll-target="#ejercicios-críticos"><span class="header-section-number">2.23</span> Ejercicios críticos</a></li>
+  <li><a href="#proyecto-pequeño-refactorizar-el-flujo-sintético" id="toc-proyecto-pequeño-refactorizar-el-flujo-sintético" class="nav-link" data-scroll-target="#proyecto-pequeño-refactorizar-el-flujo-sintético"><span class="header-section-number">2.24</span> Proyecto pequeño: refactorizar el flujo sintético</a></li>
+  <li><a href="#rúbrica-y-autoevaluación" id="toc-rúbrica-y-autoevaluación" class="nav-link" data-scroll-target="#rúbrica-y-autoevaluación"><span class="header-section-number">2.25</span> Rúbrica y autoevaluación</a></li>
+  <li><a href="#tarea-y-criterio-para-avanzar" id="toc-tarea-y-criterio-para-avanzar" class="nav-link" data-scroll-target="#tarea-y-criterio-para-avanzar"><span class="header-section-number">2.26</span> Tarea y criterio para avanzar</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.27</span> Resumen</a></li>
+  <li><a href="#glosario" id="toc-glosario" class="nav-link" data-scroll-target="#glosario"><span class="header-section-number">2.28</span> Glosario</a></li>
+  <li><a href="#revisión-futura" id="toc-revisión-futura" class="nav-link" data-scroll-target="#revisión-futura"><span class="header-section-number">2.29</span> Revisión futura</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">2.30</span> Referencias</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/part-iv/22-code-principles.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/part-iv/22-code-principles.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-iv/index.html">Código, versiones y reproducibilidad</a></li><li class="breadcrumb-item"><a href="../part-iv/22-code-principles.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Principios de código científico</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Principios de código científico</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p class="chapter-code">
+CCPE-022
+</p>
+<p><strong>Pregunta central:</strong> ¿Qué características hacen que un código sea comprensible, verificable y científicamente defendible?</p>
+<p>El código interviene en decisiones científicas aunque permanezca invisible en el producto final. Selecciona registros, transforma unidades, excluye observaciones, resume categorías y determina qué valores llegan a una tabla o figura. Por ello, su calidad no es únicamente una preocupación técnica: afecta la posibilidad de examinar la cadena de razonamiento que sostiene un resultado.</p>
+<p>Este capítulo utiliza un informe de desembarques completamente sintético. El objetivo no es inferir propiedades de una pesquería, sino estudiar cómo una transformación sencilla puede volverse comprensible, verificable y reconstruible.</p>
+<section id="importancia-científica" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="importancia-científica"><span class="header-section-number">2.1</span> Importancia científica</h2>
+<p>Un programa que termina sin errores demuestra solamente que el intérprete pudo ejecutar una secuencia de instrucciones bajo ciertas condiciones. No demuestra que se leyó el archivo correcto, que las unidades son las esperadas, que las exclusiones son justificables ni que la salida corresponde a la versión que se documentó. La corrección científica exige conectar la intención con una implementación y aportar evidencia para evaluar esa conexión.</p>
+<p>Wilson y colaboradores proponen escribir programas para personas, automatizar tareas repetibles, trabajar mediante cambios incrementales, modularizar y planificar los errores mediante aserciones y pruebas <span class="citation" data-cites="wilson2014"><a href="../references.html#ref-wilson2014" role="doc-biblioref">1</a></span>. Estas prácticas no garantizan conclusiones correctas; reducen ambigüedades y hacen que los fallos sean más fáciles de detectar. Una guía posterior enfatiza medidas alcanzables para equipos con recursos limitados, entre ellas organizar datos, escribir análisis claros, registrar cambios y conservar productos reconstruibles <span class="citation" data-cites="wilson2017goodenough"><a href="../references.html#ref-wilson2017goodenough" role="doc-biblioref">2</a></span>.</p>
+<div class="learning-check">
+<p><strong>Comprobación.</strong> ¿Qué evidencia adicional, además de una ejecución sin errores, permitiría confiar en una tabla producida por un script?</p>
+</div>
+</section>
+<section id="objetivos-y-prerrequisitos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="objetivos-y-prerrequisitos"><span class="header-section-number">2.2</span> Objetivos y prerrequisitos</h2>
+<p>Al finalizar el capítulo será posible:</p>
+<ul>
+<li>distinguir ejecución, corrección y defendibilidad científica;</li>
+<li>reconocer prácticas frágiles y explicar su riesgo;</li>
+<li>separar configuración, validación, transformación y exportación;</li>
+<li>elegir entre un script lineal y una estructura modular;</li>
+<li>refactorizar un flujo pequeño en R o Python;</li>
+<li>definir evidencia verificable para entradas, decisiones y salidas.</li>
+</ul>
+<p>Se presupone familiaridad básica con archivos de texto, tablas y ejecución de scripts. No se requiere teoría estadística ni dominio simultáneo de R y Python.</p>
+</section>
+<section id="problema-motivador" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="problema-motivador"><span class="header-section-number">2.3</span> Problema motivador</h2>
+<p>Un equipo recibe un archivo CSV y necesita totalizar desembarques sintéticos por especie. Una primera implementación produce una tabla plausible. El archivo se envía por correo y la figura se copia a un informe. Semanas después, nadie puede responder con seguridad:</p>
+<ul>
+<li>cuál de varias copias del CSV se utilizó;</li>
+<li>por qué un registro negativo apareció en los datos;</li>
+<li>si las filas marcadas como inválidas fueron excluidas;</li>
+<li>dónde se definió la ruta de salida;</li>
+<li>qué versión del script produjo la tabla publicada;</li>
+<li>si una ejecución posterior sobrescribió la evidencia anterior.</li>
+</ul>
+<p>El problema no es que el lenguaje haya fallado. El problema es que la arquitectura del trabajo no permite inspeccionar las decisiones.</p>
+</section>
+<section id="de-código-que-funciona-a-código-defendible" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="de-código-que-funciona-a-código-defendible"><span class="header-section-number">2.4</span> De código que funciona a código defendible</h2>
+<section id="ejecución-corrección-y-confianza" class="level3">
+<h3 class="anchored" data-anchor-id="ejecución-corrección-y-confianza">Ejecución, corrección y confianza</h3>
+<p>Conviene separar tres afirmaciones:</p>
+<ol type="1">
+<li><strong>El código se ejecuta:</strong> el intérprete completa las instrucciones.</li>
+<li><strong>El código implementa lo esperado:</strong> las transformaciones corresponden a una especificación.</li>
+<li><strong>El resultado es científicamente defendible:</strong> existen datos, metadatos, decisiones, versiones y validaciones suficientes para examinar cómo se obtuvo.</li>
+</ol>
+<p>La primera afirmación es operacional. La segunda requiere pruebas contra expectativas. La tercera añade procedencia, interpretación y comunicación. Un resultado puede cumplir la primera y fallar las otras dos.</p>
+<div class="learning-check">
+<p><strong>Comprobación.</strong> Proponga un caso en el que un script termine correctamente, pero lea el archivo equivocado.</p>
+</div>
+</section>
+<section id="propiedades-fundamentales" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-fundamentales">Propiedades fundamentales</h3>
+<p><strong>Legibilidad.</strong> Otra persona puede seguir la intención sin reconstruir mentalmente demasiados detalles. Los nombres, el orden y la estructura revelan el propósito.</p>
+<p><strong>Corrección.</strong> El programa satisface una especificación observable para los casos considerados. La corrección se apoya en ejemplos conocidos, aserciones y pruebas; no se deduce del estilo.</p>
+<p><strong>Explicitud.</strong> Rutas, parámetros, unidades, filtros y supuestos importantes aparecen declarados. Una decisión crítica no queda escondida en una celda, un clic o un número sin nombre.</p>
+<p><strong>Modularidad.</strong> Las responsabilidades pueden examinarse por separado. Leer, validar, transformar y exportar no forman necesariamente una sola función extensa.</p>
+<p><strong>Trazabilidad.</strong> Es posible relacionar una salida con entradas, configuración y versión del código.</p>
+<p><strong>Determinismo.</strong> Bajo las mismas entradas y condiciones declaradas, el flujo produce el mismo resultado. Cuando existe aleatoriedad, se documenta y controla la semilla.</p>
+<p><strong>Portabilidad.</strong> El proyecto puede trasladarse sin editar rutas ligadas a una computadora. Esto no significa que todo funcione en cualquier sistema sin preparación, sino que sus requisitos y variaciones están declarados.</p>
+<div class="definition">
+<p><strong>Código científico defendible</strong> es aquel cuya intención, entradas, transformaciones, decisiones y salidas pueden ser examinadas mediante evidencia suficiente, y cuyos límites se comunican de manera explícita.</p>
+</div>
+</section>
+</section>
+<section id="anatomía-de-un-script-científico-defendible" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="anatomía-de-un-script-científico-defendible"><span class="header-section-number">2.5</span> Anatomía de un script científico defendible</h2>
+<div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  A[Configuración] --&gt; B[Validación de entradas]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  B --&gt; C[Transformación]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  C --&gt; D[Validación de resultados]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  D --&gt; E[Exportación]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  E --&gt; F[Registro]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  B -. falla temprana .-&gt; X[Mensaje accionable]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  D -. inconsistencia .-&gt; X</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-defensible-script" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-defensible-script-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-defensible-script">flowchart LR
+  A[Configuración] --&gt; B[Validación de entradas]
+  B --&gt; C[Transformación]
+  C --&gt; D[Validación de resultados]
+  D --&gt; E[Exportación]
+  E --&gt; F[Registro]
+  B -. falla temprana .-&gt; X[Mensaje accionable]
+  D -. inconsistencia .-&gt; X
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-defensible-script-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Anatomía de un script científico defendible.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La secuencia de la <a href="#fig-defensible-script" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> convierte supuestos implícitos en puntos de inspección. La configuración identifica archivos y parámetros. La validación de entradas verifica esquema, tipos y restricciones. La transformación realiza el trabajo sustantivo. La validación de resultados comprueba propiedades esperadas. La exportación escribe un producto sin confundirlo con la fuente. El registro deja evidencia de qué ocurrió.</p>
+<p>No todo script necesita una infraestructura de registros compleja. En un flujo pequeño puede bastar un mensaje con el número de filas, la ruta de salida y la fecha. La proporcionalidad es una propiedad de buen diseño.</p>
+</section>
+<section id="separar-datos-código-configuración-y-resultados" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="separar-datos-código-configuración-y-resultados"><span class="header-section-number">2.6</span> Separar datos, código, configuración y resultados</h2>
+<p>Una organización defendible evita que el script modifique su fuente y distingue cuatro responsabilidades:</p>
+<pre class="text"><code>data/example/part-iv/       # datos sintéticos y metadatos
+scripts/python/part-iv/     # implementación Python
+scripts/r/part-iv/          # implementación R
+scripts/sql/part-iv/        # esquema y consulta SQL
+outputs/part-iv/            # productos regenerables, no incluidos aquí</code></pre>
+<p>Los datos describen observaciones o ejemplos; el código describe transformaciones; la configuración selecciona parámetros y ubicaciones; los resultados son productos regenerables. Mezclarlos dificulta saber qué debe preservarse y qué puede reconstruirse.</p>
+<p>Las rutas relativas se interpretan desde un punto de referencia acordado, normalmente la raíz del proyecto. No son una solución mágica: una ruta relativa ambigua también falla si cada script supone un directorio distinto. La regla debe documentarse y los comandos deben ejecutarse desde un contexto predecible.</p>
+<div class="learning-check">
+<p><strong>Comprobación.</strong> ¿Qué archivos deberían considerarse fuentes autoritativas y cuáles deberían poder regenerarse?</p>
+</div>
+</section>
+<section id="nombres-orden-y-estructura" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="nombres-orden-y-estructura"><span class="header-section-number">2.7</span> Nombres, orden y estructura</h2>
+<p>Un nombre útil comunica la función en el dominio. <code>landings_t</code> informa más que <code>x</code>; <code>valid_landings</code> informa más que <code>data2</code>. Sin embargo, nombres excesivamente largos pueden ocultar la estructura. La meta no es describir toda la historia en cada identificador, sino mantener un vocabulario consistente.</p>
+<p>Un script pequeño suele resultar más legible cuando sigue un orden estable:</p>
+<ol type="1">
+<li>descripción y condiciones de uso;</li>
+<li>constantes o argumentos;</li>
+<li>funciones;</li>
+<li>lectura y validación;</li>
+<li>transformación;</li>
+<li>validación y exportación;</li>
+<li>mensajes finales.</li>
+</ol>
+<p>Los comentarios deben explicar propósito, restricciones y decisiones. Un comentario como <code># sumar valores</code> repite una instrucción evidente; uno como <code># excluir registros invalid, conservar review para inspección</code> documenta una decisión que el código no explica por sí solo.</p>
+</section>
+<section id="funciones-y-modularidad-proporcional" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="funciones-y-modularidad-proporcional"><span class="header-section-number">2.8</span> Funciones y modularidad proporcional</h2>
+<p>Una función mejora el análisis cuando encapsula una responsabilidad con entradas, salida y condiciones claras. También permite probar una transformación sin ejecutar todo el flujo. No conviene crear una función para cada línea ni ocultar una secuencia simple detrás de numerosas capas.</p>
+<p>Un criterio práctico para extraer una función es preguntar:</p>
+<ul>
+<li>¿esta operación tiene un nombre significativo?</li>
+<li>¿se repite o se probará por separado?</li>
+<li>¿pueden describirse claramente sus entradas y salida?</li>
+<li>¿reduce la carga mental del flujo principal?</li>
+</ul>
+<p>Si la respuesta es negativa, dividir puede aumentar la navegación sin aportar comprensión. Modularidad no significa fragmentación.</p>
+<div class="design-decision">
+<p><strong>Decisión de diseño.</strong> Un script lineal es suficiente cuando el flujo es corto, tiene una sola ejecución prevista y sus pasos permanecen claros. Debe dividirse cuando las responsabilidades se mezclan, las pruebas requieren aislamiento o una parte se reutiliza. Convertirlo en paquete o aplicación solo se justifica por necesidades reales de distribución, estabilidad o interfaz.</p>
+</div>
+</section>
+<section id="configuración-y-valores-escritos-directamente" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="configuración-y-valores-escritos-directamente"><span class="header-section-number">2.9</span> Configuración y valores escritos directamente</h2>
+<p>Un valor escrito directamente en una expresión no siempre es un problema. <code>1000</code> puede ser una conversión transparente de kilogramos a toneladas si la unidad está documentada. Se vuelve frágil cuando representa una decisión que cambiará, carece de nombre o aparece repetida.</p>
+<p>En lugar de dispersar filtros y umbrales, conviene declarar constantes o argumentos:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>VALID_FLAGS <span class="op">=</span> {<span class="st">"ok"</span>, <span class="st">"review"</span>, <span class="st">"invalid"</span>}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>INCLUDE_FLAGS <span class="op">=</span> {<span class="st">"ok"</span>, <span class="st">"review"</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La configuración debe permanecer pequeña y cercana al uso hasta que exista una razón para extraerla. Un archivo YAML para dos constantes puede ser sobreingeniería; un archivo de configuración resulta útil cuando varias ejecuciones comparten opciones o cuando personas no programadoras deben revisarlas.</p>
+</section>
+<section id="validación-de-entradas-y-manejo-de-errores" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="validación-de-entradas-y-manejo-de-errores"><span class="header-section-number">2.10</span> Validación de entradas y manejo de errores</h2>
+<p>Validar significa transformar expectativas en comprobaciones ejecutables. Para el caso sintético se requieren siete columnas, identificadores únicos, fechas interpretables, cantidades numéricas y banderas conocidas. Además, un valor negativo solo puede aparecer marcado como inválido.</p>
+<p>Una validación eficaz falla temprano y comunica una acción posible. <code>Error</code> aporta poca información. <code>Fila 40: valor negativo sin marca invalid</code> permite localizar la causa. Silenciar el problema o convertir automáticamente un valor dudoso puede producir una tabla aparentemente limpia a costa de ocultar incertidumbre.</p>
+<p>No todos los casos deben detener el flujo. La marca <code>review</code> representa una observación que requiere inspección, pero que la especificación permite conservar. La decisión entre detener, advertir o continuar pertenece al dominio y debe documentarse.</p>
+</section>
+<section id="mensajes-registros-y-evidencia" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="mensajes-registros-y-evidencia"><span class="header-section-number">2.11</span> Mensajes, registros y evidencia</h2>
+<p>Los mensajes deben responder preguntas operacionales:</p>
+<ul>
+<li>¿qué entrada se leyó?;</li>
+<li>¿cuántos registros se procesaron?;</li>
+<li>¿qué validaciones se ejecutaron?;</li>
+<li>¿qué observaciones se excluyeron y por qué?;</li>
+<li>¿dónde quedó la salida?;</li>
+<li>¿con qué versión o parámetros se produjo?</li>
+</ul>
+<p>En un script pequeño, mensajes de consola y un archivo de salida versionado pueden bastar. En procesos recurrentes conviene un registro estructurado. Registrar cada detalle también es perjudicial: oculta los eventos relevantes y puede exponer información sensible.</p>
+</section>
+<section id="determinismo-y-semillas" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="determinismo-y-semillas"><span class="header-section-number">2.12</span> Determinismo y semillas</h2>
+<p>El resumen por especie es determinista: no contiene muestreo ni optimización aleatoria. Agregar una semilla no mejoraría nada. Cuando un procedimiento sí usa aleatoriedad, la semilla permite repetir una secuencia bajo un generador y una versión determinados, pero no reemplaza la documentación del algoritmo ni garantiza identidad entre plataformas.</p>
+<p>La regla es simple: controlar aleatoriedad cuando existe; no introducir semillas como ritual. También deben controlarse fuentes menos evidentes de variación, como orden no garantizado de registros, zona horaria, codificación o versiones de dependencias.</p>
+</section>
+<section id="eliminar-pasos-manuales-ocultos" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="eliminar-pasos-manuales-ocultos"><span class="header-section-number">2.13</span> Eliminar pasos manuales ocultos</h2>
+<p>Abrir el CSV, borrar una fila, cambiar una coma y guardar una nueva copia produce una transformación sin registro ejecutable. La corrección puede ser razonable, pero queda separada de su justificación. Una alternativa es mantener la fuente intacta y expresar la regla en código o en una tabla de correcciones con autor, fecha y motivo.</p>
+<p>No toda revisión humana debe automatizarse. Decidir si una observación es plausible puede requerir experiencia. Lo defendible es registrar la decisión y su evidencia, no fingir que el juicio humano desapareció.</p>
+</section>
+<section id="diagnóstico-de-un-script-frágil" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="diagnóstico-de-un-script-frágil"><span class="header-section-number">2.14</span> Diagnóstico de un script frágil</h2>
+<p>La siguiente versión deliberadamente frágil ilustra problemas comunes. No debe ejecutarse.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>fragile_landings.py</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> pd.read_csv(<span class="st">"Desktop/desembarques.csv"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> d[d.quality_flag <span class="op">!=</span> <span class="st">"invalid"</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>d[<span class="st">"landings_t"</span>] <span class="op">=</span> d[<span class="st">"landings_t"</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> d.groupby(<span class="st">"species"</span>)[<span class="st">"landings_t"</span>].<span class="bu">sum</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>x.to_csv(<span class="st">"Desktop/final.csv"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"listo"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>El script depende de una ruta personal, introduce una dependencia no declarada, no valida columnas ni tipos, convierte faltantes en cero sin justificarlo, usa nombres ambiguos, sobrescribe una salida genérica y solo informa <code>listo</code>. El resumen podría ser numéricamente correcto para una copia particular y seguir siendo imposible de defender.</p>
+<div id="tbl-fragile-practices" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fragile-practices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.1: Prácticas frágiles, riesgos y evidencia de mejora.
+</figcaption>
+<div aria-describedby="tbl-fragile-practices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Práctica frágil</th>
+<th>Riesgo</th>
+<th>Alternativa recomendada</th>
+<th>Evidencia de mejora</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ruta absoluta</td>
+<td>Falla fuera de una computadora</td>
+<td>Argumento o ruta relativa al proyecto</td>
+<td>Ejecución desde otra ubicación</td>
+</tr>
+<tr class="even">
+<td>Nombres ambiguos</td>
+<td>Confunde intención y estados</td>
+<td>Vocabulario del dominio</td>
+<td>Revisión explica el flujo sin adivinar</td>
+</tr>
+<tr class="odd">
+<td>Pasos manuales</td>
+<td>Transformaciones invisibles</td>
+<td>Regla ejecutable o registro de decisión</td>
+<td>Fuente intacta e historial</td>
+</tr>
+<tr class="even">
+<td>Valores incrustados</td>
+<td>Decisión difícil de localizar</td>
+<td>Constante o configuración proporcional</td>
+<td>Parámetro identificado</td>
+</tr>
+<tr class="odd">
+<td>Falta de validación</td>
+<td>Error silencioso de esquema o tipo</td>
+<td>Comprobaciones antes de transformar</td>
+<td>Fallo temprano con caso inválido</td>
+</tr>
+<tr class="even">
+<td>Resultados sobrescritos</td>
+<td>Pérdida de evidencia</td>
+<td>Salida separada y política de versiones</td>
+<td>Producto asociado a una ejecución</td>
+</tr>
+<tr class="odd">
+<td>Archivos sin metadatos</td>
+<td>Significado incierto</td>
+<td>Diccionario y versión del conjunto</td>
+<td><code>metadata.yml</code> revisable</td>
+</tr>
+<tr class="even">
+<td>Funciones extensas</td>
+<td>Responsabilidades mezcladas</td>
+<td>Funciones cohesionadas</td>
+<td>Pruebas por responsabilidad</td>
+</tr>
+<tr class="odd">
+<td>Comentarios literales</td>
+<td>Ruido y desactualización</td>
+<td>Documentar propósito y decisión</td>
+<td>Comentario explica el porqué</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="learning-check">
+<p><strong>Comprobación.</strong> ¿Cuál de los problemas de la <a href="#tbl-fragile-practices" class="quarto-xref">Tabla&nbsp;<span>2.1</span></a> podría producir una salida plausible sin generar un error visible?</p>
+</div>
+</section>
+<section id="arquitectura-refactorizada" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="arquitectura-refactorizada"><span class="header-section-number">2.15</span> Arquitectura refactorizada</h2>
+<p>La mejora no comienza dividiendo el archivo al azar. Comienza formulando un contrato:</p>
+<ul>
+<li>entrada: CSV UTF-8 con siete columnas definidas;</li>
+<li>restricciones: identificadores únicos, fechas ISO, valores numéricos y banderas conocidas;</li>
+<li>decisión: excluir <code>invalid</code>, conservar <code>review</code>;</li>
+<li>transformación: suma por especie;</li>
+<li>salida: CSV ordenado con una cifra decimal;</li>
+<li>fallo: mensaje no ambiguo y salida no generada.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  A[Leer encabezado] --&gt; B{¿Esquema exacto?}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  B -- no --&gt; X[Detener con diagnóstico]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  B -- sí --&gt; C[Comprobar tipos e identificadores]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  C --&gt; D{¿Restricciones válidas?}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  D -- no --&gt; X</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  D -- sí --&gt; E[Excluir solo invalid]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  E --&gt; F[Resumir y ordenar]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  F --&gt; G[Validar salida]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  G --&gt; H[Exportar]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-validation-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-validation-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-validation-flow">flowchart TD
+  A[Leer encabezado] --&gt; B{¿Esquema exacto?}
+  B -- no --&gt; X[Detener con diagnóstico]
+  B -- sí --&gt; C[Comprobar tipos e identificadores]
+  C --&gt; D{¿Restricciones válidas?}
+  D -- no --&gt; X
+  D -- sí --&gt; E[Excluir solo invalid]
+  E --&gt; F[Resumir y ordenar]
+  F --&gt; G[Validar salida]
+  G --&gt; H[Exportar]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-validation-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.2: Esquema de validación del caso sintético.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El diseño de la <a href="#fig-validation-flow" class="quarto-xref">Figura&nbsp;<span>2.2</span></a> separa el control de entradas de la transformación. Así, una prueba de esquema no necesita calcular el resumen, y una prueba de suma puede usar registros ya validados.</p>
+</section>
+<section id="implementación-en-python" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="implementación-en-python"><span class="header-section-number">2.16</span> Implementación en Python</h2>
+<p>La implementación completa usa únicamente la biblioteca estándar y se encuentra en <code>scripts/python/part-iv/summarize_landings.py</code>. El flujo principal es breve porque delega responsabilidades con nombres explícitos:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>scripts/python/part-iv/summarize_landings.py</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> read_landings(args.<span class="bu">input</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> validate(rows)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> errors:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">SystemExit</span>(<span class="st">"Validación fallida:</span><span class="ch">\n</span><span class="st">- "</span> <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">- "</span>.join(errors))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>write_summary(summarize(rows), args.output)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Una invocación desde la raíz del proyecto sería:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/python/part-iv/summarize_landings.py <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  data/example/part-iv/synthetic-landings.csv <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  outputs/part-iv/summary-python.csv</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El conjunto contiene deliberadamente un valor negativo marcado como <code>invalid</code>. La validación acepta esa combinación porque representa un registro conocido que debe excluirse. Cambiar la bandera a <code>ok</code> debe detener la ejecución. Este contraejemplo demuestra que una validación útil expresa una regla, no solo confirma casos correctos.</p>
+</section>
+<section id="implementación-equivalente-en-r" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="implementación-equivalente-en-r"><span class="header-section-number">2.17</span> Implementación equivalente en R</h2>
+<p>La alternativa en R base se encuentra en <code>scripts/r/part-iv/summarize_landings.R</code>. No es necesario ejecutar ambas implementaciones. La elección puede responder al entorno del equipo, a dependencias existentes o a la integración con otros productos.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>scripts/r/part-iv/summarize_landings.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>valid <span class="ot">&lt;-</span> input[input<span class="sc">$</span>quality_flag <span class="sc">!=</span> <span class="st">"invalid"</span>, ]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(landings_t <span class="sc">~</span> species, <span class="at">data =</span> valid, <span class="at">FUN =</span> sum)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> summary[<span class="fu">order</span>(summary<span class="sc">$</span>species), ]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(summary, output_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/r/part-iv/summarize_landings.R <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  data/example/part-iv/synthetic-landings.csv <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  outputs/part-iv/summary-r.csv</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La equivalencia relevante no es que ambos archivos tengan la misma forma interna, sino que implementen el mismo contrato y produzcan resultados comparables para entradas válidas.</p>
+</section>
+<section id="perspectiva-sql" class="level2" data-number="2.18">
+<h2 data-number="2.18" class="anchored" data-anchor-id="perspectiva-sql"><span class="header-section-number">2.18</span> Perspectiva SQL</h2>
+<p><code>scripts/sql/part-iv/summarize_landings.sql</code> declara un esquema con clave primaria, bandera restringida y regla para valores negativos. SQL resulta apropiado cuando los datos ya están administrados por un motor y la transformación puede expresarse cerca de ellos. No conviene introducir una base de datos solo para sumar un CSV pequeño.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> species, <span class="fu">ROUND</span>(<span class="fu">SUM</span>(landings_t), <span class="dv">1</span>) <span class="kw">AS</span> landings_t</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> synthetic_landings</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> quality_flag <span class="op">&lt;&gt;</span> <span class="st">'invalid'</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> species</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> species;</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="validar-el-resultado" class="level2" data-number="2.19">
+<h2 data-number="2.19" class="anchored" data-anchor-id="validar-el-resultado"><span class="header-section-number">2.19</span> Validar el resultado</h2>
+<p>La salida debe satisfacer propiedades independientes de valores particulares:</p>
+<ul>
+<li>contiene exactamente <code>species</code> y <code>landings_t</code>;</li>
+<li>cada especie aparece una sola vez;</li>
+<li>no incluye cantidades negativas;</li>
+<li>está ordenada por especie;</li>
+<li>la suma total coincide con los registros no marcados <code>invalid</code>;</li>
+<li>no modifica el archivo fuente.</li>
+</ul>
+<p>También conviene mantener uno o dos valores esperados calculados mediante un caso pequeño y revisable. Comparar solamente Python contra R no basta: ambas implementaciones podrían compartir la misma interpretación equivocada.</p>
+<div class="validation-checklist">
+<p><strong>Lista de validación.</strong> Antes de aceptar la refactorización: provoque un esquema incompleto, duplique un <code>source_id</code>, cambie la bandera del valor negativo y confirme que cada fallo produce un diagnóstico específico sin generar salida.</p>
+</div>
+</section>
+<section id="comparación-antes-y-después" class="level2" data-number="2.20">
+<h2 data-number="2.20" class="anchored" data-anchor-id="comparación-antes-y-después"><span class="header-section-number">2.20</span> Comparación antes y después</h2>
+<p>La versión frágil es más corta, pero su brevedad transfiere trabajo al lector: debe conocer la computadora, suponer el esquema y confiar en decisiones ocultas. La versión refactorizada añade código porque hace explícito el contrato. La mejora no se mide por líneas ni por cantidad de funciones, sino por preguntas que ahora pueden responderse con evidencia.</p>
+<div id="tbl-before-after" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.2: Comparación de la arquitectura antes y después de refactorizar.
+</figcaption>
+<div aria-describedby="tbl-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensión</th>
+<th>Antes</th>
+<th>Después</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entrada</td>
+<td>Ruta personal implícita</td>
+<td>Argumento y esquema declarado</td>
+</tr>
+<tr class="even">
+<td>Decisiones</td>
+<td>Filtros sin contrato</td>
+<td>Política de banderas documentada</td>
+</tr>
+<tr class="odd">
+<td>Fallos</td>
+<td>Mensajes genéricos o tardíos</td>
+<td>Diagnósticos específicos y tempranos</td>
+</tr>
+<tr class="even">
+<td>Salida</td>
+<td>Archivo genérico sobrescrito</td>
+<td>Destino explícito y separable</td>
+</tr>
+<tr class="odd">
+<td>Dependencias</td>
+<td>Biblioteca no declarada</td>
+<td>R base o biblioteca estándar de Python</td>
+</tr>
+<tr class="even">
+<td>Revisión</td>
+<td>Lectura lineal de todo el script</td>
+<td>Responsabilidades inspeccionables</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="errores-frecuentes-y-alternativas" class="level2" data-number="2.21">
+<h2 data-number="2.21" class="anchored" data-anchor-id="errores-frecuentes-y-alternativas"><span class="header-section-number">2.21</span> Errores frecuentes y alternativas</h2>
+<p><strong>Confundir estilo con corrección.</strong> Un archivo bien formateado puede implementar una regla equivocada. El estilo facilita la revisión; no sustituye las pruebas.</p>
+<p><strong>Validar después de transformar.</strong> Cuando los tipos se convierten silenciosamente, la evidencia del problema puede desaparecer. Las entradas deben comprobarse antes de tomar decisiones irreversibles.</p>
+<p><strong>Capturar todos los errores.</strong> Un bloque genérico que continúa ante cualquier excepción puede publicar una salida parcial. Solo deben gestionarse los fallos que el programa comprende y puede comunicar.</p>
+<p><strong>Crear abstracciones prematuras.</strong> Diseñar clases, plugins y archivos de configuración antes de entender el flujo aumenta el costo de cambio. La arquitectura debe crecer con riesgos observados.</p>
+<p><strong>Optimizar antes de medir.</strong> Un resumen de 40 filas no necesita paralelismo. La claridad domina hasta que una medición demuestre un problema de rendimiento.</p>
+<p><strong>Suponer que portable significa idéntico.</strong> Diferencias de versión, sistema, codificación o zona horaria pueden afectar resultados. La portabilidad se demuestra en entornos definidos.</p>
+</section>
+<section id="decidir-cuándo-detener-la-refactorización" class="level2" data-number="2.22">
+<h2 data-number="2.22" class="anchored" data-anchor-id="decidir-cuándo-detener-la-refactorización"><span class="header-section-number">2.22</span> Decidir cuándo detener la refactorización</h2>
+<p>La refactorización tiene rendimientos decrecientes. Para un análisis exploratorio de una sola tarde, bastan nombres claros, fuente intacta y validaciones esenciales. Para un informe periódico, se justifican argumentos, funciones, registros y pruebas. Para un servicio usado por varias personas, podrían requerirse interfaces estables, empaquetado y automatización.</p>
+<p>La pregunta no es «¿puede añadirse otra capa?», sino «¿qué riesgo verificable reduciría?». Si la nueva abstracción no mejora comprensión, prueba, reutilización o operación, probablemente deba posponerse.</p>
+</section>
+<section id="ejercicios-críticos" class="level2" data-number="2.23">
+<h2 data-number="2.23" class="anchored" data-anchor-id="ejercicios-críticos"><span class="header-section-number">2.23</span> Ejercicios críticos</h2>
+<ol type="1">
+<li>Clasifique diez problemas del script frágil como riesgo de corrección, portabilidad, trazabilidad o mantenimiento. Justifique los casos que pertenecen a más de una categoría.</li>
+<li>Anticipe qué ocurrirá si falta <code>quality_flag</code>. Después compruebe la predicción con una copia temporal.</li>
+<li>Diseñe un contraejemplo que pase una validación superficial de tipos pero viole una regla del dominio.</li>
+<li>Compare la implementación R y Python. Identifique una diferencia de interfaz que no cambia el contrato y una que sí podría cambiarlo.</li>
+<li>Proponga un mensaje comprensible para una persona no técnica cuando aparezca un identificador duplicado.</li>
+<li>Decida si <code>metadata.yml</code> debe ser leído automáticamente en esta fase. Argumente costo y beneficio.</li>
+<li>Explique cuándo excluir <code>review</code> sería una decisión científica y no meramente técnica.</li>
+</ol>
+</section>
+<section id="proyecto-pequeño-refactorizar-el-flujo-sintético" class="level2" data-number="2.24">
+<h2 data-number="2.24" class="anchored" data-anchor-id="proyecto-pequeño-refactorizar-el-flujo-sintético"><span class="header-section-number">2.24</span> Proyecto pequeño: refactorizar el flujo sintético</h2>
+<p>El producto del capítulo contiene:</p>
+<ol type="1">
+<li>una copia identificada del script frágil;</li>
+<li>diagnóstico de al menos cinco prácticas y sus riesgos;</li>
+<li>contrato de entrada, transformación y salida;</li>
+<li>script refactorizado en R <strong>o</strong> Python;</li>
+<li>pruebas manuales o automatizadas de casos válidos e inválidos;</li>
+<li>salida reproducible separada de la fuente;</li>
+<li>nota de decisiones y límites;</li>
+<li>autoevaluación de 0 a 4.</li>
+</ol>
+<p>No se evalúa la cantidad de funciones. Se evalúa si otra persona puede examinar la intención, provocar fallos controlados y relacionar la salida con sus entradas.</p>
+</section>
+<section id="rúbrica-y-autoevaluación" class="level2" data-number="2.25">
+<h2 data-number="2.25" class="anchored" data-anchor-id="rúbrica-y-autoevaluación"><span class="header-section-number">2.25</span> Rúbrica y autoevaluación</h2>
+<div id="tbl-code-rubric" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-code-rubric-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.3: Escala de dominio del capítulo.
+</figcaption>
+<div aria-describedby="tbl-code-rubric-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Nivel</th>
+<th>Evidencia observable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td>Desconoce los componentes y no puede explicar el flujo.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td>Reconoce prácticas frágiles y ejecuta cambios con ayuda.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td>Explica y refactoriza de manera autónoma un script pequeño.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td>Diseña, compara, valida y diagnostica alternativas con evidencia.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td>Desarrolla, enseña y revisa código de otra persona con criterios explícitos.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="tarea-y-criterio-para-avanzar" class="level2" data-number="2.26">
+<h2 data-number="2.26" class="anchored" data-anchor-id="tarea-y-criterio-para-avanzar"><span class="header-section-number">2.26</span> Tarea y criterio para avanzar</h2>
+<p>Seleccione un script propio que no contenga información restringida. Documente su propósito, entradas, salidas, dependencias, decisiones manuales y cinco riesgos. Proponga una mejora pequeña, la evidencia que demostraría su efecto y una condición bajo la cual no convendría implementarla.</p>
+<p>Se avanza cuando puede explicarse qué hace defendible al código científico, detectarse al menos cinco prácticas frágiles, justificarse una estructura, validarse entradas y salidas, y señalarse qué debe permanecer reproducible aunque cambie la herramienta.</p>
+</section>
+<section id="resumen" class="level2" data-number="2.27">
+<h2 data-number="2.27" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.27</span> Resumen</h2>
+<p>El código científico defendible hace visible el vínculo entre intención y resultado. Legibilidad, explicitud, modularidad, trazabilidad, determinismo y portabilidad se refuerzan, pero ninguna sustituye la validación científica. Separar configuración, entradas, transformación, salida y registro facilita la revisión. La arquitectura debe ser proporcional: un script claro puede ser suficiente; la sobreingeniería también crea riesgo.</p>
+</section>
+<section id="glosario" class="level2" data-number="2.28">
+<h2 data-number="2.28" class="anchored" data-anchor-id="glosario"><span class="header-section-number">2.28</span> Glosario</h2>
+<p><strong>Aserción:</strong> comprobación ejecutable de una propiedad que debe cumplirse.<br>
+<strong>Configuración:</strong> valores que seleccionan el comportamiento de una ejecución sin redefinir el algoritmo.<br>
+<strong>Contrato:</strong> descripción de entradas, condiciones, transformación, salida y fallos esperados.<br>
+<strong>Determinismo:</strong> propiedad de producir la misma salida bajo entradas y condiciones declaradas.<br>
+<strong>Modularidad:</strong> separación de responsabilidades examinables y combinables.<br>
+<strong>Portabilidad:</strong> capacidad de trasladar un flujo entre entornos definidos con cambios controlados.<br>
+<strong>Trazabilidad:</strong> capacidad de relacionar un producto con entradas, decisiones y versiones.<br>
+<strong>Validación:</strong> comprobación de que datos o resultados satisfacen expectativas explícitas.</p>
+</section>
+<section id="revisión-futura" class="level2" data-number="2.29">
+<h2 data-number="2.29" class="anchored" data-anchor-id="revisión-futura"><span class="header-section-number">2.29</span> Revisión futura</h2>
+<p>Revisar anualmente los ejemplos contra versiones soportadas de R y Python, manteniendo la implementación libre de dependencias externas. Incorporar pruebas automatizadas en CCPE-028; no anticiparlas aquí con una infraestructura que todavía no se ha explicado.</p>
+</section>
+<section id="referencias" class="level2" data-number="2.30">
+<h2 data-number="2.30" class="anchored" data-anchor-id="referencias"><span class="header-section-number">2.30</span> Referencias</h2>
+<p>Las recomendaciones se apoyan en prácticas revisadas por pares para computación científica <span class="citation" data-cites="wilson2014 wilson2017goodenough"><a href="../references.html#ref-wilson2014" role="doc-biblioref">1</a><a href="../references.html#ref-wilson2017goodenough" role="doc-biblioref">2</a></span>, en la guía de estilo oficial de Python <span class="citation" data-cites="pep8"><a href="../references.html#ref-pep8" role="doc-biblioref">3</a></span> y en la documentación introductoria oficial de R <span class="citation" data-cites="rintro"><a href="../references.html#ref-rintro" role="doc-biblioref">4</a></span>.</p>
+
+
+<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="ref-wilson2014" class="csl-entry" role="listitem">
+<a href="https://doi.org/10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a>
+</div>
+<div id="ref-wilson2017goodenough" class="csl-entry" role="listitem">
+<a href="https://doi.org/10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a>
+</div>
+<div id="ref-pep8" class="csl-entry" role="listitem">
+<a href="https://peps.python.org/pep-0008/"><span>PEP 8</span> – Style Guide for Python Code</a>
+</div>
+<div id="ref-rintro" class="csl-entry" role="listitem">
+<a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">An Introduction to R</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qselmer\.github\.io\/QuantFish-LabCore\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-iv/index.html" class="pagination-link" aria-label="Código, versiones y reproducibilidad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Código, versiones y reproducibilidad</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Elmer Quispe-Salazar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/qselmer/QuantFish-LabCore/blob/main/part-iv/22-code-principles.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/edit/main/part-iv/22-code-principles.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/qselmer/QuantFish-LabCore/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Publicado con <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
