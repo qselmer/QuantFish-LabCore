@@ -244,6 +244,19 @@ figcaption, .figure-caption {
 .common-error { border-left-color: var(--qf-error); }
 .activity, .reflection, .technical-note { border-left-color: var(--qf-petrol); }
 
+.figure-placeholder, .learning-check, .design-decision,
+.validation-checklist, .part-roadmap {
+  background: var(--qf-soft);
+  border: 1px solid var(--qf-border);
+  border-left: 4px solid var(--qf-petrol);
+  margin: 1.6rem 0;
+  padding: 1rem 1.15rem;
+}
+.figure-placeholder { border-left-color: var(--qf-muted); }
+.learning-check, .validation-checklist { border-left-color: var(--qf-success); }
+.design-decision { border-left-color: var(--qf-teal); }
+.part-roadmap { border-left-color: var(--qf-deep); }
+
 // 17. Blockquotes
 blockquote {
   border-left: 3px solid var(--qf-border);
