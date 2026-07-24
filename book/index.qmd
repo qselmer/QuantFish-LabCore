@@ -7,10 +7,10 @@ page-layout: full
 ::: {.book-hero}
 <p class="book-kicker">Computación científica · ciencia pesquera · reproducibilidad</p>
 
-Este libro examina la infraestructura digital que sostiene el trabajo científico contemporáneo: cómo organizar datos y código, registrar decisiones, automatizar procesos y publicar resultados que otras personas puedan comprender, verificar y reconstruir.
+Este libro examina los flujos digitales que sostienen el trabajo científico contemporáneo: cómo organizar datos y código, registrar decisiones, automatizar procesos y publicar resultados que otras personas puedan comprender, verificar y reconstruir.
 
 [Consultar el índice general](contents.qmd){.btn .btn-primary role="button"}
-[Abrir el repositorio](https://github.com/qselmer/QuantFish-LabCore){.btn .btn-outline-primary role="button"}
+[Abrir el repositorio](https://github.com/qselmer/fisheries-research-workflows-book){.btn .btn-outline-primary role="button"}
 :::
 
 ## Propósito y audiencia
@@ -29,7 +29,7 @@ No es un tratado de estadística aplicada. No desarrolla teoría de GLM, GAM, mo
 
 Los capítulos combinan explicación conceptual, procedimientos verificables y ejemplos reproducibles. Conviene leer primero el argumento completo, consultar el código cuando sea necesario y conservar evidencia de las decisiones adoptadas en cada proyecto.
 
-El ecosistema editorial distingue cuatro productos relacionados, pero no intercambiables:
+La arquitectura editorial distingue cuatro productos relacionados, pero no intercambiables:
 
 - el **aprendizaje personal** registra preguntas y avances;
 - el **libro** desarrolla una explicación coherente y de referencia;
@@ -42,14 +42,14 @@ La arquitectura prevista se organiza en ocho partes: fundamentos; datos; entorno
 
 ## Estado de desarrollo
 
-El libro se publica de manera incremental. La base editorial, la navegación y el primer capítulo están disponibles; los demás capítulos se incorporarán cuando su contenido y sus ejemplos puedan validarse.
+El libro se publica de manera incremental. La base editorial, la navegación y los primeros capítulos están disponibles; los demás capítulos se incorporarán cuando su contenido y sus ejemplos puedan validarse.
 
 ## Citación, licencia y repositorio
 
 **Autor:** Elmer Quispe-Salazar
 
-**Citación sugerida:** Quispe-Salazar, E. (2026). *Ecosistema digital para la ciencia pesquera y la ecología cuantitativa*. <https://qselmer.github.io/QuantFish-LabCore/>
+**Citación sugerida:** Quispe-Salazar, E. (2026). *Flujos digitales para la ciencia pesquera y la ecología cuantitativa*. <https://qselmer.github.io/fisheries-research-workflows-book/>
 
 **Licencia del contenido:** [Creative Commons Atribución 4.0 Internacional](https://creativecommons.org/licenses/by/4.0/deed.es)
 
-**Repositorio:** [qselmer/QuantFish-LabCore](https://github.com/qselmer/QuantFish-LabCore)
+**Repositorio:** [qselmer/fisheries-research-workflows-book](https://github.com/qselmer/fisheries-research-workflows-book)
