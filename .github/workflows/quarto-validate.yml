@@ -22,5 +22,11 @@ jobs:
       - name: Render book
         run: quarto render book --to html
 
-      - name: Render class
+      - name: Render CCPE-000 class
         run: quarto render classes/ccpe-000/ccpe-000-clase.qmd --to revealjs
+
+      - name: Render Git class
+        run: quarto render classes/ccpe-023/ccpe-023-class.qmd --to revealjs
+
+      - name: Render GitHub class
+        run: quarto render classes/ccpe-024/ccpe-024-class.qmd --to revealjs
