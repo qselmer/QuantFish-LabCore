@@ -17,13 +17,13 @@ project:
 lang: es
 
 book:
-  title: "Ecosistema digital para la ciencia pesquera y la ecología cuantitativa"
-  subtitle: "Herramientas actuales y emergentes para datos, código, automatización, reproducibilidad, colaboración e inteligencia artificial"
+  title: "Flujos digitales para la ciencia pesquera y la ecología cuantitativa"
+  subtitle: "Datos, código, reproducibilidad, automatización, colaboración e inteligencia artificial para la investigación científica"
   author: "Elmer Quispe-Salazar"
   date: last-modified
-  description: "Libro abierto sobre herramientas e infraestructura digital reproducible para ciencia pesquera y ecología cuantitativa."
-  site-url: "https://qselmer.github.io/QuantFish-LabCore/"
-  repo-url: "https://github.com/qselmer/QuantFish-LabCore"
+  description: "Libro abierto sobre datos, código y flujos digitales reproducibles para la ciencia pesquera y la ecología cuantitativa."
+  site-url: "https://qselmer.github.io/fisheries-research-workflows-book/"
+  repo-url: "https://github.com/qselmer/fisheries-research-workflows-book"
   repo-actions: [source, edit, issue]
   search: true
   reader-mode: true
