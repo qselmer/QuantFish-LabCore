@@ -1,0 +1,301 @@
+---
+title: "Control de versiones con Git"
+chapter-code: "CCPE-023"
+description: "Fundamentos y prácticas para registrar, comparar, recuperar y comunicar cambios en proyectos científicos."
+---
+
+<p class="chapter-code">CCPE-023</p>
+
+**Pregunta central:** ¿Qué problema resuelve Git que no resuelve una carpeta sincronizada o una colección de copias?
+
+Git no es un servicio de almacenamiento ni una carpeta en la nube. Es un sistema de control de versiones distribuido: registra cambios en archivos a lo largo del tiempo, permite recuperar estados anteriores, comparar versiones y reconstruir quién cambió qué, cuándo y con qué propósito [@git_about_version_control]. En un proyecto científico, esa historia conecta decisiones computacionales con resultados y reduce la dependencia de nombres como `final`, `final_2` o `final_ahora_si`.
+
+Git piensa el proyecto como una secuencia de instantáneas relacionadas. Cada commit conserva un estado coherente de los archivos seleccionados, junto con autor, fecha, mensaje y referencia al estado anterior [@git_what_is_git]. La finalidad no es guardar cada pulsación de teclado, sino construir una historia interpretable de cambios que permita investigar, revisar y recuperar el trabajo.
+
+## Por qué Git y no solamente Drive
+
+Una carpeta sincronizada —Google Drive, OneDrive o un servicio equivalente— es útil para compartir archivos, mantener copias remotas y colaborar en documentos ofimáticos. Sin embargo, su unidad de trabajo suele ser el archivo individual. Git trabaja con **conjuntos coherentes de cambios**: un commit puede relacionar simultáneamente una modificación del script, una actualización del metadato y una corrección del informe.
+
+| Necesidad | Git | Carpeta sincronizada |
+|---|---|---|
+| Comparar líneas de código | Preciso y nativo para texto | Limitado o dependiente del formato |
+| Agrupar cambios relacionados | Commit atómico | Normalmente no |
+| Trabajar en alternativas paralelas | Ramas | Copias o carpetas duplicadas |
+| Integrar cambios de varias personas | Merge y resolución de conflictos | Sincronización del archivo completo |
+| Registrar propósito del cambio | Mensaje de commit | Comentario o nombre externo |
+| Trabajar sin conexión | Historia local completa | Depende del cliente y sincronización |
+| Guardar archivos binarios grandes | Poco adecuado | Generalmente adecuado |
+| Respaldo independiente | No sustituye una política de backup | Puede formar parte del backup |
+
+: Git y una carpeta sincronizada resuelven problemas diferentes. {#tbl-git-vs-drive}
+
+La elección correcta no es necesariamente excluyente. Un proyecto puede usar Git para código, documentos de texto y configuración; un repositorio de datos o almacenamiento institucional para conjuntos grandes; y un sistema de respaldo para recuperación ante pérdida física. Git aporta historia y estructura, pero no reemplaza la seguridad, el respaldo ni la gobernanza de datos.
+
+::: {.key-concept}
+**Finalidad de Git.** Convertir la evolución de un proyecto en una historia explícita, comparable y recuperable, formada por cambios coherentes que puedan revisarse y relacionarse con resultados.
+:::
+
+## El modelo mental de Git
+
+Git resulta más comprensible cuando se distinguen tres espacios [@git_what_is_git]:
+
+1. **Directorio de trabajo:** archivos que se están consultando o modificando.
+2. **Área de preparación** o *staging area*: selección exacta que formará el próximo commit.
+3. **Repositorio local:** base de datos con commits, referencias e historia.
+
+```{mermaid}
+%%| label: fig-git-three-areas
+%%| fig-cap: "Los tres espacios principales de un flujo Git local."
+flowchart LR
+  A[Directorio de trabajo] -->|git add| B[Área de preparación]
+  B -->|git commit| C[Repositorio local]
+  C -->|git restore| A
+  B -->|git restore --staged| A
+```
+
+Un archivo puede estar:
+
+- **sin seguimiento:** Git todavía no lo incorpora a su historia;
+- **modificado:** difiere del último commit;
+- **preparado:** su versión actual está seleccionada para el próximo commit;
+- **confirmado:** forma parte de un commit;
+- **ignorado:** coincide con una regla de `.gitignore`.
+
+`git status` muestra las diferencias entre el directorio de trabajo, el área de preparación y el commit actual [@git_status_docs]. Debe ser el primer comando ante la duda.
+
+## Inicializar o clonar
+
+Existen dos puntos de partida distintos:
+
+```bash
+# Convertir una carpeta existente en repositorio
+git init
+
+# Obtener un repositorio existente con su historia
+git clone URL_DEL_REPOSITORIO
+```
+
+`git init` crea la estructura interna `.git/` sin copiar archivos ni publicar nada. `git clone` obtiene archivos, historia y configuración inicial del remoto. Ejecutar ambos comandos para el mismo propósito suele indicar que no se ha distinguido entre crear un repositorio y copiar uno existente.
+
+## El ciclo mínimo: observar, seleccionar y registrar
+
+Un flujo deliberado no comienza con `git add -A`. Comienza inspeccionando.
+
+```bash
+git status -sb
+git diff
+```
+
+Después se seleccionan únicamente los cambios que pertenecen a una unidad lógica:
+
+```bash
+git add book/part-iv/23-git-version-control.qmd
+git diff --staged
+```
+
+Cuando un archivo contiene cambios de más de un propósito, puede prepararse por fragmentos:
+
+```bash
+git add -p
+```
+
+Finalmente se registra el cambio:
+
+```bash
+git commit -m "Explain Git's scientific purpose"
+```
+
+Un commit útil responde tres preguntas:
+
+- ¿qué cambió?;
+- ¿por qué se cambió?;
+- ¿qué evidencia permite aceptarlo?
+
+El mensaje no debe narrar cada línea. Debe nombrar la intención. `Update files` aporta poco; `Validate landing flags before aggregation` distingue una decisión concreta.
+
+::: {.learning-check}
+**Comprobación.** ¿Qué problema produce un commit que mezcla una corrección científica, un cambio visual y archivos temporales?
+:::
+
+## Frecuencia y tamaño de los commits
+
+Un commit no equivale a «guardar». Los editores ya guardan archivos. El commit registra un estado significativo del proyecto. Tampoco debe reservarse para el final de la semana. Los extremos dificultan la revisión:
+
+- commits minúsculos sin intención generan ruido;
+- commits enormes mezclan decisiones y vuelven costosa la recuperación.
+
+Una regla práctica es confirmar cuando existe una unidad que puede describirse con un verbo y revisarse por separado: «agregar validación», «corregir ruta relativa», «documentar metadatos» o «actualizar figura».
+
+## Leer la historia
+
+```bash
+git log --oneline --graph --decorate --all
+git show HASH
+git diff COMMIT_A..COMMIT_B
+git shortlog -sn
+```
+
+`git log` muestra la secuencia y las ramas; `git show` inspecciona un commit; `git diff` compara estados. `git blame` puede identificar el último commit que modificó cada línea, pero no determina culpabilidad ni explica por sí solo una decisión. Debe usarse para localizar contexto y continuar con `git show` o el pull request relacionado.
+
+El hash identifica un objeto dentro de la historia. No es un certificado de validez científica ni una firma de aprobación.
+
+## Ramas: alternativas sin duplicar carpetas
+
+Una rama es una referencia móvil a una línea de commits. Permite desarrollar una modificación sin alterar inmediatamente la rama principal.
+
+```bash
+git switch main
+git switch -c feature/validate-landings
+```
+
+La documentación actual separa el cambio de ramas (`git switch`) de la restauración de archivos (`git restore`) [@git_switch_docs; @git_restore_docs]. Esta separación es más clara para la enseñanza que usar `git checkout` para operaciones distintas.
+
+```{mermaid}
+%%| label: fig-git-branch
+%%| fig-cap: "Una rama permite desarrollar y revisar una alternativa antes de integrarla."
+gitGraph
+  commit id: "base"
+  branch feature
+  checkout feature
+  commit id: "validar"
+  commit id: "documentar"
+  checkout main
+  commit id: "corregir portada"
+  merge feature id: "integrar"
+```
+
+### Tres resultados de una integración
+
+1. **Fast-forward:** `main` no avanzó y su referencia puede moverse directamente.
+2. **Merge automático:** ambas ramas cambiaron, pero Git puede combinar las modificaciones.
+3. **Conflicto:** los cambios afectan zonas incompatibles y una persona debe decidir el resultado.
+
+Un conflicto no es un fallo de Git. Es una señal de que no existe suficiente información para elegir automáticamente. Resolverlo exige comprender ambas intenciones, editar el resultado, validarlo y confirmar la integración.
+
+## Remotos: compartir sin confundir Git con GitHub
+
+Un remoto es un nombre asociado a otra ubicación del repositorio. `origin` es una convención, no una palabra especial.
+
+```bash
+git remote -v
+git fetch origin
+git pull --ff-only origin main
+git push -u origin feature/validate-landings
+```
+
+- `fetch` descarga referencias y objetos sin modificar automáticamente el directorio de trabajo;
+- `pull` descarga e integra según la configuración;
+- `push` publica commits y actualiza referencias remotas si el servidor lo permite.
+
+Para aprender y diagnosticar, conviene entender `fetch` antes de automatizar la integración con `pull`. `git pull --ff-only` evita crear una integración implícita cuando la rama local ha divergido.
+
+## Qué debe y qué no debe versionarse
+
+Una política científica básica distingue fuentes, código y resultados regenerables.
+
+| Tipo de archivo | Decisión habitual | Razón |
+|---|---|---|
+| Scripts y archivos `.qmd` | Versionar | Son fuentes del análisis |
+| Configuración no sensible | Versionar | Define la ejecución |
+| Metadatos y diccionarios | Versionar | Explican datos y decisiones |
+| Resultados pequeños y publicados | Según política | Pueden ser evidencia o producto regenerable |
+| Cachés y temporales | Ignorar | No representan trabajo intelectual |
+| Credenciales y `.env` | Nunca versionar | Riesgo de seguridad |
+| Datos institucionales restringidos | No publicar | Gobernanza y confidencialidad |
+| Binarios grandes | Almacenamiento especializado | Git no está optimizado para ellos |
+
+: Política orientativa para archivos científicos. {#tbl-git-file-policy}
+
+`.gitignore` declara patrones que no deben incorporarse. La regla se comparte al versionar el propio archivo `.gitignore` [@github_ignoring_files]. No elimina archivos que ya forman parte de la historia.
+
+GitHub bloquea archivos individuales mayores de 100 MiB en repositorios Git normales y recomienda mantener repositorios pequeños; para archivos grandes existen Git LFS, releases o servicios externos según el caso [@github_large_files]. En ciencia, una base de datos grande o una colección acústica no debe introducirse en Git por comodidad.
+
+## Deshacer sin perder evidencia
+
+La clase original incluía `git checkout -- .` como forma de volver al último commit. Ese comando descarta modificaciones no confirmadas en muchos archivos y puede destruir trabajo. No debe enseñarse como operación rutinaria.
+
+Operaciones más explícitas:
+
+```bash
+# Descartar cambios de un archivo del directorio de trabajo
+git restore ruta/al/archivo
+
+# Retirar un archivo del área de preparación sin borrar su edición
+git restore --staged ruta/al/archivo
+
+# Crear un nuevo commit que revierte un commit publicado
+git revert HASH
+```
+
+Antes de deshacer:
+
+1. ejecutar `git status`;
+2. inspeccionar `git diff`;
+3. identificar si el cambio está publicado;
+4. elegir una operación que preserve la historia cuando otras personas ya dependen de ella.
+
+`git reset --hard` y limpiezas masivas requieren comprensión exacta del alcance. No pertenecen al flujo inicial.
+
+## Flujo científico recomendado
+
+```{mermaid}
+%%| label: fig-git-scientific-flow
+%%| fig-cap: "Flujo Git mínimo para una modificación científica revisable."
+flowchart TD
+  A[Sincronizar y revisar estado] --> B[Crear rama]
+  B --> C[Modificar una unidad lógica]
+  C --> D[Ejecutar validación]
+  D --> E[Inspeccionar diff]
+  E --> F[Preparar cambios selectivos]
+  F --> G[Commit con intención]
+  G --> H[Publicar rama]
+  H --> I[Revisión e integración]
+```
+
+La validación depende del proyecto: renderizar Quarto, ejecutar pruebas, verificar una tabla o comparar una suma conocida. Git registra la evidencia disponible; no decide si la ciencia es correcta.
+
+## Errores frecuentes
+
+**Confundir Git con GitHub.** Git funciona localmente sin cuenta ni conexión. GitHub es uno de varios servicios capaces de alojar repositorios Git.
+
+**Usar Git como respaldo único.** Un repositorio local puede perderse; un remoto también puede borrarse o comprometerse. La preservación necesita copias y políticas independientes.
+
+**Confirmar archivos generados sin criterio.** El historial crece y se vuelve difícil distinguir fuentes de productos.
+
+**Versionar secretos y luego borrarlos.** El secreto permanece en la historia. Debe revocarse y limpiarse con un procedimiento especializado.
+
+**Trabajar siempre en `main`.** Reduce la separación entre trabajo en curso y estado estable.
+
+**Ejecutar comandos destructivos de memoria.** Git debe operarse desde el estado observado, no desde recetas ciegas.
+
+## Proyecto pequeño
+
+Con el caso sintético de desembarques:
+
+1. cree una rama `feature/git-history`;
+2. realice una modificación documental;
+3. inspeccione `git diff`;
+4. prepare solo el archivo pertinente;
+5. cree un commit con propósito verificable;
+6. introduzca una segunda mejora en otro commit;
+7. compare ambos estados;
+8. explique qué archivos no deberían incorporarse;
+9. muestre cómo recuperaría una versión anterior sin borrar la historia.
+
+## Rúbrica y criterio para avanzar
+
+| Nivel | Evidencia observable |
+|---:|---|
+| 0 | Confunde Git con almacenamiento o GitHub. |
+| 1 | Ejecuta comandos básicos con ayuda, pero no explica los estados. |
+| 2 | Construye commits coherentes y recupera versiones de forma segura. |
+| 3 | Diseña ramas, políticas de archivos y validaciones para un proyecto. |
+| 4 | Revisa historias ajenas, diagnostica conflictos y enseña decisiones con evidencia. |
+
+: Escala de dominio para control de versiones con Git. {#tbl-git-rubric}
+
+Se avanza cuando puede explicarse por qué Git no es Drive, distinguirse directorio de trabajo, staging y repositorio, construirse un commit coherente, usarse una rama y elegirse una estrategia segura para deshacer.
+
+## Resumen
+
+Git convierte cambios dispersos en una historia estructurada de instantáneas relacionadas. Su valor científico aparece cuando los commits representan decisiones comprensibles, las ramas aíslan trabajo, los diffs permiten revisar y las políticas separan fuentes, resultados, datos y secretos. Git no reemplaza almacenamiento, respaldo ni revisión científica; hace posible relacionarlos con estados concretos del proyecto.

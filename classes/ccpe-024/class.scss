@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+$body-bg: #f7f4ed;
+$body-color: #17324d;
+$link-color: #087e8b;
+$presentation-heading-color: #0b3954;
+$presentation-font-size-root: 31px;
+
+/*-- scss:rules --*/
+.reveal h1,
+.reveal h2 {
+  letter-spacing: -0.025em;
+}
+
+.reveal blockquote {
+  border-left: 0.3rem solid #ff5a5f;
+  box-shadow: none;
+  padding-left: 1rem;
+}
+
+.reveal table {
+  font-size: 0.72em;
+}
+
+.reveal pre code {
+  max-height: 500px;
+}

@@ -48,8 +48,8 @@ Esta página presenta la arquitectura editorial prevista. La numeración corresp
 ## Parte IV. Código, versiones y reproducibilidad
 
 22. [Principios de código científico](part-iv/22-code-principles.qmd) — disponible
-23. Control de versiones con Git — *En desarrollo*
-24. Colaboración y publicación con GitHub — *En desarrollo*
+23. [Control de versiones con Git](part-iv/23-git-version-control.qmd) — disponible
+24. [Colaboración y publicación con GitHub](part-iv/24-github-collaboration.qmd) — disponible
 25. Documentos científicos con Quarto — *En desarrollo*
 26. Investigación reproducible — *En desarrollo*
 27. Ingeniería de software científico — *En desarrollo*
