@@ -27,9 +27,9 @@ La reproducibilidad requiere algo más que compartir código: exige entradas ide
 
 | Capítulo | Pregunta central | Producto práctico |
 |---|---|---|
-| Principios de código científico | ¿Qué hace que un código sea científicamente defendible? | Script refactorizado |
-| Control de versiones con Git | ¿Cómo se conserva la historia del trabajo? | Repositorio con commits |
-| Colaboración y publicación con GitHub | ¿Cómo se colabora y publica? | Flujo con issue y pull request |
+| [Principios de código científico](22-code-principles.qmd) | ¿Qué hace que un código sea científicamente defendible? | Script refactorizado |
+| [Control de versiones con Git](23-git-version-control.qmd) | ¿Qué problema resuelve Git que no resuelve una carpeta sincronizada? | Repositorio con commits revisables |
+| [Colaboración y publicación con GitHub](24-github-collaboration.qmd) | ¿Cómo se propone, revisa e integra un cambio? | Flujo con issue y pull request |
 | Documentos científicos con Quarto | ¿Cómo se conectan narrativa, código y resultados? | Documento reproducible |
 | Investigación reproducible | ¿Qué necesita otra persona para reconstruir el resultado? | Auditoría de reproducibilidad |
 | Ingeniería de software científico | ¿Cuándo un script debe convertirse en un sistema? | Flujo modular |
@@ -40,6 +40,15 @@ La reproducibilidad requiere algo más que compartir código: exige entradas ide
 **Caso transversal.** La parte utiliza un informe reproducible de desembarques pesqueros construido con datos sintéticos. Cada capítulo mejora una dimensión del mismo producto sin introducir teoría estadística ni datos institucionales.
 :::
 
+## Git antes de GitHub
+
+La secuencia distingue dos niveles que suelen confundirse:
+
+1. **Git** registra historia, ramas, comparaciones e integraciones en el repositorio local.
+2. **GitHub** aloja una copia remota y organiza propuestas, revisión, permisos, automatización y publicación.
+
+Una carpeta sincronizada puede complementar el ecosistema, especialmente para archivos binarios y trabajo administrativo, pero no sustituye la historia estructurada de commits ni la revisión de cambios.
+
 ## Proyecto integrador previsto
 
-El recorrido culminará en la transformación de un script aislado en un repositorio capaz de validar datos sintéticos, generar un informe HTML, registrar su historia y documentar su mantenimiento. En esta fase inicial solo se desarrolla el primer eslabón: reconocer qué hace defendible al código y refactorizar un script frágil.
+El recorrido culminará en la transformación de un script aislado en un repositorio capaz de validar datos sintéticos, generar un informe HTML, registrar su historia y documentar su mantenimiento. Los primeros tres capítulos establecen la base: código defendible, historia reconstruible y colaboración revisable.
