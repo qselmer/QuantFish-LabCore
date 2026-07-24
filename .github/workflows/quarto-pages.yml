@@ -19,13 +19,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Set up Python rendering dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install jupyter nbformat nbclient
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Check Quarto installation
+        run: quarto check
+
       - name: Render book
         run: quarto render book --to html
+
+      - name: Verify rendered site
+        run: |
+          test -f docs/index.html
+          test -f docs/.nojekyll
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
