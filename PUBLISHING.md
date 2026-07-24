@@ -1,6 +1,6 @@
 # Publicación del libro
 
-La primera etapa publica el contenido versionado de `docs/` mediante GitHub Pages. No se edita el HTML generado: toda corrección se realiza en los archivos fuente y se vuelve a renderizar.
+El libro se publica mediante GitHub Actions. Los archivos HTML generados no se editan manualmente: toda corrección se realiza en los archivos fuente y se vuelve a renderizar.
 
 ## Previsualizar y generar
 
@@ -13,17 +13,28 @@ quarto render book --to html
 
 Antes de confirmar cambios, compruebe que existen `docs/index.html` y `docs/.nojekyll`, que la navegación y la búsqueda funcionan y que no aparecen rutas locales ni información restringida.
 
+## Validar las clases disponibles
+
+```bash
+quarto render classes/ccpe-000/ccpe-000-clase.qmd --to revealjs
+quarto render classes/ccpe-023/ccpe-023-class.qmd --to revealjs
+quarto render classes/ccpe-024/ccpe-024-class.qmd --to revealjs
+```
+
 ## Registrar y enviar cambios
 
 ```bash
-git add book docs
+git status -sb
+git diff
+git add book README.md PUBLISHING.md references .github
+git diff --staged
 git commit -m "Update Quarto book"
-git push
+git push origin main
 ```
 
-Incluya también otros archivos fuente modificados, como `README.md`, `PUBLISHING.md` o una clase, cuando corresponda. Revise siempre `git diff --staged` antes del commit.
+Incluya únicamente los archivos que pertenecen al cambio. No utilice `git add -A` cuando el directorio de trabajo contenga modificaciones no relacionadas.
 
-## Configuración inicial de GitHub Pages
+## Configuración de GitHub Pages
 
 En el repositorio remoto:
 
@@ -31,23 +42,27 @@ En el repositorio remoto:
 GitHub
 → Settings
 → Pages
-→ Deploy from a branch
-→ main
-→ /docs
+→ Build and deployment
+→ Source
+→ GitHub Actions
 ```
 
-Tras guardar, compruebe la URL oficial:
+El workflow `.github/workflows/quarto-pages.yml` renderiza el libro, carga `docs/` como artefacto y despliega el sitio.
 
-<https://qselmer.github.io/quant-fisheries-learning/>
+URL oficial:
+
+<https://qselmer.github.io/fisheries-research-workflows-book/>
 
 ## Lista de verificación
 
-- `docs/index.html` abre bajo `/quant-fisheries-learning/`.
-- `docs/.nojekyll` está versionado.
+- El workflow de validación termina correctamente.
+- El workflow de Pages termina correctamente.
+- `docs/index.html` se genera durante el workflow.
+- `docs/.nojekyll` está incluido en el sitio renderizado.
 - CSS, JavaScript y tipografías locales cargan sin errores.
 - La navegación entre capítulos y la búsqueda responden.
-- Los enlaces al libro y al repositorio son correctos.
+- Los enlaces al libro y al repositorio usan `fisheries-research-workflows-book`.
 - No hay rutas absolutas, secretos ni datos institucionales.
-- El libro y la clase RevealJS se renderizaron localmente.
+- El libro y las clases RevealJS se renderizaron correctamente.
 
-El workflow del repositorio valida la renderización, pero no reemplaza el despliegue inicial desde `main/docs`.
+La publicación depende de que GitHub Pages esté configurado con **GitHub Actions** como fuente de despliegue.
