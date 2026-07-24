@@ -8,6 +8,8 @@ project:
     - ccpe/000-alcance-arquitectura.qmd
     - part-iv/index.qmd
     - part-iv/22-code-principles.qmd
+    - part-iv/23-git-version-control.qmd
+    - part-iv/24-github-collaboration.qmd
     - references.qmd
   resources:
     - .nojekyll
@@ -36,6 +38,8 @@ book:
     - part: part-iv/index.qmd
       chapters:
         - part-iv/22-code-principles.qmd
+        - part-iv/23-git-version-control.qmd
+        - part-iv/24-github-collaboration.qmd
     - references.qmd
   page-footer:
     left: "© 2026 Elmer Quispe-Salazar"
