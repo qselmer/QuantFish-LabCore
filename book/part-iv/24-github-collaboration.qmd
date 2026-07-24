@@ -1,0 +1,347 @@
+---
+title: "Colaboración y publicación con GitHub"
+chapter-code: "CCPE-024"
+description: "Uso de GitHub para proponer, revisar, integrar, publicar y mantener cambios en proyectos científicos."
+---
+
+<p class="chapter-code">CCPE-024</p>
+
+**Pregunta central:** ¿Cómo se transforma la historia local de Git en un proceso colaborativo, revisable y publicable?
+
+Git y GitHub no son sinónimos. Git es el sistema distribuido que registra la historia local. GitHub aloja repositorios Git y añade identidades, permisos, issues, pull requests, revisión de código, automatización, releases y publicación web [@github_about_git]. Un proyecto puede usar Git sin GitHub; también puede usar GitHub desde el navegador sin dominar todavía todos los comandos locales.
+
+La finalidad de GitHub no es «guardar el código en internet». Su valor aparece cuando convierte una rama y sus commits en una propuesta discutible: se puede describir el propósito, inspeccionar el diff, solicitar revisión, ejecutar comprobaciones y decidir si el cambio debe integrarse.
+
+## Git, GitHub y Drive: funciones complementarias
+
+| Componente | Unidad principal | Pregunta que responde |
+|---|---|---|
+| Git | Commit y rama | ¿Cómo evolucionó el proyecto? |
+| GitHub | Propuesta, revisión y repositorio remoto | ¿Cómo colaboramos, aprobamos y publicamos? |
+| Drive u otro almacenamiento | Archivo o carpeta sincronizada | ¿Dónde compartimos o respaldamos archivos? |
+| Repositorio de datos | Conjunto versionado y gobernado | ¿Dónde preservamos datos y metadatos? |
+
+: Funciones diferenciadas dentro de un ecosistema digital científico. {#tbl-github-ecosystem}
+
+Un proyecto serio puede usar los cuatro. El error es pedir a una sola herramienta que resuelva historia, colaboración, almacenamiento masivo, respaldo y gobernanza.
+
+## Del repositorio local al remoto
+
+Un repositorio remoto permite intercambiar commits y referencias. GitHub es una implementación popular, pero el concepto pertenece a Git.
+
+```bash
+git remote -v
+git remote add origin https://github.com/usuario/proyecto.git
+git push -u origin main
+```
+
+`origin` es el nombre convencional del remoto creado por `clone` o agregado manualmente. `main` es una rama; no debe asumirse que todos los proyectos utilizan el mismo nombre.
+
+```{mermaid}
+%%| label: fig-local-remote
+%%| fig-cap: "Relación entre el repositorio local y un repositorio alojado en GitHub."
+flowchart LR
+  W[Directorio de trabajo] -->|add y commit| L[Repositorio local]
+  L -->|push| R[Repositorio en GitHub]
+  R -->|fetch| L
+  R -->|clone| N[Nuevo repositorio local]
+```
+
+GitHub no recibe archivos sueltos mediante `push`: recibe objetos y actualizaciones de referencias que forman parte de la historia Git.
+
+## Tres formas de participar
+
+### Colaborador con permiso de escritura
+
+Puede crear ramas dentro del repositorio y publicar commits según los permisos. Es apropiado para equipos estables con responsabilidades definidas.
+
+### Contribuidor mediante fork
+
+Un fork crea un repositorio relacionado bajo otra cuenta. La persona trabaja en su copia y propone cambios al repositorio original mediante un pull request. Es habitual cuando no existe permiso de escritura directo.
+
+### Edición desde el navegador
+
+GitHub permite crear ramas, editar archivos de texto, confirmar cambios y abrir pull requests sin terminal. Es útil para correcciones pequeñas, documentación o colaboración con personas que todavía no usan Git localmente. No sustituye un entorno local cuando deben ejecutarse scripts, instalarse dependencias o renderizarse productos.
+
+::: {.learning-check}
+**Comprobación.** ¿Por qué `clone` y `fork` no son la misma operación, aunque ambos produzcan una copia utilizable?
+:::
+
+## GitHub Flow como ciclo de cambio
+
+GitHub Flow es un flujo ligero basado en ramas: crear una rama, realizar commits, abrir un pull request, revisar, integrar y eliminar la rama cuando ya no sea necesaria [@github_flow].
+
+```{mermaid}
+%%| label: fig-github-flow
+%%| fig-cap: "Flujo de colaboración basado en ramas y pull requests."
+flowchart LR
+  A[Issue o necesidad] --> B[Rama]
+  B --> C[Commits]
+  C --> D[Push]
+  D --> E[Pull request]
+  E --> F[Revisión y checks]
+  F -->|cambios solicitados| C
+  F -->|aprobado| G[Merge]
+  G --> H[Publicación o release]
+  G --> I[Eliminar rama]
+```
+
+La rama principal debe representar un estado aceptable del proyecto. Una rama de trabajo contiene una propuesta que aún puede cambiar.
+
+## Issues: formular el problema antes de modificar
+
+Un issue puede registrar:
+
+- problema observado;
+- resultado esperado;
+- alcance;
+- criterios de aceptación;
+- evidencia;
+- responsable o discusión;
+- relación con otros trabajos.
+
+En ciencia, un issue no debe limitarse a «arreglar análisis». Un issue revisable podría decir:
+
+> El resumen incluye registros con `quality_flag = invalid`. La salida aceptable debe excluirlos, conservar el recuento excluido y mantener intacta la fuente sintética.
+
+La formulación permite evaluar el cambio sin depender de la memoria de quien programó.
+
+## Pull requests: propuesta, no transferencia de archivos
+
+Un pull request compara dos ramas y propone integrar sus diferencias. Solo puede abrirse entre ramas distintas [@github_pull_requests]. Su función es combinar contexto, código y revisión.
+
+Un pull request científico debería incluir:
+
+1. **propósito:** qué problema resuelve;
+2. **alcance:** qué archivos y comportamientos cambian;
+3. **decisiones:** supuestos y alternativas descartadas;
+4. **evidencia:** comandos, pruebas, renderizaciones o comparaciones;
+5. **riesgos:** datos, compatibilidad, interpretación o mantenimiento;
+6. **criterio de aceptación:** qué debe observar el revisor.
+
+```text
+Título: Excluir registros inválidos del resumen
+
+Qué cambia
+- valida quality_flag antes de resumir;
+- informa registros excluidos;
+- agrega un caso de prueba negativo.
+
+Validación
+- script ejecutado con datos sintéticos;
+- salida total contrastada con cálculo manual;
+- libro Quarto renderizado sin errores.
+```
+
+Un pull request pequeño es más fácil de comprender y revertir. El tamaño debe definirse por una intención coherente, no por una cantidad rígida de líneas.
+
+## Revisar un cambio
+
+La revisión no consiste solamente en aprobar estilo. Debe examinar:
+
+- correspondencia entre problema y solución;
+- transformaciones del dominio;
+- entradas y salidas;
+- casos límite;
+- pruebas y evidencia;
+- efectos no deseados;
+- seguridad y datos;
+- documentación;
+- posibilidad de mantenimiento.
+
+Los comentarios deben dirigirse al cambio, no a la persona. Conviene distinguir:
+
+- **bloqueante:** impide integrar;
+- **sugerencia:** mejora no obligatoria;
+- **pregunta:** necesita explicación;
+- **observación:** contexto futuro.
+
+`Approve` no certifica verdad científica. Indica que, dentro del alcance revisado, el cambio cumple los criterios definidos.
+
+## Merge: decidir cómo integrar
+
+GitHub admite estrategias como merge commit, squash y rebase, según la configuración del repositorio.
+
+| Estrategia | Resultado | Uso razonable |
+|---|---|---|
+| Merge commit | Conserva la estructura de la rama | Historia de ramas relevante |
+| Squash merge | Resume la propuesta en un commit | Rama con commits exploratorios |
+| Rebase merge | Reproduce commits sobre la base | Historia lineal y commits bien construidos |
+
+: Efecto conceptual de estrategias de integración. {#tbl-merge-strategies}
+
+No existe una estrategia universalmente superior. El equipo debe priorizar una historia comprensible y consistente. En este libro, un merge commit resulta útil para distinguir explícitamente las ramas editoriales, mientras que squash puede ser adecuado para una corrección pequeña con numerosos commits intermedios.
+
+## `fetch`, `pull` y sincronización
+
+Antes de trabajar, conviene conocer el estado remoto:
+
+```bash
+git fetch origin
+git status -sb
+git log --oneline --graph --decorate --all
+```
+
+Después puede actualizarse la rama principal:
+
+```bash
+git switch main
+git pull --ff-only origin main
+```
+
+`fetch` actualiza la información remota local sin integrar automáticamente. `pull` descarga e integra. Esta diferencia es importante: una sincronización automática puede producir un merge o detenerse por divergencia. El objetivo no es memorizar flechas, sino reconocer qué referencia cambia.
+
+## Historial, Raw y Blame
+
+La clase original presenta `Raw`, `History`, `Blame`, edición y eliminación. Deben enseñarse con funciones precisas:
+
+- **Raw:** muestra el contenido sin la interfaz de GitHub; útil para inspección o descarga controlada, no como API estable por defecto.
+- **History:** lista commits que afectaron al archivo.
+- **Blame:** asocia cada línea con su última modificación; localiza contexto, no culpables.
+- **Edit:** crea un commit, normalmente en una rama o mediante una propuesta.
+- **Delete:** elimina el archivo en un nuevo commit; la versión anterior permanece en la historia.
+
+La historia es una ventaja de GitHub sobre una carpeta que solo muestra el archivo actual, pero su interpretación requiere mensajes y commits bien construidos.
+
+## Reglas de rama y comprobaciones
+
+En repositorios con varias personas, la rama principal puede protegerse para exigir:
+
+- pull request;
+- revisión aprobatoria;
+- checks automáticos;
+- resolución de conversaciones;
+- rama actualizada;
+- restricciones de escritura.
+
+Estas reglas son gobernanza, no burocracia automática. Deben corresponder al riesgo. Un libro personal puede usar una revisión sencilla; un producto científico recurrente puede exigir renderización, pruebas y revisión antes de integrar.
+
+## GitHub Actions como perspectiva
+
+GitHub Actions permite ejecutar flujos ante eventos como `push` o `pull_request`. Un flujo para este libro podría:
+
+1. instalar Quarto;
+2. renderizar el libro;
+3. detectar enlaces o errores;
+4. impedir la integración si falla.
+
+La automatización verifica condiciones programadas. No reemplaza la lectura científica ni debe tener acceso innecesario a secretos o datos restringidos.
+
+## Publicación y releases
+
+### GitHub Pages
+
+Puede publicar un sitio estático desde una rama o mediante un workflow. En este repositorio, Quarto genera el libro en `docs/` y GitHub Pages sirve ese contenido. La URL publicada debe corresponder al commit de `main` que contiene la salida renderizada.
+
+### Releases y etiquetas
+
+Una etiqueta marca un commit. Una release añade notas y, cuando corresponde, archivos distribuidos. Para productos científicos, permite identificar una versión citada o entregada. No toda modificación requiere una release; debe reservarse para estados comunicables.
+
+## Datos, binarios y seguridad
+
+GitHub no es un repositorio general de datos. Debe evitarse publicar:
+
+- credenciales;
+- archivos `.env`;
+- datos institucionales;
+- información personal;
+- conexiones internas;
+- resultados cuya licencia no permita redistribución;
+- binarios grandes sin política.
+
+Los repositorios públicos son accesibles de forma amplia. Convertir después un repositorio en privado no debe considerarse un mecanismo para retirar secretos ya expuestos.
+
+GitHub recomienda usar `.gitignore` para archivos que no deben confirmarse y servicios especializados o Git LFS para archivos grandes, con límites y costos que deben revisarse [@github_ignoring_files; @github_large_files].
+
+## GitHub no reemplaza Drive
+
+GitHub supera a una carpeta sincronizada cuando se necesita:
+
+- diff de texto;
+- revisión de propuestas;
+- ramas;
+- discusión vinculada a cambios;
+- automatización;
+- publicación de código y documentación;
+- versiones citables.
+
+Drive resulta preferible para:
+
+- coedición ofimática;
+- archivos binarios grandes;
+- material administrativo;
+- intercambio temporal;
+- carpetas fuera de un flujo Git.
+
+El diseño correcto puede ser:
+
+```text
+Git/GitHub: código + Quarto + configuración + metadatos públicos
+Repositorio de datos: conjuntos versionados o restringidos
+Drive institucional: documentos administrativos y binarios de trabajo
+Backup: copia independiente y política de recuperación
+```
+
+## Flujo aplicado al libro
+
+Para añadir este capítulo:
+
+1. se crea una rama desde `main`;
+2. se agregan los archivos fuente `.qmd`;
+3. se actualiza `_quarto.yml`;
+4. se revisa el diff;
+5. se renderiza el libro;
+6. se publica la rama;
+7. se abre un pull request;
+8. se revisan contenido, enlaces y salida;
+9. se integra;
+10. se publica `docs/` desde el commit aceptado.
+
+El propio libro se convierte así en caso demostrativo: la explicación de GitHub se incorpora mediante un flujo GitHub revisable.
+
+## Errores frecuentes
+
+**Subir directamente a `main`.** El estado estable y el trabajo en curso quedan mezclados.
+
+**Abrir un pull request sin contexto.** El revisor debe reconstruir propósito y criterios.
+
+**Usar fork cuando ya existe colaboración directa, o conceder escritura cuando no es necesaria.** La estrategia debe corresponder al vínculo y la gobernanza.
+
+**Confundir `pull` con descargar un archivo.** `pull` opera sobre historia y ramas.
+
+**Aprobar porque los checks están verdes.** Las pruebas solo cubren condiciones programadas.
+
+**Usar `blame` como juicio personal.** Su función es localizar el último cambio de una línea.
+
+**Publicar datos porque el repositorio es privado.** Los permisos pueden cambiar; la gobernanza debe existir fuera de la visibilidad del repositorio.
+
+## Proyecto pequeño
+
+Diseñe un cambio colaborativo para el caso sintético:
+
+1. formule un issue con criterio de aceptación;
+2. cree una rama con nombre descriptivo;
+3. realice dos commits coherentes;
+4. publique la rama;
+5. redacte un pull request con propósito, alcance, evidencia y riesgos;
+6. prepare tres comentarios de revisión: bloqueante, sugerencia y pregunta;
+7. elija una estrategia de merge y justifíquela;
+8. documente qué elementos se almacenan fuera de GitHub.
+
+## Rúbrica y criterio para avanzar
+
+| Nivel | Evidencia observable |
+|---:|---|
+| 0 | Confunde GitHub, Git y almacenamiento en nube. |
+| 1 | Publica cambios con ayuda, sin explicar ramas o pull requests. |
+| 2 | Crea ramas y pull requests con contexto y validación básica. |
+| 3 | Diseña revisión, permisos, checks y estrategia de integración. |
+| 4 | Mantiene flujos colaborativos y revisa decisiones técnicas y científicas. |
+
+: Escala de dominio para colaboración con GitHub. {#tbl-github-rubric}
+
+Se avanza cuando puede distinguirse Git de GitHub, explicarse clone frente a fork, formularse un pull request revisable, elegirse una estrategia de integración y definirse qué información nunca debe publicarse.
+
+## Resumen
+
+GitHub convierte la historia distribuida de Git en un espacio de propuesta, discusión, revisión y publicación. Su unidad colaborativa no es la carpeta, sino el cambio contextualizado: issue, rama, commits, pull request, evidencia y decisión de integración. Su utilidad científica depende de criterios claros, políticas de datos y revisión humana; no del número de funciones activadas.
