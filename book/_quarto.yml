@@ -18,7 +18,7 @@ lang: es
 
 book:
   title: "Flujos digitales para la ciencia pesquera y la ecología cuantitativa"
-  subtitle: "Datos, código, reproducibilidad, automatización, colaboración e inteligencia artificial para la investigación científica"
+  subtitle: "Datos, código, reproducibilidad, automatización, colaboración e inteligencia artificial para la investigación científica."
   author: "Elmer Quispe-Salazar"
   date: last-modified
   description: "Libro abierto sobre datos, código y flujos digitales reproducibles para la ciencia pesquera y la ecología cuantitativa."
